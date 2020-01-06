@@ -1,0 +1,20 @@
+\documentclass[a4paper,12pt,oneside]{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,positioning,calc,snakes,fadings}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2pt}%
+
+\begin{document}
+\pgfdeclareverticalshading{rainbow}{100bp}
+{color(0bp)=(red); color(25bp)=(red); color(35bp)=(yellow);
+color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
+color(75bp)=(violet); color(100bp)=(violet)}
+
+\begin{center}
+\begin{tikzpicture}[shading=rainbow]
+\shade[shading angle=90] (0,0) rectangle +(8,2);
+\end{tikzpicture}     
+\end{center}
+\end{document}

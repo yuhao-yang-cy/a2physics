@@ -1,0 +1,40 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage[usenames,svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2pt}%
+\renewcommand*\rmdefault{ppl}
+
+\begin{document}
+
+% 2a = path difference; dr = wavelength ; c = wave source coordinate
+\begin{tikzpicture}[scale=.5]
+\pgfmathsetmacro{\c}{3.35}
+\foreach \r in {2,4,6,8,10,12}{
+	\draw (\c+\r,0) arc(0:180:\r);
+	\draw (-\c+\r,0) arc(0:180:\r);
+}
+\node at (-\c,0)[below] {$A$};
+\node at (\c,0)[below] {$B$};
+\draw[red,thick] (0,0) -- (0,14) node[above]{\textcolor{black}{C}};
+\foreach \a in {1,2,3}{
+	\pgfmathsetmacro{\ym}{14-pow(\a,3)/4}
+	\pgfmathsetmacro{\xm}{\a*sqrt(1+\ym*\ym/(\c*\c-\a*\a))}
+	\draw [red,thick,samples=100,domain=\a:\xm] plot (\x, {sqrt(\x*\x/\a/\a-1)*sqrt(\c*\c-\a*\a)});
+	\draw [red,thick,samples=100,domain=-\xm:-\a] plot (\x, {sqrt(\x*\x/\a/\a-1)*sqrt(\c*\c-\a*\a)});
+	\node[above] at (\xm,\ym) {\textcolor{black}{C}};
+	\node[above] at (-\xm,\ym) {\textcolor{black}{C}};
+}
+\foreach \a in {.5,1.5,2.5}{
+	\pgfmathsetmacro{\ym}{14-pow(\a,3)/4}
+	\pgfmathsetmacro{\xm}{\a*sqrt(1+\ym*\ym/(\c*\c-\a*\a))}
+	\draw [red,thick,dotted,samples=100,domain=\a:\xm] plot (\x, {sqrt(\x*\x/\a/\a-1)*sqrt(\c*\c-\a*\a)});
+	\draw [red,thick,dotted,samples=100,domain=-\xm:-\a] plot (\x, {sqrt(\x*\x/\a/\a-1)*sqrt(\c*\c-\a*\a)});
+	\node[above] at (\xm,\ym) {\textcolor{black}{D}};
+	\node[above] at (-\xm,\ym) {\textcolor{black}{D}};
+}
+\end{tikzpicture}
+
+\end{document}

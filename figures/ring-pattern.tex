@@ -1,0 +1,36 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+%\usetikzlibrary{calc,fadings}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}
+
+\begin{document}
+\thispagestyle{empty}
+
+\tikzset{
+  ring shading/.code args={from #1 at #2 to #3 at #4}{
+    \pgfmathsetmacro{\inner}{25*#2/#4}
+    \pgfmathsetmacro{\middle}{\inner/2+12.5}
+    \pgfdeclareradialshading{ring}{\pgfpoint{0cm}{0cm}}%
+    { color(0bp)=(white);
+      color(\inner bp)=(#1);
+      color(\middle bp)=(white);
+      color(25bp)=(#3);
+      color(50bp)=(black)}
+    \pgfkeysalso{/tikz/shading=ring} } }
+    
+\begin{tikzpicture}[scale=1.5]
+\draw[gray,fill] (-3.6,-3.6) rectangle (3.6,3.6);
+\shade [inner color = white, outer color = gray, shading=radial] (0,0) circle (0.5);
+\shade[even odd rule, ring shading={from gray at 1 to gray at 1.25}] (0,0) circle (1) (0,0) circle (1.25);
+\shade[even odd rule, ring shading={from gray at 2 to gray at 2.16}] (0,0) circle (2) (0,0) circle (2.16);
+\shade[even odd rule, ring shading={from gray at 2.4 to gray at 2.5}] (0,0) circle (2.4) (0,0) circle (2.5);
+\shade[even odd rule, ring shading={from gray at 2.88 to gray at 3}] (0,0) circle (2.88) (0,0) circle (3);
+\shade[even odd rule, ring shading={from gray at 3.2 to gray at 3.28}] (0,0) circle (3.2) (0,0) circle (3.28);
+\end{tikzpicture}
+
+
+\end{document}

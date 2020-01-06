@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage[usenames,svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2pt}%
+\renewcommand*\rmdefault{ppl}
+
+\tikzset{>=stealth', pil/.style={ ->, thick, shorten <=2pt, shorten >=2pt,} }
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1]
+\draw (-6,-4) rectangle (6,4);
+\pgfmathsetseed{\number\pdfrandomseed}
+\foreach \i in {1,2,...,25}{
+	\pgfmathsetmacro{\x}{rand*5.4}
+	\pgfmathsetmacro{\y}{rand*3.5}
+	\shade [ball color = green] (\x,\y) circle (0.1);
+	\draw [->] (\x,\y) -- ++ (rand*360:rand*0.3+0.5);
+}
+\end{tikzpicture}
+
+\end{document}

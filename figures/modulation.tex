@@ -1,0 +1,26 @@
+\documentclass[a4paper,12pt]{article}
+%\usepackage[usenames,svgnames]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,positioning,calc}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{2pt}%
+\renewcommand*\rmdefault{ppl}
+
+\tikzset{note/.style={align=center,execute at begin node=\setlength{\baselineskip}{1.2em}}}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1]
+	\draw [blue,thick,samples=800,domain=0:15] plot (\x, {1.5*sin(12*\x r)});
+	\draw [blue,thick,samples=50,domain=0:15] plot (\x, {cos(\x r)-3.6});
+	\draw [blue,thick,samples=800,domain=0:15] plot (\x, {(cos(\x r)+1.5)*sin(12*\x r)-8});
+	\draw [blue,thick,samples=1200,domain=0:15] plot (\x, {1.5*sin(12*\x+47.55*sin(.5*\x r) r)-12.8});
+	\node[right, note] at (15,0) {carrier wave\\(before modulation)};
+	\node[right, note] at (15,-3.6) {information signal};
+	\node[right, note] at (15,-8) {amplitude modulated\\carrier wave};
+	\node[right, note] at (15,-12.8) {frequency modulated\\carrier wave};
+\end{tikzpicture}
+
+\end{document}
