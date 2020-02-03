@@ -1,0 +1,242 @@
+\documentclass[pstricks]{article}
+\pagestyle{empty}
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[sfmath,frenchstyle]{kpfonts}
+%\usepackage[lining]{libertine}% f\"{u}r rm und sf
+%\renewcommand*{\familydefault}{\sfdefault}
+
+
+\renewcommand*\rmdefault{ppl}
+
+\usepackage{graphicx}
+
+\usepackage[rgb]{pstricks}
+\usepackage{pst-coil,pst-slpe,pstricks-add}
+
+\definecolor{Weiss}{rgb}{1,0.98,0.98}% 	255 250 250
+\definecolor{Haut}{rgb}{1,0.894,0.769}% 255 228 196
+\definecolor{Auge}{rgb}{0.54,0.27,0.074}% 139 69 19
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{pspicture}
+\setlength\PreviewBorder{2pt}%
+
+\begin{document}
+	
+	\def\LinkeFaust{%
+		
+		\psset{unit=1.0}
+		\begin{pspicture}[showgrid=false,shift=0](-0,0)(-23.5,22.5)
+		
+		\begin{psclip}
+		{\psframe[linestyle=none](-0.25,0.25)(-16,19.5)}
+		\pscustom[fillstyle=solid,fillcolor=Haut,linecolor=black!50,linewidth=0.9pt,opacity=1]{%
+			%
+			%\psset{showpoints}
+			\psbezier(-0.2,7.6)(-1.1,8.07)(-1.8,8)(-3,8.86)
+			\psbezier(-3.4,9.15)(-3.7,9.8)(-3.7,10.1)
+			\psbezier(-3.7,11.8)(-4.8,13.2)(-4.8,14)
+			\psbezier(-4.8,14.4)(-5.22,15.3)(-5.18,17)
+			\psline(-5.3,17.2)(-5,18.65) % Fingernagel Daumen
+			\psbezier(-5.05,18.8)(-5.25,19)(-5.5,19)
+			\psbezier(-6.4,19)(-7.35,16.9)(-7.35,15.6)
+			\psbezier(-7.35,15)(-7.05,13.9)(-7.05,13.4)
+			\psbezier(-7.05,13.2)(-7.1,12.8)(-7.45,12.4) % Ende Daumen
+			\psbezier(-7.7,12.5)(-8.7,12.3)(-8.9,12.2)
+			\psbezier(-9.1,12.24)(-9.7,12.24)(-9.9,12.2)
+			\psbezier(-10.1,12.3)(-10.5,12.2)(-10.8,12.2)
+			\psbezier(-11,12.2)(-11,12.3)(-11.3,12.2)
+			\psbezier(-11.5,12.22)(-13.1,11.68)(-13.2,11.57)
+			\psline(-13.2,11.57)(-10.2,3.8)
+			\psbezier(-9.3,3.3)(-7.8,3.3)(-7.4,3.3)
+			\psbezier(-6.8,3.3)(-6.3,3.2)(-5.2,3.5)
+			\psbezier(-3.2,2.6)(-3.2,2.6)(-0.2,0.1)
+			\closepath
+		}
+		\end{psclip}
+		
+		% Fingernagel Daumen
+		\pscustom[fillstyle=solid,fillcolor=red!10,linecolor=black!50,linewidth=0.8pt,opacity=1]{%
+			%
+			\psbezier(-5.18,17.0)(-5.45,17.2)(-5.42,17.2)(-5.4,17.4)
+			\psbezier(-5.3,18.4)(-5.4,18.4)(-5,18.65)
+			\psbezier(-4.95,18.0)(-4.9,18.0)(-5.18,17.0)
+			\closepath
+		}
+		
+		% Linien in Handfl\"{a}che und Daumen
+		{\psset{linewidth=0.8pt,linecolor=black!40}
+			\psbezier(-3,6)(-3.1,5.4)(-3.25,5)(-3.5,4.6)
+			\psbezier(-4.65,3.85)(-4.73,3.7)(-4.73,3.6)(-4.8,3.35)
+			\psbezier(-4.8,4.8)(-5.1,4.35)(-5.2,4)(-5.2,3.5)
+			\psbezier(-2.9,8.4)(-3.15,5.7)(-4.4,5.2)(-4.6,4.4)
+			\psbezier(-3.15,8.5)(-3.3,7)(-4.1,6)(-4.6,5.4)
+			\psbezier(-3.35,8.8)(-3.5,7.6)(-4.0,7)(-4.6,6.6)
+			\psbezier(-4.6,6.1)(-4.8,5.85)(-4.98,5.7)(-5.2,5.6)
+			\psbezier(-5.6,5.4)(-9.7,8)(-10,9.5)(-10,10.1)
+			\psbezier(-10,10.1)(-10,10.6)(-10,11)(-9.5,11.6)
+			\psbezier(-5.7,6.3)(-6.2,6.45)(-6.4,6.45)(-6.8,6.4)
+			\psbezier(-7,7.2)(-6.9,6.5)(-6.8,6.5)(-6.75,6.2)
+			\psbezier(-7.6,9)(-7.8,8.2)(-7.8,7)(-7.5,6.4)
+			\psbezier(-8,12.25)(-9.3,11.85)(-9.4,11)(-9.4,10.4)
+			\psbezier(-10.05,12)(-10,11)(-10,9.8)(-10.05,8.86)
+			\psbezier(-11.18,12)(-11,11.2)(-11.0,10.5)(-11.4,9.8)
+			\psbezier(-7.45,12.4)(-7.6,12.2)(-7.63,12.05)(-7.9,11.9)
+			\psbezier(-5.1,15.44)(-5.25,15.44)(-5.35,15.32)(-5.5,15.32)
+			\psbezier(-5,14.95)(-5.3,14.95)(-5.3,14.96)(-5.54,15.07)
+			\psbezier(-6.7,15.38)(-7,15.42)(-7,15.4)(-7.35,15.6)
+		}
+		
+		%--------------------------------------------------------------
+		%---------------- Platz f\"{u}r Material in der Hand --------------
+		%--------------------------------------------------------------
+		%		\pscoil[coilheight=0.35,coilwidth=3,linewidth=1.3pt](-10,2)(-10,15)
+		
+		
+		% kleiner Finger
+		\pscustom[fillstyle=solid,fillcolor=Haut,linecolor=black!50,linewidth=0.9pt,opacity=1]{%
+			%
+			\psbezier(-14.0,4.95)(-14.2,4.7)(-14.18,4.2)(-13.8,3.8)
+			\psbezier(-13.2,3.51)(-13.0,3.38)(-12.0,3.25)
+			\psbezier(-11.8,3.22)(-11.7,3.23)(-11.5,3.25)
+			\psbezier(-11.3,3.27)(-11.0,3.3)(-10.75,3.48)
+			\psbezier(-10.53,3.51)(-10.38,3.45)(-9.75,4.0)
+			\psbezier(-9.65,4.15)(-9.65,4.4)(-9.8,4.55)
+			%\psbezier(-8.87,5.9)(-9.3,6.19)(-9.8,6.2)
+			
+			\closepath
+		}
+		
+		% Fingernagel kleiner Finger
+		\pscustom[fillstyle=solid,fillcolor=red!10,linewidth=0.8pt,linecolor=black!50,opacity=1]{%
+			%
+			\psbezier(-11.2,4.35)(-11.35,4.15)(-11.35,4.0)(-11.2,3.86)
+			\psbezier(-11.1,3.81)(-11,3.76)(-10.8,3.78)
+			\psbezier(-10.1,3.84)(-10.13,3.9)(-10.08,4)
+			\psbezier(-10.05,4.12)(-10.05,4.4)(-10.18,4.5)
+			\closepath
+		}
+		
+		% Linien im kleinen Finger
+		{\psset{linewidth=0.8pt,linecolor=black!40}
+			\psbezier(-12.1,4.2)(-12.2,3.75)(-12.2,3.75)(-12.0,3.4)
+			\psbezier(-12.35,4.15)(-12.4,3.75)(-12.4,3.75)(-12.25,3.45)
+			\psbezier(-13.7,4.8)(-13.8,4.5)(-13.8,4.5)(-13.7,4.18)
+		}
+		
+		% Ringfinger
+		\pscustom[fillstyle=solid,fillcolor=Haut,linecolor=black!50,linewidth=0.9pt,opacity=1]{%
+			%
+			\psbezier(-14.65,7.1)(-15.0,6.8)(-15.18,6.6)(-15.18,6.12)
+			\psbezier(-15.18,5.85)(-15.2,5.5)(-14.2,5.0)
+			\psbezier(-13.0,4.45)(-12.8,4.45)(-12.4,4.4)
+			\psbezier(-11.6,4.25)(-11.6,4.23)(-10.86,4.4)
+			\psbezier(-10.4,4.42)(-10.0,4.5)(-9.85,4.5)
+			\psbezier(-9.2,4.5)(-8.87,5.0)(-8.87,5.5)
+			\psbezier(-8.87,5.9)(-9.3,6.19)(-9.8,6.2)
+			
+			\closepath
+		}
+		
+		% Fingernagel Ringfinger
+		\pscustom[fillstyle=solid,fillcolor=red!10,linewidth=0.8pt,linecolor=black!50,opacity=1]{%
+			%
+			\psbezier(-10.73,5)(-10.73,4.83)(-10.7,4.58)(-9.5,4.72)
+			\psbezier(-9.25,5.43)(-9.4,5.7)(-9.65,5.9)
+			\psbezier(-10.65,5.7)(-10.73,5.4)(-10.73,5)
+			\closepath
+		}
+		
+		% Linien im Ringfinger
+		{\psset{linewidth=0.8pt,linecolor=black!40}
+			\psbezier(-11.9,5.6)(-12.0,5.1)(-12.0,5.0)(-11.9,4.6)
+			\psbezier(-12.2,5.55)(-12.3,5.1)(-12.3,5.0)(-12.2,4.65)
+			\psbezier(-14.4,6.7)(-14.8,6.6)(-14.92,6)(-14.85,5.8)
+		}
+		
+		% Mittelfinger
+		\pscustom[fillstyle=solid,fillcolor=Haut,linecolor=black!50,linewidth=0.9pt,opacity=1]{%
+			%
+			\psbezier(-14.4,9.75)(-15,9.5)(-15.4,9)(-15.4,8.2)
+			\psbezier(-15.4,7.95)(-15.4,7.7)(-14.7,7.02)
+			\psbezier(-14.1,6.5)(-12.8,5.95)(-12.4,5.95)
+			\psbezier(-12.2,5.95)(-11.9,6.02)(-10.7,6.02)
+			\psbezier(-10.5,6.02)(-10.4,6.03)(-10.2,6.02)
+			\psbezier(-9.74,6.01)(-9.57,6.37)(-9.57,6.7)
+			\psbezier(-9.57,7)(-9.75,7.46)(-10.3,7.7)
+			\closepath
+		}
+		
+		% Fingernagel Mittelfinger
+		\pscustom[fillstyle=solid,fillcolor=red!10,linewidth=0.8pt,linecolor=black!50,opacity=1]{%
+			%
+			\psbezier(-11.42,6.5)(-11.42,6.02)(-11,6.1)(-10.7,6.05)
+			\psbezier(-10.2,6.1)(-9.95,6.2)(-9.95,6.5)
+			\psbezier(-9.95,6.8)(-10.15,7.22)(-10.45,7.22)
+			\psbezier(-10.36,7.22)(-10.85,7.15)(-10.98,7.13)
+			\psbezier(-11.04,7.11)(-11.1,7.07)(-11.25,7.0)
+			\psbezier(-11.3,6.96)(-11.42,6.8)(-11.42,6.5)
+			\closepath
+		}
+		
+		% Linien im Mittelfinger
+		{\psset{linewidth=0.8pt,linecolor=black!40}
+			\psbezier(-12.6,7.2)(-12.9,6.92)(-12.85,6.6)(-12.8,6.25)
+			\psbezier(-12.9,7.2)(-13.1,6.92)(-13.15,6.7)(-13.1,6.35)
+			\psbezier(-14.6,9.2)(-15,8.9)(-15.05,8.6)(-15.1,8.3)
+			%\psbezier(-11.42,6.5)(-11.42,6.02)(-11,6.1)(-10.7,6.05)
+		}
+		
+		% Zeigefinger
+		\pscustom[fillstyle=solid,fillcolor=Haut,linestyle=none,opacity=1]{%
+			%
+			\psbezier(-13.2,11.57)(-14.16,11.25)(-14.5,10.6)(-14.4,9.75)
+			\psbezier(-13.6,9.4)(-13.5,8.95)(-13,8.6)
+			\psbezier(-12.4,8.1)(-11.5,7.73)(-10.8,7.73)
+			\psbezier(-10.65,7.73)(-10.4,7.7)(-10.16,7.64)
+			\psbezier(-9.7,8)(-9.78,8.2)(-9.78,8.35)
+			\psbezier(-9.78,8.6)(-9.9,9)(-10.3,9.35)
+			\psbezier(-11.2,10)(-11.45,10.0)(-11.7,10.4)
+			\psbezier(-12.1,11)(-12.6,11.48)(-12.9,11.51)
+			\closepath
+		}
+		% Randlinie Zeigefinger
+		{\psset{linewidth=0.9pt,linecolor=black!50}
+			\psbezier(-13.2,11.57)(-14.16,11.25)(-14.5,10.6)(-14.4,9.75)
+			\psbezier(-14.4,9.75)(-13.6,9.4)(-13.5,8.95)(-13,8.6)
+			\psbezier(-13,8.6)(-12.4,8.1)(-11.5,7.73)(-10.8,7.73)
+			\psbezier(-10.8,7.73)(-10.65,7.73)(-10.4,7.7)(-10.16,7.64)
+			\psbezier(-10.16,7.64)(-9.7,8)(-9.78,8.2)(-9.78,8.35)
+			\psbezier(-9.78,8.35)(-9.78,8.6)(-9.9,9)(-10.3,9.35)
+			\psbezier(-10.3,9.35)(-11.2,10)(-11.45,10.0)(-11.7,10.4)
+			\psbezier(-11.7,10.4)(-12.1,11)(-12.6,11.48)(-12.9,11.51)
+		}
+		
+		% Fingernagel Zeigefinger
+		\pscustom[fillstyle=solid,fillcolor=red!10,linewidth=0.8pt,linecolor=black!50,opacity=1]{%
+			%
+			\psbezier(-11.7,8.45)(-11.7,7.85)(-10.9,7.75)(-10.8,7.75)
+			\psbezier(-10.7,7.75)(-10.6,7.74)(-10.48,7.72)
+			\psbezier(-10.3,7.99)(-10.35,8.1)(-10.35,8.2)
+			\psbezier(-10.36,8.77)(-10.96,8.88)(-11.1,8.88)
+			\psbezier(-11.3,8.88)(-11.7,8.7)(-11.7,8.45)
+			\closepath
+		}
+		
+		% Linien im Zeigefinger
+		{\psset{linewidth=0.8pt,linecolor=black!40}
+			\psbezier(-12.2,9.6)(-12.48,9.4)(-12.5,9.2)(-12.6,8.8)
+			\psbezier(-12.5,9.7)(-12.65,9.55)(-12.7,9.4)(-12.8,9.1)
+			\psbezier(-13.6,10.8)(-13.9,10.6)(-14.02,10.4)(-14.04,10)
+		}
+		\rput[t](-5.7,21.4){\fontsize{60}{40} \selectfont{field}}
+		\rput[l](-22.8,7){\fontsize{60}{40} \selectfont{current}}
+		%\psgrid[subgriddiv=5,gridlabels=10pt,gridwidth=0.6pt,gridcolor=green!80,subgridwidth=0.2pt,subgridcolor=green!50](-0,0)(-16,19)
+		\end{pspicture}
+	}
+	
+	
+	\LinkeFaust %
+	
+\end{document} 
