@@ -91,7 +91,13 @@ farad a derived unit: $1 \text{ F} = 1 \text{ C}\cdot\text{V}^{-1}$
 
 farad is a large unit, more common subunits of capacitance in use are sub-multiples of farad:
 
+{
+	
+\centering
+
 $1 \muF = 10^{-6} \text{ F}, \quad 1 \text{ nF} = 10^{-9} \text{ F}, \quad 1 \pF = 10^{-12} \text{ F}$
+
+}
 
 \cmt for a parallel-plate capacitor, charges on the two plates are equal but opposite
 
@@ -108,7 +114,8 @@ capacitance does not depend on electric field or potential\footnote{Recall the r
 for example, capacitance between two metal plates is: $C=\frac{\epsilon_0 A}{d}$
 \footnote{If there is \emph{dielectric} in between, the formula should be rewritten as $C = \frac{\epsilon A}{d}$, where $\epsilon$ is permittivity of dielectric. These formulae are not examinable by the syllabus.}
 
-$A$ is area of plate, $d$ is distance between plates, both geometrical quantities
+$A$ is area of plate, $d$ is distance between plates, both are geometrical quantities
+
 
 
 \subsubsection{self-capacitance}
@@ -163,6 +170,58 @@ also for a container, there exists a maximum pressure which it can withstand
 
 for a capacitor, there exists a \emph{breakdown voltage}, or \emph{withstand voltage}, beyond which there could be sparkling across the capacitor
 
+\subsection{energy stored in a capacitor}
+
+to charge a capacitor, need to push electrons off one plate and onto the other
+
+separation of positive and negative charges requires work done $\ra$ energy is stored
+
+\begin{wrapfigure}{l}{5.6cm}
+	\vspace*{-8pt}
+	\centering
+	\begin{tikzpicture}[scale=1]
+	\draw [gray!50, fill] (0,0) -- (3.5,2.5) -- (3.5,0) -- cycle;
+	\draw [thick,<->] (0,3) node[left]{$V$} -- (0,0) -- (4,0) node[below]{$Q$};
+	\draw [ultra thick, blue] (0,0) -- (3.5,2.5);
+	\draw (2.5,1) -- (1.6,2) node[above,align=center,execute at begin node=\setlength{\baselineskip}{1.2em}]{energy\\stored};
+	\end{tikzpicture}
+	\vspace*{-16pt}
+\end{wrapfigure}
+
+since charge $Q$ varies with p.d. $V$, we shall use the $V$-$Q$ graph to find work done $W$
+
+area under $V$-$Q$ graph is equal to work done $W$
+
+{
+	
+	\centering
+	
+	$W = \frac{1}{2} QV$
+	
+}
+
+substitute $Q=CV$, energy stored in capacitor is\footnote{Rigorously speaking, this electrical potential energy is stored within the \emph{electric fields} between metal plates of capacitor.}:
+
+{
+
+\centering
+
+$\boxed{W = \frac{1}{2}CV^2 = \frac{Q^2}{2C}}$
+
+} 
+
+\example{When the p.d. across a capacitor of $1.8\times10^{-4} \text{ F}$ is increased from 10 V to 20 V, how much additional energy is stored?}
+
+\sol energy change: $\Delta W = W_f - W_i = \frac{1}{2}CV_f^2 - \frac{1}{2}CV_i^2 = \frac{1}{2}\times 1.8\times10^{-4}\times(20^2-10^2) = 2.7\times10^{-2} \text{ J}$ \eoe
+
+\question{A capacitor of 2500 $\muF$ is charged to a working voltage of 18 V. (a) What is the magnitude of positive charge on its plate? (b) What is the energy stored?}
+
+\question{A capacitor initially charged to a potential difference of 16 V discharges and loses 40\% of its energy. What is its new p.d.?}
+
+\question{For an isolated metal sphere of radius 30 cm situated in vacuum, what is the electric potential energy stored when charged to a potential of 120 kV?}
+
+
+\newpage
 
 \subsection{capacitor networks}
 
@@ -205,6 +264,21 @@ if three of more capacitors in parallel: $\boxed{C_\text{total} = C_1 + C_2 + C_
 \cmt adding extra capacitor in parallel to a network, total capacitance will increase
 
 explanation: when several capacitors connected in parallel, equivalent to a single capacitor with larger plates, so more charge on the plates $\ra$ $C\up$
+
+\example{A capacitor with capacitance $C_0$ is charged to a p.d. $V_0$. It is disconnected from the power supply, and then connected across an identical capacitor. Discuss the change in p.d., and change in energy stored in the system.}
+
+\sol initial charge $Q=C_0 V_0$, initial energy stored $W_0 = \frac{1}{2} C V_0^2$
+
+combined capacitance: $C= C_0 + C_0 = 2C_0$
+
+charge is conserved, so final p.d. across: $V = \frac{Q}{C} = \frac{C_0 V_0}{2C_0} = \frac{1}{2} V_0$
+
+
+charge shared between capacitors, the first capacitor loses half its charge and p.d.
+
+final energy stored in system: $W = \frac{1}{2}CV^2 = \frac{1}{2} \times 2C_0 \times (\frac{1}{2}V_0)^2 = \frac{1}{4} C_0 V_0^2 \ra W = \frac{1}{2} W_0$
+
+half of stored energy is lost as heat when electrons flow between two capacitors \eoe
 
 \subsubsection{capacitors in series}
 
@@ -251,31 +325,64 @@ if three of more capacitors in series: $\boxed{\frac{1}{C_\text{total}} = \frac{
 
 explanation: when several capacitors connected in series, equivalent to a parallel-plate capacitor with greater separation, so more charge on the plates $\ra$ $C\down$
 
+
+
+\example{For the circuit shown, find the p.d. across each of the capacitor.}
+
+\begin{center}
+	\begin{circuitikz}[european resistors,scale=0.8]
+		\draw (0,0) to[C,l_=$C_1{=}4.0\mu\text{F}$] (3,0) to[C,l_=$C_2{=}12\mu\text{F}$] (6,0) -- (6,3) to[battery,l_=$V{=}8.0\text{V}$] (0,3) -- (0,0);
+	\end{circuitikz}
+\end{center}
+
+\sol using result for combined capacitance, we have: $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_2} \right)^{-1} = \left( \frac{1}{4.0} + \frac{1}{12} \right)^{-1} = 3.0 \text{ }\mu\text{F}$
+
+charge for the network: $Q = C_\text{total} V_\text{total} = 3.0 \times 8.0 = 24 \mu\text{C}$
+
+series network so all capacitors have same $Q$: $Q_1=Q_2=24 \mu\text{C}$
+
+p.d. across each individual capacitor: $V_1 = \frac{Q_1}{C_1} = \frac{24}{4.0} = 6.0 \text{ V}, \quad V_2 = \frac{Q_2}{C_2} = \frac{24}{12} = 2.0 \text{ V}$
+
+alternatively, we can use properties of series network: $Q_1 = Q_2$ and $V_\text{total} = V_1+V_2$
+
+we can solve simultaneous equations: $\left\{\begin{array}{l}
+4.0V_1 = 12 V_2 \\
+V_1 + V_2 = 8.0
+\end{array}\right. \RA 
+\left\{\begin{array}{l}
+V_1 = 6.0 \text{ V} \\
+V_2 = 2.0 \text{ V}
+\end{array}\right.$ \eoe
+
+
+
 \subsubsection{capacitor networks}
 
 more complicated capacitor networks can be considered as a combination of some smaller networks with capacitors in parallel or in series
 
 (recall how you work out the \emph{effective resistance} of a resistance network before)
 
-\example{$C_1=C_2=C_3=C_4=10\muF$, calculate the capacitance of the network (a) and (b).}
+\example{$C_1=C_2=C_3=C_4=10\muF$, calculate the capacitance of the network (a) and (b).}\label{ex-Cnet}
 \begin{center}
 \begin{minipage}{0.4\linewidth}
 \begin{center}
-\begin{circuitikz}[european resistors,scale=0.75]
+\begin{circuitikz}[european resistors,scale=0.7]
 \draw (0,0) -- (0,2) to[C,l^=$C_1$] (2,2) to[C,l^=$C_2$] (4,2) -- (4,0) to[C,l^=$C_3$] (0,0);
 \draw (-1,1) -- (0,1) (4,1) -- (5,1);
-\node at (-0.6,2.8) {(a)};
 \end{circuitikz}
+
+(a)
 \end{center}
 \end{minipage}
 \begin{minipage}{0.55\linewidth}
 \begin{center}
-\begin{circuitikz}[european resistors,scale=0.75]
+\begin{circuitikz}[european resistors,scale=0.7]
 \draw (0,0) -- (0,2) to[C,l^=$C_2$] (3,2) -- (3,0) to[C,l^=$C_3$] (0,0);
 \draw (-3,1) to[C,l^=$C_1$] (0,1);
 \draw (3,1) to[C,l^=$C_4$] (6,1);
-\node at (-2.6,2.8) {(b)};
 \end{circuitikz}
+
+(b)
 \end{center}
 \end{minipage}
 \end{center}
@@ -301,6 +408,35 @@ $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right
 	
 	$C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right)^{-1} = \left( \frac{1}{10} + \frac{1}{20} + \frac{1}{10} \right)^{-1} = 4.0 \muF$ \eoe
 \end{compactitem}
+
+\question{Using at most four capacitors of $24 \muF$, design a network that has a combined capacitance of (a) $72 \muF$, (b) $8 \muF$, (c) $36 \muF$, and (d) $18 \muF$.}
+
+\question{If the two networks in Example \ref{ex-Cnet} are both connected to a supply voltage of 15 V, determine the p.d. across each individual capacitor.}
+
+\example{Four identical capacitors are arranged as shown. Given that each capacitor can withstand a maximum p.d. of 12 V, what is the maximum p.d. that can safely be applied between the terminals?}
+
+{
+	
+	\centering
+	
+	\begin{circuitikz}[european resistors,scale=0.75]
+		\draw (0,0) -- (0,2) to[C,l^=$C$] (3,2) -- (3,0) to[C,l^=$C$] (0,0);
+		\draw (-3,1) to[C,l^=$C$] (0,1);
+		\draw (3,1) to[C,l^=$C$] (6,1);
+	\end{circuitikz}
+
+}
+
+\sol suppose charge on the leftmost capacitor is $Q$, then charge of rightmost capacitor is also $Q$
+
+but for the two capacitors in parallel, charge is shared, so each has charge $\frac{Q}{2}$
+
+when the two capacitors near the ends reach maximum p.d. of 12 V, p.d. across the parallel network is half of this value
+
+so maximum p.d. across the terminals: $V_\tmax = 12 + 6 + 12 = 30 \text{ V}$ \eoe
+
+
+
 
 \subsubsection{capacitors \& resistors}
 
@@ -341,69 +477,16 @@ $\bullet$ comparing capacitor networks and resistor networks
 \end{tabular}}
 \end{center}
 
-\subsection{energy stored in a capacitor}
-
-to charge a capacitor, need to push electrons off one plate and onto the other
-
-separation of positive and negative charges requires work done
-
-this is how (electrical) energy is stored in capacitors
-
-%work done in moving charge $Q$ through a constant p.d. $V$ is $W=QV$
-%
-%but p.d. increases as charge increases, repulsion between incoming electrons and electrons already on the plate become stronger $\Rightarrow$ more work done required to add charge
-
-\begin{wrapfigure}{l}{6.4cm}
-\vspace*{-8pt}
-\centering
-\begin{tikzpicture}[scale=1.2]
-\draw [gray!50, fill] (0,0) -- (3.5,2.5) -- (3.5,0) -- cycle;
-\draw [thick,<->] (0,3) node[left]{$V$} -- (0,0) -- (4,0) node[below]{$Q$};
-\draw [ultra thick, blue] (0,0) -- (3.5,2.5);
-\draw (2.5,1) -- (1.6,2) node[above,align=center,execute at begin node=\setlength{\baselineskip}{1.2em}]{energy\\stored};
-\end{tikzpicture}
-\end{wrapfigure}
-
-can use the graph of p.d. $V$ against charge $Q$ to find work done $W$
-
-area under $V$-$Q$ graph is equal to work done $W$
-
-(recall how one can calculate displacement from a $v$-$t$ graph, or work done from a $F$-$s$ graph)
-
-$W = \frac{1}{2} QV \xlongequal{Q=CV} \frac{1}{2}CV^2 = \frac{Q^2}{2C}$
 
 
-work done in charging up a capacitor $\longrightarrow$ energy stored
 
-energy stored in a capacitor: $\boxed{W = \frac{1}{2}CV^2 = \frac{Q^2}{2C}}$
+\subsection{charging \& discharging capacitors ($\star$)} \label{sec:charging-capacitors}
 
-\begin{compactitem}
-\item comment 1. this energy is an \emph{electric potential energy}
-
-\item comment 2. this energy is stored within the \emph{electric fields} between metal plates of capacitor
-\end{compactitem}
-
-\example{One capacitor with capacitance $C_0$ is charged to a p.d. $V_0$. It is disconnected from the power supply, and then connected across an identical capacitor. Discuss the change in p.d., and change in energy stored in the system.}
-
-\sol initial charge $Q=C_0 V_0$, initial energy stored $W_0 = \frac{1}{2} C V_0^2$
-
-combined capacitance: $C= C_0 + C_0 = 2C_0$
-
-charge is conserved, so final p.d. across: $V = \frac{Q}{C} = \frac{C_0 V_0}{2C_0} = \frac{1}{2} V_0$
-
-
-charge shared between capacitors, original one losing half its charge and p.d.
-
-final energy stored in system: $W = \frac{1}{2}CV^2 = \frac{1}{2} \times 2C_0 \times (\frac{1}{2}V_0)^2 = \frac{1}{4} C_0 V_0^2 \RA W = \frac{1}{2} W_0$
-
-half of stored energy is lost as heat when electrons flow between two capacitors \eoe
-
-
-\subsection[charging \& discharging capacitors ($\star$)]{charging \& discharging capacitors ($\star$)\protect\footnote{This section is not required by the CIE A-Level exams. However, the contents introduced here may appear in the A-Level syllabus of other examination board.}} \label{sec:charging-capacitors}
+in this section, we will investigate how the p.d. across a capacitor changes with time when it is being charged, and we will also look into discharging processes\footnote{This section is not required by the CIE A-Level exams. However, the contents introduced here may appear in the A-Level syllabus of other examination board.}
 
 \subsubsection{charging phase}
 
-\begin{wrapfigure}{r}{5cm}
+\begin{wrapfigure}{r}{5.4cm}
 \centering
 \vspace*{-10pt}
 	\begin{circuitikz}[european resistors, scale=1.2]
@@ -440,7 +523,7 @@ half of stored energy is lost as heat when electrons flow between two capacitors
 		
 \cmt p.d. of capacitor increases at a decreasing rate when it is being charged
 
-as electric charges are separated onto the two plates, pushing more $+Q$ ($-Q$) onto $+\text{ve}$ ($-\text{ve}$) plate requires more work done to overcome the repulsion $\ra$ increase in p.d. slows down
+as electric charges are separated onto the two plates, pushing more $+Q$/$-Q$ onto $+\text{ve}$/$-\text{ve}$ plate requires more work done to overcome the repulsion $\ra$ increase in p.d. slows down
 
 \cmt p.d of capacitor eventually tends to the battery e.m.f.
 
@@ -450,19 +533,21 @@ when $V_C = \mathcal{E}$, no charge flow, hence	charging current gradually drops
 		
 \subsubsection{discharging phase}
 
-\begin{wrapfigure}{r}{5cm}
-	\centering
-		\begin{circuitikz}[european resistors, xscale=1.2, yscale=1.5]
-			\draw (0,0) -- (0,2) to[C,l^=$C$] (3,2) -- (3,0) to[R,l^=$R$] (0,0);
-		\end{circuitikz}
-\end{wrapfigure}
+
 		
 	capacitor initially charged with $Q(0)=Q, V_C(0) = V_0$
 	
-	at any instant, $\dd Q = -C \dd V_C$
-		
-	minus sign because charge decreases during discharging
+	at any instant, $\dd Q = -C \dd V_C$ (minus sign because charge decreases during discharging)
 	
+	\begin{wrapfigure}{r}{5.4cm}
+		\centering
+		\vspace*{-12pt}
+		\begin{circuitikz}[european resistors, xscale=1.2, yscale=1.5]
+			\draw (0,0) -- (0,2) to[C,l^=$C$] (3,2) -- (3,0) to[R,l^=$R$] (0,0);
+		\end{circuitikz}
+	\vspace*{-25pt}
+	\end{wrapfigure}
+
 	also $V_C=V_R$ because in parallel
 	
 	charge change: $\dd Q = I \dd t = \frac{V_C}{R} \dd t = - C \dd V_C$
@@ -514,12 +599,14 @@ when $V_C = \mathcal{E}$, no charge flow, hence	charging current gradually drops
 
 \subsubsection{time constant}
 
-$RC$ is called \emph{time constant}, which determines charging and discharging rate of a capacitor
+$\tau \equiv RC$ is called \emph{time constant}, which determines charging and discharging rate of a capacitor
 
 $R\up$ $\Rightarrow$ smaller charging/discharging current $\Rightarrow$ takes longer to charge/discharge
 
 $C\up$ $\Rightarrow$ more charge to be charged/discharged $\Rightarrow$ takes longer
 
-charging and discharging of capacitors is never instant, always exists a certain time delay
+charging or discharging of capacitors is not instantaneous, always a certain time delay
+
+as a rule of thumb, after a time $t=3\sim5\tau$, charging or discharging is almost complete
 
 time delay for common $RC$ circuits is usually small, but the delay could hinder further increasing of speed in integrated circuits

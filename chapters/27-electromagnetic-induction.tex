@@ -1,0 +1,462 @@
+\section{Electromagnetic Induction}
+
+\subsection{magnetic flux}
+
+\rcyskip
+
+\begin{ilight}
+	\keypoint{magnetic flux} is defined as the product of a closed area and the magnetic flux density going through it at right angles: $\boxed{\phi=BA\cos\theta}$
+\end{ilight}
+
+\begin{wrapfigure}{r}{0.33\linewidth}
+	\centering
+	\begin{tikzpicture}[scale=1.25]
+	
+	\foreach \y in {-1.5,-0.75,0,0.75,1.5} \draw[blue,thick] (-1.5,\y-.6) -- (0,\y);
+	\draw[very thick, fill=gray!25] (0,0) ellipse (0.6 and 1.2);
+	\node at (-0.2,0.3) {$A$};
+	\foreach \y in {-1.5,-0.75,0,0.75,1.5} \draw[blue,thick,->] (0,\y) -- (1.5,\y+0.6);
+	\draw[thick,dashed] (0,0) -- ++(1.5,0);
+	\draw[thick] (.8,0) arc(0:21.8:0.8);
+	\draw (0,0) ++ (10.5:1) node {$\theta$};
+	\node[blue] at (1.7,1) {$B$};
+	\end{tikzpicture}
+\end{wrapfigure}
+
+\cmt unit for magnetic flux: $[\phi] = \text{Wb}$, $1\text{ WB} = 1 \text{ T}\cdot\text{m}^2$
+
+\cmt if magnetic field is perpendicular to the area
+
+magnetic flux simply becomes: $\boxed{\phi=BA}$
+
+\cmt for a coil with $N$ turns, total magnetic flux is
+
+{
+
+\centering
+
+$\boxed{\Phi = N\phi = NBA}$
+
+}
+
+this is called \keypoint{magnetic flux linkage}
+
+\cmt magnetic flux $\phi$ can be graphically thought as the number of field lines through area $A$
+
+cutting of field lines means a change in flux
+
+\cmt change in flux can be caused by many processes, for example
+
+\begin{compactenum}
+	\item[-] moving a magnet towards/away from a coil
+	
+	\item[-] varying current in a solenoid/electromagnet
+	
+	\item[-] inserting an iron core into a solenoid/electromagnet
+	
+	\item[-] pushing a straight conductor through a magnetic field
+	
+	\item[-] rotating a coil in a magnetic field
+	
+	\item[-] $\cdots$
+\end{compactenum}
+
+\question{Explain why the processes mentioned above would give rise to a change in magnetic flux.}
+
+
+\subsection{laws of electromagnetic induction}
+
+electromagnetic induction is the phenomena that magnetism produces electricity
+
+the laws of electromagnetic induction were discovered by \emph{Michael Faraday} and \emph{Heinrich Lenz} in the 1830s, and later described mathematically by \emph{James Clerk Maxwell}
+
+we will study in what conditions voltages and currents could be induced, and how to find their magnitudes and polarities
+
+\subsubsection{Faraday's law}
+
+\rcyskip
+
+\begin{ilight}
+	\keypoint{Faraday's law}\index{Faraday's law} states that induced e.m.f./voltage is proportional to rate of change in magnetic flux (linkage): $\boxed{\mathcal{E} \propto \frac{\Delta \Phi}{\Delta t}}$
+\end{ilight}
+
+\cmt Faraday's law gives the \emph{magnitude} of the induced e.m.f.
+
+the key here is the \emph{change} in flux: as long as flux changes, e.m.f. will be induced
+
+\cmt if $\mathcal{E}$, $\Phi$, $t$ are all given in SI units, this proportional relation becomes an identity: $\boxed{\mathcal{E} = \frac{\Delta \Phi}{\Delta t}}$
+
+\example{A coil of 80 turns is wound tightly around a solenoid with a cross-sectional area of 35 cm$^2$. The flux density at the centre of the solenoid is 75 mT. (a) What is the flux linkage in the coil? (b) The current in the solenoid is \emph{reversed} in direction in a time of 0.40 s, what is the average e.m.f. induced?}
+
+\sol flux linkage: $\Phi = NBA = 80 \times 75\times10^{-2} \times 35 \times 10^{-4} = 0.21 \text{ Wb}$
+
+average e.m.f. induced: $\mathcal{E} = \frac{\Delta \Phi}{\Delta t} = \frac{(+\Phi)-(-\Phi)}{\Delta t} = \frac{2\times 0.21}{0.40} = 1.05 \text{ V}$ \eoe
+
+\subsubsection{Lenz's law}
+
+\rcyskip
+
+\begin{ilight}
+	\keypoint{Lenz's law}\index{Lenz's law} states that induced e.m.f. or current is always in the direction to produced effects that \emph{oppose} the change in flux that produced it 
+\end{ilight}
+
+\cmt Lenz's law gives the \emph{polarity} of the induced current
+
+the key here is the nature dislikes any change in flux: effects of induced current always \emph{oppose} the cause of its production
+
+\cmt Lenz's law is a consequence of the conservation of energy
+
+since induced current dissipates electrical energy as heat, it must cause loss of original forms of energy possessed by the system
+
+if the change in flux is caused by motion, then magnetic force on/by the induced current must \emph{resist} this motion
+
+
+\example{A coil of 200 turns is connected to a resistor $R=4.0$ $\Omega$. The coil has a diameter 10 cm. Initially a bar magnet is at great distance from the coil. The magnet is then inserted into the coil and field inside coil becomes 0.40 T. The process occurs within a duration of 2.0 s. }
+
+\begin{figure}[ht]
+	\centering
+		\begin{circuitikz}[european resistors, scale=0.72]
+		\tikzstyle ct=[thick] % coil style
+		\draw[thick,fill=white] (3,0) ellipse (0.35 and 1);
+		\draw[thick,white,fill] (-3,-1) rectangle (3,1);
+		\draw[thick,fill=white] (-3,0) ellipse (0.35 and 1);
+		\draw[thick] (-3,-1) -- (3,-1);
+		\draw[thick] (-3,1) -- (3,1);
+		\foreach \k in {-2.5,-2.0,...,2.1} {\draw[ct] (\k,1) [out=60, in=-120] to (\k+0.4,-1);}
+		\draw[ct] (2.5,1) [out=60, in=-120] to (2.9,-1);
+		\draw[white,fill] (2.6,-.978) rectangle (2.8,0);
+		\draw[white,fill] (2.7,-1.1) rectangle (2.9,-1.022);
+		\draw[ct] (-2.6,-1) -- (-2.6,-3.5) to[R=$R$] (2.7,-3.5) -- (2.7,0);
+		
+		\draw [fill=blue!70] (-9,-0.5) rectangle (-7.5,0.5);
+		\draw [fill=red] (-7.5,-0.5) rectangle (-6,0.5);
+		\node at (-8.25,0) {\large \textcolor{white}{S}};
+		\node at (-6.75,0) {\large \textcolor{white}{N}};
+		\draw[ultra thick, blue,->,dashed] (-5.5,0) -- (-3.5,0);
+	\end{circuitikz}
+\end{figure}
+
+\noindent (a) What is average induced e.m.f. in the coil? (b) What is average induced current through resistor $R$? (c) In which direction does this current flow?
+
+
+\sol change in flux linkage: $\Delta \Phi = NBA - 0 = 200\times0.40\times\pi \times 0.050^2 \approx 0.628 \text{ Wb}$
+
+average e.m.f. induced: $\mathcal{E} = \frac{\Delta \Phi}{\Delta t} = \frac{0.628}{2.0} \approx 0.314 \text{ V}$
+
+\eqyskip average current induced: $I = \frac{\mathcal{E}}{R} = \frac{0.314}{4.0} \approx 0.0785 \text{ A}$
+
+as magnet approaches, coil experiences an increasing flux to the right
+
+according to Lenz's law, field due to induced current acts to the left to oppose the change
+
+alternatively, left side of the coil should behave as a north pole to oppose motion of magnet
+
+use right-hand rule, we find induced current flows through $R$ to the right
+
+\question{If the magnet is now pulled away from the coil, state ad explain the direction of the induced current.}
+
+\newpage
+
+\example{Two parallel metal tracks are separated by a distance of $L=45$ cm and placed in a uniform magnetic field of 0.80 T. The tracks are connected to a resistor $R=6.0$ $\Omega$. A long metal rod is being pushed under an external force at $v=3.0 \mps$ along the tracks as shown.}\label{ex-cuttingFL}
+
+\begin{figure}[ht]
+	\centering
+	\begin{circuitikz}[european resistors, scale=0.9]
+		\draw[thick] (0,1) --++ (10,0);
+		\draw[thick] (-1,-1) --++ (10,0);
+		\draw[ultra thick, gray] (-1,-1.5) -- (0.5,1.5);
+		\draw[ultra thick,->,red] (-0.25,0) --++ (1.5,0) node[midway,above]{$v$};
+		\draw[<->] (-1.5,-1) -- (-0.5,1) node[midway,above,rotate=63.43]{$L$};
+		\foreach \x in {2,4,6,8} \draw[->,thick, blue] (\x,-2.4) -- (\x,-1.2) (\x,0) --++(0,2);
+		\node[blue] at (6.5, 2) {$B$};
+		\draw (10,1) [out=0,in=75] to (12,1) to[R=$R$] (11,-1) [out=255,in=0] to(9,-1);  
+	\end{circuitikz}
+\end{figure}
+
+\noindent (a) What is the induced current through resistor? (b) In which direction does this current flow? (c) For the rod to travel at constant speed, what is magnitude of external force required?
+
+
+\sol change of flux in time interval $\Delta t$ is: $\Delta \phi = \Delta (BA) = B \Delta A = BL v\Delta t$
+
+e.m.f. induced: $\mathcal{E} = \frac{\Delta \phi}{\Delta t} \ra \boxed{\mathcal{E} = BLv}$
+
+\eqyskip induced current: $I = \frac{\mathcal{E}}{R} = \frac{BLv}{R} = \frac{0.80\times0.45\times3.0}{6.0} = 0.18A$
+
+according to Lenz's law, magnetic force on induced current opposes the rod's motion of cutting field lines, so magnetic force acts to the left
+
+using Fleming's left-hand rule, we find induce current flows in anti-clockwise direction
+
+if rod travels at constant speed, then equilibrium between external push and magnetic force
+
+external force required: $F_\text{ext} = F_B = BIL = 0.80 \times 0.18 \times 0.45 \approx  0.065 \text{ N}$ \eoe
+
+\question{In Example \ref{ex-cuttingFL}, can you find alternative arguments to determine the direction of the current induced as the rod cuts through the magnetic field?}
+
+\subsubsection*{Hall voltage \& induced voltage in a coil}
+	
+in this section, we compare readings on voltmeter connected to a Hall probe and a coil
+		
+Hall probe picks up voltage proportional to flux density: $V_H \propto B$
+		
+coil picks up induced e.m.f. proportional to \emph{rate of change} in flux: $\mathcal{E} \propto \frac{\dd \Phi}{\dd t}$
+		
+\question{If a Hall probe is placed near a permanent magnet, what voltage do you measure? If a small coil is placed in the same field, state and explain whether you can measure a non-zero voltage in the coil. If not, state three different ways in which you can produce a voltage.}
+
+\begin{wrapfigure}{r}{0.42\textwidth}
+	\centering
+	\vspace*{-8pt}
+	\begin{tikzpicture}[xscale=0.8,yscale=0.7]
+		\draw[<->] (0,3) node[left]{$I$} -- (0,0) -- (6,0) node[below]{$t$};
+		\draw (0,-2) -- (0,0);
+		\draw[thick,blue] (0,0) [out=70, in=180] to (2,2) -- (3.5,2) -- (3.8,-1.6) -- (6,-1.6);
+	\end{tikzpicture}
+	\vspace*{-20pt}
+\end{wrapfigure}
+
+\question{A Hall probe is placed near one end of a solenoid that carries a varying current as shown in the graph. (a) Sketch the variation of Hall voltage with time. (b) If Hall probe is replaced by a small coil parallel to the solenoid's end, sketch the variation of the voltage induced in the coil.}
+
+
+\subsection{applications of electromagnetic induction}
+
+\subsubsection{magnetic braking}
+
+induction brakes make use of induced current to dissipate kinetic energy of a moving object
+
+in this section, we will look at two simple demonstrations, but the principle can be used in braking system of high-speed trains, roller-coasters, etc.
+
+\subsubsection*{the damped pendulum}
+
+a metal disc can swings freely between the poles of an electromagnet
+
+when the electromagnet is switched on, the disc comes to rest very quickly
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=0.6]
+% disc
+\draw [thick] (0,6) ++ (-120:6) ++ (0,0.1) --++ (60:6) arc(150:-30:0.1) --++ (240:6);
+\draw [thick,fill=gray!50] (0,6) ++ (-120:6) circle (1.2);
+\draw [very thick, gray,dashed] (0,6) ++ (-60:6) circle (1.2);
+\draw [purple,very thick,dashed,<->] (0,6) ++ (-75:6) arc(-75:-105:6);
+% poles of EM magnet
+\draw[thick] (0,1) rectangle (3,2.5);
+\draw[thick] (-3,-1) -- (0,-1) -- (0,-2.5);
+\draw[thick] (0,2.5) --++ (30:3);
+\draw[thick] (3,2.5) --++ (30:2.7);
+\draw[thick] (3,1) --++ (30:3);
+\draw[thick] (-3,-1) --++ (210:3);
+\draw[thick] (0,-1) --++ (210:4);
+\draw[thick] (0,-2.5) --++ (210:3);
+% nodes
+\draw (3,1.75) ++(30:0.8) --++ (-30:2.5) node[twoline,below right]{poles of an\\electromagnet};
+\draw (0,-1.75) ++(210:0.8) --++ (16:6.2);
+\draw (0,6) ++ (-120:6) ++ (-0.5,0) --++ (150:3) node[left]{metal disc};
+\end{tikzpicture}
+
+%oscillation of pendulum dies away quickly due to drag force on eddy currents
+\end{figure}
+
+
+as disc moves in and out of field, change in flux gives rise to e.m.f induced
+
+note that different parts of the disc experience different rates of change in flux, different e.m.f. is induced in different parts for the disc
+
+
+this causes circulating currents flowing in the disc, called \keypoint{eddy currents}
+
+\begin{compactenum}
+	\item[-] vibrational energy is lost as heat due to the eddy currents induced
+	
+	\item[-] magnetic force on induced current causes damping
+\end{compactenum}
+
+so amplitude of oscillation decreases quickly
+
+\subsubsection*{falling magnet}
+
+suppose we drop two strong magnets down a plastic tube and a copper tube
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=0.7]
+	\draw[thick] (-2,0) ellipse (1 and 0.4) ellipse (0.9 and 0.36);
+	\draw[thick] (-2,-5) ellipse (1 and 0.4);
+	\draw[white,fill] (-3,-5) rectangle (-1,-4.5);
+	\draw[thick] (-3,0) -- (-3,-5) (-1,0) -- (-1,-5);
+	\draw[thick] (2,0) ellipse (1 and 0.4) ellipse (0.9 and 0.36);
+	\draw[thick] (2,-5) ellipse (1 and 0.4);
+	\draw[white,fill] (3,-5) rectangle (1,-4.5);
+	\draw[thick] (3,0) -- (3,-5) (1,0) -- (1,-5);
+	\draw[thick,fill=gray!30] (-2.4,1) rectangle (-1.6,3);
+	\draw[thick,fill=gray!30] (2.4,1) rectangle (1.6,3);
+	\draw (-2,2.4) -- (-0.5,4) (2,2.4) -- (0.5,4) (0,4) node[twoline, above]{strong\\magnets};
+	\draw (-2,-3) --++ (-2.5,1) node[left,twoline]{plastic\\tube};
+	\draw (2,-3) --++ (2.5,1) node[right,twoline]{copper\\tube};
+	\end{tikzpicture}
+	
+	%it takes much longer for magnet to fall through copper tube
+\end{figure}
+
+as magnet falls, tube experiences change in flux, so e.m.f is induced
+
+since plastic is an insulator, so no current flows in plastic tube, magnet undergoes free fall
+
+but in the conducting copper tube, eddy current is induced in the tube
+
+\begin{compactenum}
+	\item[-] energy is lost as heat due to induced current, not all G.P.E. converted into K.E.
+	
+	\item[-] induced current exerts magnetic force on magnet to oppose its motion, acceleration $a<g$
+\end{compactenum}
+
+so magnet falls more slowly through the copper tube
+
+\begin{wrapfigure}{r}{0.42\textwidth}
+\centering
+\begin{circuitikz}[european resistors,scale=0.75]
+	% spring and magnet
+	\draw[ultra thick] (-1,3.5) -- (1,3.5);
+	\draw[thick, decorate, decoration={coil,amplitude=4pt, segment length=5pt}] (0,3.5) -- (0,1.5);
+	\draw[thick, fill=gray!30] (-0.3,-0.5) rectangle (0.3,1.5);
+	\draw[thick, fill=white] (-1,0) rectangle (1,-3.1);
+	% coil
+	\foreach \y in {-0.4,-0.7,...,-2.6} {
+		\draw[thick] (-1,\y+0.1) [out=200, in=20] to (1,\y-0.1);
+	}
+	% circuit
+	\draw[thick] (-1,-2.7) [out=200, in=180] to (0,-2.8) -- (1,-2.8) to[R=$R$] (3.6,-2.8);
+	\draw[thick] (1,-0.2) -- (2,-0.2) --++ (30:0.7) (2.7,-0.2) -- (3.6,-0.2) -- (3.6,-2.8);
+	% labels
+	\draw (0,2.5) --++ (1.5,0.8) node[right]{spring};
+	\draw (0,1) --++ (1.5,0.8) node[right]{magnet};
+	\draw (-0.4,-0.7) --++ (-1.5,0.8) node[left]{coil};
+	\node[above] at (2.1,0) {$S$};
+\end{circuitikz}
+
+\end{wrapfigure}
+
+\question{A magnet is suspended from the free end of a spring. When displaced vertically and released, the magnet can oscillate in and out of a coil (see diagram). The switch $S$ is initially open, there is negligible change in the amplitude. However, when the switch is closed, the amplitude is seen to decrease quickly. Explain the reasons.}
+
+\subsubsection{the generator} \label{subsection:generators}
+
+imagine a coil rotates with constant angular speed $\omega$ in a uniform magnetic field $B$
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace*{-8pt}
+	\centering
+	\begin{tikzpicture}[scale=1,decoration={markings,mark=at position 0.75 with {\arrow{>}}}]
+	\draw[very thick,postaction={decorate}] (0,2.1) ellipse (0.5 and 0.2);
+	\draw[white,fill] (-0.15,2.1) rectangle (0.15,2.5) node[right]{\textcolor{black}{$\omega$}}; 
+	\foreach \y in {-1.2,0,1.2}
+	{
+		\draw[blue,thick] (-2,\y) -- (-0.8,\y);
+		\draw[blue,thick,->] (0,\y) -- (2,\y);
+	}
+	
+	\draw[blue] (1.8,0.6) node{$B$};
+	\draw[very thick] (-0.6,-1.8) -- (0.6,-1.2) -- (0.6,1.8) -- (-0.6,1.2) -- cycle;
+	\draw[thick,dashed] (0,-2.1) -- (0,2.5);
+	\draw[thick,dashed] (0,0) -- (1.2,0.6);
+	\draw (0.8,0) arc(0:26.565:0.8);
+	\node at (13:1) {$\theta$};
+	
+	\end{tikzpicture}
+\end{wrapfigure}
+
+let's assume that the coil initially lies in parallel to the field, i.e., $\theta=0$ at $t=0$
+
+at time $t$, coil forms an angle $\theta=\omega t$ with the magnetic field (see diagram)
+
+magnetic flux linkage through coil is:
+
+{
+
+\centering
+
+$\Phi = NBA \sin\theta = NBA \sin \omega t$
+
+}
+
+magnitude of induced e.m.f. is: 
+
+{
+	
+\centering
+
+$\mathcal{E} = \frac{\dd \Phi}{\dd t} = \omega NBA \cos \omega t$
+
+}
+
+this is a sinusoidal voltage with maximum value: $\mathcal{E}_\tmax = \omega NBA$
+
+for a coil rotating in a magnetic field like this, an \emph{alternating current} is generated
+
+this is basically how a \emph{generator}\index{generator} works
+
+in practice, it is a strong electromagnet rotating inside a large coil to generate electricity
+
+\question{State and explain the effect on the voltage generated if the coil rotates faster.}
+
+\question{For the coil rotating at a uniform angular speed in a uniform magnetic field, is the magnetic flux in phase with the e.m.f. generated? If not, what is the phase difference?}
+
+\question{Does the generator output the maximum voltage when the rotating coil is in parallel to the magnetic field or when the coil is at right angle to the field?}
+
+\subsubsection{electromagnetic gun}
+
+a coil of wire of many turns is wound on a hollow tube
+
+a light copper ring that can move freely along the tube is placed on the coil
+
+let's find out what happens to the ring when a high-voltage supply is switched on
+
+\begin{figure}[htp]
+\centering
+\begin{tikzpicture}[scale=0.75]
+% tube base
+\draw[fill=white] (0,0) ellipse (2 and 1);
+% solenoid
+\foreach \idx in {0.8,0.9,...,2} \draw[fill=gray!25] (0,\idx) ellipse (2.4 and 1.2); 
+\draw[fill=white] (0,2) ellipse (2 and 1);
+\draw[white,fill] (-2,2) rectangle (2,4);
+\draw (-2,1.95) --(-2,3.5) (2,1.95) -- (2,3.5); 
+% ring
+\draw[fill=gray!10] (0,3.5) ellipse (2.4 and 1.2);
+\draw[gray!10,fill] (-2.4,3.5) rectangle (2.4,4);
+\draw[fill=gray!25] (0,4) ellipse (2.4 and 1.2);
+\draw (-2.4,3.45) --(-2.4,4) (2.4,3.45) -- (2.4,4);
+% tube top
+\draw[fill=white] (0,4) ellipse (2 and 1);
+\draw[white,fill] (-2,4) rectangle (2,6);
+\draw (-2,3.95) --(-2,5.5) (2,3.95) -- (2,5.5);
+\draw[fill=gray!25] (0,5.5) ellipse (2 and 1);
+% labels
+\draw (-1.2,4) --++ (-3,1.2) node[left]{hollow tube};
+\draw (-1.2,2.8) --++ (-3,1.2) node[left]{copper ring};
+\draw (-1.2,0.5) --++ (-3,1.2) node[left,twoline]{insulated coil};
+% circuit
+\draw (2.4,1.5) -- (4,1.5) -- (4,2.4) -- (7,2.4) -- (7,1.5);
+\draw (2.4,0.9) -- (4,0.9) -- (4,0) -- (7,0) -- (7,0.9);
+\draw (7,1.45) circle(0.05);
+\draw (7,0.95) circle(0.05);
+\node[right,twoline] at (7.2,1.2) {high-voltage\\supply};
+\end{tikzpicture}
+\end{figure}
+
+when supply is switched on, flux density in coil greatly increases
+
+sudden change in magnetic flux could induce a huge e.m.f. in copper ring
+
+induced current in ring would experience a repulsive magnetic force
+
+this repulsive force could be way larger that ring's weight, ring would jump out from tube
+
+if the ring is replaced by a small metal sphere placed inside the tube, the same strong magnetic force arising from a sudden change in flux could fire the sphere at very high speed
+
+\question{The coil is now connected to a stable d.c. voltage supply. If we quickly insert an iron core into the tube, what might happen to the light copper ring?}
+
+\subsubsection*{other applications}
+
+as a final remark, electromagnetic induction is widely used in many other areas as well
+
+for those who are interested, you may research on the principles behind wireless charging, induction cooking, contactless payment technology, smart pencils for tablets or computers, etc.
+
