@@ -15,7 +15,7 @@ I have started typesetting my handwritten notes into LaTeX since a long time ago
 - [x] Capacitors
 - [x] Magnetic Fields
 - [x] Electromagnetic Induction
-- [ ] Alternating Currents
+- [x] Alternating Currents
 - [ ] Quantum Physics
 - [ ] Nuclear Physics
 - [ ] Amplifier Circuits
