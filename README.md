@@ -2,7 +2,7 @@
 
 This is a set of very concise lecture notes written for [CIE A-level Physics](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/) (syllabus code 9231). Presumably the target audience of the notes are students studying the relevant course.
 
-I have started typesetting my handwritten notes into LaTeX since a long time ago, but this work never appears to get any close to completion. There are around 15 chapters to cover in the course, as you will see in the list below. I have finished typesetting the first 10 chapters - more than half of the whole project. Hopefully, this number will continue to grow.
+I have started typesetting my handwritten notes into LaTeX since a long time ago, but this work never appears to get any close to completion. There are 16 chapters to cover in the course, as you will see in the list below. I have finished typesetting the first 12 chapters - nearly 75% of the whole project. Hopefully, this number will continue to grow to 100%.
 
 ## Table of Contents
 
@@ -16,11 +16,12 @@ I have started typesetting my handwritten notes into LaTeX since a long time ago
 - [x] Magnetic Fields
 - [x] Electromagnetic Induction
 - [x] Alternating Currents
-- [ ] Quantum Physics
-- [ ] Nuclear Physics
+- [x] Quantum Physics
+- [x] Nuclear Physics
 - [ ] Amplifier Circuits
 - [ ] Telecommunication
 - [ ] Medical Imaging
+- [ ] Astronomy & Cosmology
 
 ## How to Use
 
