@@ -128,9 +128,9 @@ on the other hand, all bodies are able to store electrical charge
 
 any object that can be electrically charged exhibits capacitance
 
-we define \keypoint{self-capacitance}\index{self-capacitance} of an object as the amount of charge that must be added to increase per unit electrical potential
+we define \keypoint{self-capacitance}\index{capacitance!self-capacitance} of an object as the amount of charge that must be added to increase per unit electrical potential
 
-in a word equation, $ \text{self capacitance }C=\frac{\text{charge of object }Q}{\text{electric potential of object }V} \RA \boxed{C=\frac{Q}{V}}$\footnote{For either mutual capacitance or self capacitance, defining equation $C=\frac{Q}{V}$ takes the same form, but you should keep in mind that $Q$ and $V$ represent different things in different contexts。}
+in a word equation, $ \text{self capacitance }C=\frac{\text{charge of object }Q}{\text{electric potential of object }V} \RA \boxed{C=\frac{Q}{V}}$\footnote{For either mutual capacitance or self capacitance, defining equation $C=\frac{Q}{V}$ takes the same form, but you should keep in mind that $Q$ and $V$ represent different things in different contexts.}
 
 \example{Self-capacitance of a charged metal sphere in a vacuum}
 
@@ -280,6 +280,11 @@ final energy stored in system: $W = \frac{1}{2}CV^2 = \frac{1}{2} \times 2C_0 \t
 
 half of stored energy is lost as heat when electrons flow between two capacitors \eoe
 
+
+\question{A capacitor $A$ of capacitance $C$ and a second capacitor $B$ of capacitance $3C$ are connected in parallel. If a voltage is applied across the network, what is the ratio of energy stored in $A$ to that in $B$? What about the ratio of electric charge?}
+
+\newpage
+
 \subsubsection{capacitors in series}
 
 \begin{wrapfigure}{r}{7cm}
@@ -327,10 +332,10 @@ explanation: when several capacitors connected in series, equivalent to a parall
 
 
 
-\example{For the circuit shown, find the p.d. across each of the capacitor.}
+\example{For the circuit shown below, find the p.d. across each of the capacitor.}
 
 \begin{center}
-	\begin{circuitikz}[european resistors,scale=0.8]
+	\begin{circuitikz}[european resistors,scale=0.9]
 		\draw (0,0) to[C,l_=$C_1{=}4.0\mu\text{F}$] (3,0) to[C,l_=$C_2{=}12\mu\text{F}$] (6,0) -- (6,3) to[battery,l_=$V{=}8.0\text{V}$] (0,3) -- (0,0);
 	\end{circuitikz}
 \end{center}
@@ -339,7 +344,7 @@ explanation: when several capacitors connected in series, equivalent to a parall
 
 charge for the network: $Q = C_\text{total} V_\text{total} = 3.0 \times 8.0 = 24 \mu\text{C}$
 
-series network so all capacitors have same $Q$: $Q_1=Q_2=24 \mu\text{C}$
+series network so all capacitors have same $Q$, so: $Q_1=Q_2=24 \mu\text{C}$
 
 p.d. across each individual capacitor: $V_1 = \frac{Q_1}{C_1} = \frac{24}{4.0} = 6.0 \text{ V}, \quad V_2 = \frac{Q_2}{C_2} = \frac{24}{12} = 2.0 \text{ V}$
 
@@ -360,13 +365,11 @@ V_2 = 2.0 \text{ V}
 
 more complicated capacitor networks can be considered as a combination of some smaller networks with capacitors in parallel or in series
 
-(recall how you work out the \emph{effective resistance} of a resistance network before)
-
 \example{$C_1=C_2=C_3=C_4=10\muF$, calculate the capacitance of the network (a) and (b).}\label{ex-Cnet}
 \begin{center}
 \begin{minipage}{0.4\linewidth}
 \begin{center}
-\begin{circuitikz}[european resistors,scale=0.7]
+\begin{circuitikz}[european resistors,scale=0.65]
 \draw (0,0) -- (0,2) to[C,l^=$C_1$] (2,2) to[C,l^=$C_2$] (4,2) -- (4,0) to[C,l^=$C_3$] (0,0);
 \draw (-1,1) -- (0,1) (4,1) -- (5,1);
 \end{circuitikz}
@@ -376,7 +379,7 @@ more complicated capacitor networks can be considered as a combination of some s
 \end{minipage}
 \begin{minipage}{0.55\linewidth}
 \begin{center}
-\begin{circuitikz}[european resistors,scale=0.7]
+\begin{circuitikz}[european resistors,scale=0.65]
 \draw (0,0) -- (0,2) to[C,l^=$C_2$] (3,2) -- (3,0) to[C,l^=$C_3$] (0,0);
 \draw (-3,1) to[C,l^=$C_1$] (0,1);
 \draw (3,1) to[C,l^=$C_4$] (6,1);
@@ -397,23 +400,7 @@ $C_\text{total} = C_{12} + C_3 = 5 + 10 = 15 \muF$
 $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right)^{-1} = \left( \frac{1}{10} + \frac{1}{20} + \frac{1}{10} \right)^{-1} = 4.0 \muF$ \eoe
 \end{compactitem}
 
-\example{$C_1=C_2=C_3=C_4=10\muF$, calculate the capacitance of the network (a) and (b).}
-
-\begin{compactitem}
-	\item[(a)] $C_{12} = \left( \frac{1}{C_1} + \frac{1}{C_2} \right)^{-1} = \left( \frac{1}{10} + \frac{1}{10} \right)^{-1} = 5.0 \muF$
-	
-	$C_\text{total} = C_{12} + C_3 = 5 + 10 = 15 \muF$
-	
-	\item[(b)] $C_{23} = C_2 + C_3 = 10 + 10 = 20 \muF$
-	
-	$C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right)^{-1} = \left( \frac{1}{10} + \frac{1}{20} + \frac{1}{10} \right)^{-1} = 4.0 \muF$ \eoe
-\end{compactitem}
-
-\question{Using at most four capacitors of $24 \muF$, design a network that has a combined capacitance of (a) $72 \muF$, (b) $8 \muF$, (c) $36 \muF$, and (d) $18 \muF$.}
-
-\question{If the two networks in Example \ref{ex-Cnet} are both connected to a supply voltage of 15 V, determine the p.d. across each individual capacitor.}
-
-\example{Four identical capacitors are arranged as shown. Given that each capacitor can withstand a maximum p.d. of 12 V, what is the maximum p.d. that can safely be applied between the terminals?}
+\example{Four identical capacitors are arranged as shown. Each capacitor can withstand a maximum p.d. of 12 V, what is the maximum safe p.d. to be applied between the terminals?}
 
 {
 	
@@ -431,16 +418,18 @@ $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right
 
 but for the two capacitors in parallel, charge is shared, so each has charge $\frac{Q}{2}$
 
-when the two capacitors near the ends reach maximum p.d. of 12 V, p.d. across the parallel network is half of this value
+p.d. across the parallel network is half of the p.d. across the two capacitors near the ends
 
 so maximum p.d. across the terminals: $V_\tmax = 12 + 6 + 12 = 30 \text{ V}$ \eoe
 
+\question{Using at most four capacitors of $24 \muF$, design a network that has a combined capacitance of (a) $72 \muF$, (b) $8 \muF$, (c) $36 \muF$, and (d) $18 \muF$.}
 
+\question{If the two networks in Example \ref{ex-Cnet} are both connected to a supply voltage of 15 V, determine the p.d. across each individual capacitor.}
 
 
 \subsubsection{capacitors \& resistors}
 
-$\bullet$ comparing capacitor networks and resistor networks
+as a quick review, we compare capacitor networks with resistor networks
 
 \begin{center}
 {\renewcommand{\arraystretch}{1.2}

@@ -3,10 +3,10 @@
 \subsection{oscillatory motion}
 
 \begin{ilight}
-	\keypoint{oscillation} refers to a repetitive back and forth motion about it \emph{equilibrium position}
+	\keypoint{oscillation} refers to a repetitive back and forth motion about its \emph{equilibrium position}
 \end{ilight}
 
-the equilibrium point is a point where all forces on oscillator are balanced
+the equilibrium position is a point where all forces on oscillator are balanced
 
 release an object from its equilibrium position from rest, it will stay at rest
 
@@ -29,13 +29,13 @@ frequency is related to period as: $\boxed{f=\frac{1}{T}}$
 
 \vspace*{\baselineskip}
 
-displacement $x$ varies with time $t$ repetitively, so we can plot an $x$-$t$ graph
+displacement $x$ varies with time $t$ repetitively, for which we can plot an $x$-$t$ graph
 
 amplitude $x_0$ and period $T$ are labelled on the graph
 
 
 \begin{figure}[ht]
-\begin{center}
+\centering
 \begin{tikzpicture}[xscale=0.8,yscale=0.8]
 \draw [thick, ->] (-1,0) --(14,0) node[below]{$t$};
 \draw [thick, ->] (0,-3) --(0,2.5) node[left]{$x$};
@@ -46,8 +46,7 @@ amplitude $x_0$ and period $T$ are labelled on the graph
 \draw [thick,<->] (pi/2,0) --  (pi/2,2) node[right,midway]{$x_0$};
 \end{tikzpicture}
 
-displacement-time graph for a typical oscillator
-\end{center}
+\caption*{displacement-time graph for a typical oscillator}
 \end{figure}
 
 
@@ -272,7 +271,7 @@ a mass-spring oscillator system consists of a block of mass $m$ and an ideal spr
 		\draw [thick ] (-1.2,-0.4) node[below]{$-x$} -- (-1.2,-0.3);
 		\end{tikzpicture}
 		
-	restoring force acting on the ideal mass-spring oscillator
+	\caption*{restoring force acting on the ideal mass-spring oscillator}
 \end{figure}
 
 when a spring is stretched or compressed by a mass, the spring develops a restoring force
@@ -316,7 +315,7 @@ displace the bob by some angle and release from rest, it can swing freely
 
 \begin{wrapfigure}{l}{4.8cm}
 	\centering
-		\begin{tikzpicture}[scale=1]
+		\begin{tikzpicture}[yscale=1.15]
 			\draw[dashed] (0,0) -- (0,-6.4) node[below]{$0$};
 			\draw (0,-1) arc(-90:-75:1);
 			\draw[orange,<->] (-81:4) arc(-81:-99:4);
@@ -327,6 +326,7 @@ displace the bob by some angle and release from rest, it can swing freely
 			\draw[thick,->] (-2,-6.4) -- (0,-6.4) -- (2,-6.4) node[right]{$+$};
 			\draw [dashed] (1.035,-5.8) -- (1.035,-6.4) node[below]{$x$};
 		\end{tikzpicture}
+	\vspace*{-15pt}
 \end{wrapfigure}
 
 one can show this performs simple harmonic motion for \emph{small-angle} oscillation
@@ -561,8 +561,7 @@ $E_k$ and $E_p$ keep changing, one transfers into another, but total energy is \
 		\end{center}
 	\end{minipage}
 
-	
-	vibrational energy of a mass-spring oscillator
+	\caption*{vibrational energy of a mass-spring oscillator}
 \end{figure}
 
 \example{A block of mass 150 g at the end of a spring oscillates with a period of 0.80 s. The maximum displacement from its rest position is 12 cm. Find the energy of the vibration.}
@@ -634,7 +633,7 @@ it occurs when system returns to equilibrium in \emph{shortest} time without any
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[xscale=1.5,yscale=1.2]
+	\begin{tikzpicture}[xscale=1.5,yscale=1.1]
 	\draw [thick, ->] (-0.5,0) --(7.5,0) node[below]{$t$};
 	\draw [thick, ->] (0,-3) --(0,3) node[left]{$x$};
 	\draw [dashed,domain=0:7.2,samples=50,smooth,variable=\x] plot (\x,{2.5*cos(\x*2.5 r)});
@@ -725,7 +724,7 @@ engineering systems are often deliberately damped to minimise resonance effect
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[xscale=1.5,yscale=1.8]
+	\begin{tikzpicture}[xscale=1.6,yscale=1.8]
 	\draw [thick, ->] (0,0) -- (2,0) node[below]{$f_\text{natural}$} -- (5.1,0) node[below]{$f_\text{driving}$};
 	\draw [thick, ->] (0,0) --(0,3) node[left]{$x_0$};
 	\draw [thick,color=blue,domain=0:4.8,samples=36,smooth,variable=\x] plot (\x,{2.25/sqrt((4-\x*\x)*(4-\x*\x)+4*\x*\x)});
@@ -738,6 +737,6 @@ engineering systems are often deliberately damped to minimise resonance effect
 	\draw [thick,gray,dashed] (2,0) -- (2,2.9);
 	\end{tikzpicture}
 	
-	resonance effect for various damping conditions
+	\caption*{resonance effect for various damping conditions}
 \end{figure}
 

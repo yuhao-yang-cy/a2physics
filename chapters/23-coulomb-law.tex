@@ -173,7 +173,7 @@ field lines appear to start from or converge towards centre of the sphere
 
 so charged spheres act like point charges \eoe
 
-
+\newpage
 
 \example{Field lines between two oppositely-charged large metal plates.}
 
@@ -275,7 +275,7 @@ repulsion implies positive P.E., and attraction implies negative P.E.
 sign of P.E. is hidden in polarities of charges
 
 
-\example{In $\alpha$-particle scattering experiment, we fire $\alpha$-particles ($_2^4\alpha$) towards a thin gold ($_{\phantom{0}79}^{197}\text{Au}$) foil in hope of gaining information about the nucleus. The size of a typical nucleus is about $10^{-14}$m, what is the minimum initial speed for $\alpha$-particles so that radius of gold nucleus can be determined?}
+\example{To gain information about the gold nucleus ($_{\phantom{0}79}^{197}\text{Au}$), we fire $\alpha$-particles ($_2^4\alpha$) towards a thin gold foil. The size of a typical nucleus is about $10^{-14}$m, what is the minimum initial speed for $\alpha$-particles so that radius of gold nucleus can be determined?}
 	
 \sol as $\alpha$-particle approaches the nucleus, it slows down due to the repulsive interaction
 
@@ -419,7 +419,7 @@ i.e., equipotential lines are \emph{contour lines} of equal electric potential
 \cmt for a field near a point charge, equipotential lines are a set of \emph{concentric} circles
 
 \begin{center}
-	\begin{tikzpicture}[scale=1]
+	\begin{tikzpicture}[scale=1.35]
 	\draw (-3,0) node{$+Q$} circle [radius=0.5];
 	\foreach \s in {0,45,90,...,315}
 	\draw [blue, thick, ->] (-3,0) ++ (\s:0.5) -- ++(\s:1.8);
@@ -432,6 +432,8 @@ i.e., equipotential lines are \emph{contour lines} of equal electric potential
 		\draw [red,dashed] (-3,0) circle(\s) (3,0) circle(\s);}
 	\end{tikzpicture}
 \end{center}
+
+\newpage 
 
 \cmt for uniform fields, equipotential lines are a set of \emph{parallel} straight lines
 
@@ -615,9 +617,8 @@ electric potential at distance $r$ from sphere's centre is: $V=\frac{Q}{4\pi\eps
 		
 
 	\end{minipage}
-\captionsetup{labelformat=empty}
 
-\caption{Example \ref{ex-metal-sphere}: field strength and potential due to a charged metal sphere}
+\caption*{Example \ref{ex-metal-sphere}: field strength and potential due to a charged metal sphere}
 \end{figure}
 
 
@@ -644,6 +645,8 @@ therefore we have the following theorem:
 \begin{ilight}
 	\centering field strength is negative gradient of potential with respect to displacement
 \end{ilight}
+
+\newpage
 
 can also consider change in potential $\Delta V$ for large distance due to work done in a field
 
@@ -693,13 +696,15 @@ force always acts in a direction to lower the potential energy of an object
 
 $ \text{gradient} = \frac{\Delta V}{\Delta r} = \frac{(1.5-6.5)\times 10^3}{(8.0-2.0)\times10^{-2}} \approx  -8.3\times10^4 \Vpm \RA E = -\frac{\Delta V}{\Delta r} = 8.3\times10^4 \Vpm $ \eoe 
 
+\newpage
+
 \question{Show that the charged object in Example \ref{ex-grad-pot} behaves like a point charge. Determine the charge it carries, and hence calculate the field strength at $r=5.0$ cm.}
 
 \example{The variation of electrical potential along a certain line is shown. State and explain where in the field an electron will experience the greatest force.}
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[scale=1.2]
+	\begin{tikzpicture}[scale=1.35]
 	\draw[style=help lines,step=0.25,gray!30] (0,-2) grid (8,4);
 	\draw[style=help lines,step=1] (0,-2) grid (8,4);
 	\node[left] at (0,4) {$V$};
