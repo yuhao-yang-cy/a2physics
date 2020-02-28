@@ -25,7 +25,7 @@
 \usepackage{anyfontsize}
 \usepackage{circuitikz}
 \usepackage{multirow}
-%\usepackage{bbding}   % special symbols
+%\usepackage{dingbat}   % special symbols
 \usepackage{indentfirst}
 \usepackage{paralist}
 \usepackage{enumitem}
@@ -60,16 +60,12 @@
 	\begin{tikzpicture}[remember picture, overlay]
 	\draw[fill=Gray!70,draw=Gray!70] (2pt,0) rectangle (6,0.1pt);
 	\end{tikzpicture}}%
-\titlecontents{subsection}[10.4pc]
+\titlecontents{subsection}[8.3pc]
 {\addvspace{1pt}}
-{\contentslabel[\thecontentslabel]{1.6pc}}
-{}
-{\hfill\small \thecontentspage}
-[]
-\titlecontents*{subsubsection}[10.5pc]
-{\addvspace{-1pt}\small}
-{}
-{}
+{\contentslabel[\thecontentslabel]{1.6pc}}{}
+{\hfill\small \thecontentspage}[]
+\titlecontents*{subsubsection}[8.3pc]
+{\addvspace{-1pt}\small}{}{}
 {\ - \small\thecontentspage}
 [ /\ ][]
 
@@ -122,6 +118,7 @@
 % tikz decription node style
 \tikzset{note/.style={rectangle, rounded corners, minimum size=6mm, draw=black, fill=white, align=center,execute at begin node=\setlength{\baselineskip}{1.2em}}}
 \tikzset{twoline/.style={align=center,execute at begin node=\setlength{\baselineskip}{1.2em}}}
+\tikzset{twolinecap/.style={align=center,execute at begin node=\setlength{\baselineskip}{1.6em}}}
 
 % % % % % % % % % % %
 
@@ -146,9 +143,9 @@
 	\noindent{\textsf{\textbf{Exercise \theexercise }} \hspace*{1pt} #1 %
 }}
 
-\newcommand{\cmt}{\noindent\hspace{-0.25em}\textcolor{Green}{\ding{226}} \hspace{0.3em}}
-\newcommand{\sol}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.3em}}
-\newcommand{\solc}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.3em} \vspace*{-\baselineskip}} 
+\newcommand{\cmt}{\noindent\hspace{-0.25em}\textcolor{Green}{\ding{226}} \hspace{0.2em}}
+\newcommand{\sol}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.2em}}
+\newcommand{\solc}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.2em} \vspace*{-\baselineskip}} 
 
 % highlight environment
 \newenvironment{ilight}
@@ -177,7 +174,7 @@
 
 % columns with customised width in tabulars
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-\newcolumntype{D}[1]{ >{\centering\arraybackslash} m{1cm} }
+\newcolumntype{D}[1]{>{\centering\arraybackslash}m{#1}}
 
 \makeindex
 
@@ -208,12 +205,12 @@
 \include{22-thermal-physics}
 \include{23-coulomb-law}
 \include{24-capacitance}
-%\include{25-magnetic-fields}
-%\include{26-charged-particles}
-%\include{27-electromagnetic-induction}
-%\include{28-alternating-currents}
-%\include{29-quantum-physics}
-%\include{30-nuclear-physics}
+\include{25-magnetic-fields}
+%\include{26-charged-particles} %combined with 25
+\include{27-electromagnetic-induction}
+\include{28-alternating-currents}
+\include{29-quantum-physics}
+\include{30-nuclear-physics}
 \newpage
 \printindex
 
