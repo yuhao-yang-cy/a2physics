@@ -18,7 +18,7 @@ I have started typesetting my handwritten notes into LaTeX since a long time ago
 - [x] Alternating Currents
 - [x] Quantum Physics
 - [x] Nuclear Physics
-- [ ] Amplifier Circuits
+- [x] Electronics
 - [ ] Telecommunication
 - [ ] Medical Imaging
 - [ ] Astronomy & Cosmology
