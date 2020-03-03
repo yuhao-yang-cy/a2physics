@@ -406,9 +406,7 @@ they produce a torque about central axis of frame: $\tau=Fd=BILd$, causing the f
 	\vspace*{-12pt}
 	\centering
 	\begin{tikzpicture}[scale=0.75]
-	\draw[ultra thick] (-2.5,0) rectangle (2.5,4);
-	\draw[ultra thick] (-1.5,1) rectangle (1.5,4);
-	\draw[ultra thick, white] (-1.47,4) -- (1.47,4);
+	\draw[ultra thick] (-2.5,0) -- (-2.5,4) --++ (1,0) --++ (0,-3) --++ (3,0) --++ (0,3) -- (2.5,4) -- (2.5,0) -- cycle;
 	\node at (0,4) {\large $\otimes$};
 	\node[above] at (0,4.1) {$I$};
 	\node at (2,3.6) {$N$};
