@@ -20,7 +20,7 @@ I have started typesetting my handwritten notes into LaTeX since a long time ago
 - [x] Nuclear Physics
 - [x] Electronics
 - [ ] Telecommunication
-- [ ] Medical Imaging
+- [x] Medical Imaging
 - [ ] Astronomy & Cosmology
 
 ## How to Use
