@@ -1,0 +1,1164 @@
+\section{Medical Imaging}
+
+symptoms of disease are to be diagnosed without cutting patient open, or inserting surgical instruments into patient's body, we need \keypoint{non-invasive} techniques, which include:
+
+\begin{compactitem}
+	\item[--] X-ray/CT imaging
+	\item[--] ultrasonic scans
+	\item[--] PET (positron emission tomography) scans
+	\item[--] MRI (magnetic resonance imaging)
+\end{compactitem}
+
+\subsection{X-ray imaging}
+
+\subsubsection{nature of X-rays}
+
+X-ray is electromagnetic radiation with short wavelength $\lambda$, or high frequency $f$
+
+radiation with a wavelength in the range $10^{-12}\sim10^{-8}\text{ m}$ are categorised as X-rays
+
+\cmt X-rays are further categorised into \emph{hard} and \emph{soft} X-rays
+
+\keypoint{hardness} of X-ray refers to its penetrating ability
+
+harder X-ray photons are more energetic, so more penetrating
+	
+hard X-rays have higher $f$ and shorter $\lambda$ ($10^{-13}\sim10^{-11}$m)
+	
+soft X-rays have slightly lower $f$ and longer $\lambda$ ($10^{-11}\sim10^{-9}$m)
+
+\cmt soft-X-rays are easily absorbed by patient's body, hence not contributing to imaging
+
+in medical imaging, metal sheet (e.g., aluminium) is used to filter out soft X-rays
+	
+hard X-rays can penetrate through patient's body and are more useful to form images
+	
+\cmt there is no specific critical $f$/$\lambda$ to distinguish X-ray from $\gamma$-ray in electromagnetic spectrum
+	
+radiation emitted by \emph{electrons} is called X-ray, radiation emitted from \emph{nuclei} is called $\gamma$-ray
+
+\subsubsection{production of X-rays}
+
+X-ray can be produced by smashing electrons onto a target metal
+
+the diagram below illustrates the production of X-ray in a \emph{X-ray tube}\index{X-ray tube}
+
+\begin{figure}[htp]
+\centering
+\begin{circuitikz}[scale=.92]
+	\draw[ultra thick,gray,fill=gray!25] (-5,-3) rectangle (5,3);  % tube background
+	\draw[thick] (-5.5,1) -- (-5.5,4.5) -- (-0.5,4.5)  (.5,4.5) -- (5.5,4.5) -- (5.5,0.5) -- (4,0.5);  % high voltage supply
+	\draw[thick] (.45,4.5) circle (0.06) node[above]{$+$};
+	\draw[thick] (-.45,4.5) circle (0.06) node[above]{$-$};
+	\node[above,twoline] at (0,4.9) {accelerating\\voltage};
+	\draw[thick] (-4,0.7) -- (-4,1) -- (-6.5,1) to[battery] (-6.5,-1) -- (-4,-1) -- (-4,-0.7);
+	\node[left,twoline] at (-7,0) {power\\supply};
+	\node[below,twoline] at (-4,-1.1) {heated\\filament\\(cathode)};
+	\draw[thick,decorate,decoration={coil,amplitude=4pt, segment length=5pt}] (-4,0.7) -- (-4,-0.7); % cathode
+	\foreach \y in {.35,0,-.35} {
+	\draw[thick,dashed,blue,->] (-3.75,\y) -- (0,\y);
+	\draw[thick,dashed,blue] (0.2,\y) -- (1.45-\y/7,\y);
+	\draw[thick,red,decorate,decoration=snake] (1.45-\y/7,\y) --++ (240-\y*20:3.25+\y*1.8);
+	\draw[thick,red,->] (1.45-\y/7,\y) ++ (240-\y*20:3.25+\y*1.8) --++ (240-\y*20:\y*\y*0.5+0.1);}
+	\node[above] at (-1,.6) {electron beam};
+	\shade [ball color = green] (-1,.35) circle (0.1);
+	\shade [ball color = green] (-1.6,0) circle (0.1);
+	\shade [ball color = green] (-.5,-.35) circle (0.1); % electron beam
+	\draw[thick] (2.4,0) rectangle (4,1) (3.2,0.5) node{motor};  % motor
+	\draw[line width=5pt] (2.4,0.5) -- (2,0.5);
+	\node[above,twoline] at (2,1.5) {target metal\\(anode)};
+	\draw[thick,fill=violet!60] (2,-0.5) -- (2,1.5) -- (1.9,1.5) arc(90:270:0.4 and 1) -- cycle;  % target
+	\draw (4.5,-1.8) --++ (1,-0.8) node[right] {vacuum};
+	\node[right] at (1,-2) {X-rays}; % x-ray beam
+	\draw[DarkGreen,fill=green] (-1.2,-2.94) rectangle (0.6,-3.06);
+	\node[below] at (-.3,-3.1) {exit window}; % exit window
+\end{circuitikz}
+X-ray production tube
+\end{figure}
+
+under a strong electric field, electrons are pulled out from a heated cathode
+
+these electrons are accelerated through a high p.d. towards the anode
+
+anode is made of target metal (tungsten, cobalt, etc.)
+
+electrons smash into anode, their K.E. are converted into the form of X-ray radiation
+
+beams of X-rays leave the X-ray tube through an exit window
+
+\cmt accelerating voltage of X-ray tube $V_\text{ac}$ controls energy of X-ray photons emitted
+
+at higher $V_\text{ac}$, electrons have greater K.E., X-ray photons of higher energies are produced
+
+\cmt varying cathode current alters number of electrons flowing through filament per unit time
+
+for a larger current, more electrons are pulled towards anode, producing more X-ray photons
+
+so increasing current in X-ray tube increases intensity of X-ray beam 
+	
+\cmt in X-ray tube, only a tiny fraction of electron K.E. is converted into X-rays
+
+most energy is converted into thermal energy in anode metal
+	
+to avoid overheating, anode is rotated by a motor, and water can be used as coolant 
+
+
+\subsubsection{X-ray spectrum}
+
+to image a patient's body using X-rays, X-rays produced are sent towards the patient
+
+X-ray emergent from patient's body can be measured and compared with original spectrum
+
+from this we can learn about absorption process of X-ray in patient's body
+
+so information about patient's body can be obtained
+
+\begin{center}
+	\begin{tikzpicture}[force/.style={twoline,draw,thick,rounded corners,inner sep=.3cm}]
+	
+	\node [force] (tube) at (0,0) {X-ray\\tube};
+	\node [force] (patient) at (5.4,0) {patient's\\body};
+	\node [force] (imaging) at (10.8,0) {imaging\\system};
+	
+	\draw[thick,->] (tube) to node[midway,above]{original spectrum} (patient);
+	\draw[thick,->] (patient) to node[midway,above]{emergent X-ray} (imaging);
+	\end{tikzpicture}
+\end{center}
+
+so we need to study properties of \emph{X-ray spectrum} as it is produced in X-ray tubes\index{X-ray!spectrum}
+
+\vspace*{\baselineskip}
+
+the graph below shows a typical frequency spectrum of X-ray emitted from an X-ray tube
+
+\begin{figure}[ht]
+	\centering
+	
+	\begin{tikzpicture}[declare function={
+		xrayspectrum(\x) = {5*\x*exp(-0.8*\x)*(1-exp(\x-7))*(1+2.4*exp(-(600*(\x-2.7)*(\x-2.7))))*(1+1.0*exp(-(600*(\x-2.4)*(\x-2.4))))*(1+0.8*exp(-(600*(\x-3.6)*(\x-3.6))))*(1+0.6*exp(-(600*(\x-3.9)*(\x-3.9))))};	}]
+		% cut-off at x = 7 with exponential factor
+		% characteristic-lines at x = 2.4, 2.7, 3.6, 3.9 with Gaussian function
+		\draw[<->] (0,5.6) -- (0,5.2) node[left,twoline]{X-ray\\intensity} -- (0,0) -- (8,0) node[below]{frequency};
+		\draw[thick,blue,domain=0:2.2,samples=20,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
+		\draw[thick,blue,domain=2.2:2.9,samples=70,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
+		\draw[thick,blue,domain=2.9:3.4,samples=10,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
+		\draw[thick,blue,domain=3.4:4.1,samples=50,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
+		\draw[thick,blue,domain=4.1:7.,samples=20,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
+	\end{tikzpicture}
+	\caption*{frequency spectrum of X-ray beam produced in an X-ray tube}
+\end{figure}
+
+this spectrum consists of two parts: a \emph{continuous background}, and a few \emph{discrete spikes}
+
+these are due to two different mechanisms, about which we are about to discuss
+	
+\subsubsection*{braking radiation}
+
+continuous background in X-ray spectrum is due to \keypoint{braking radiation}\index{braking radiation}
+
+high-speed electrons decelerate when they strike into the target metal
+
+loss of K.E. of electrons are converted into electromagnetic energy, i.e. X-ray photons
+
+no constraint on final K.E. of electrons, so there could be a \emph{distribution} of K.E. loss
+
+X-ray photons produced therefore are allowed to take a range of energies
+
+so a range of frequencies of the X-ray photons, giving a broad continuous spectrum
+
+\cmt there exists a maximum frequency for emitted X-rays
+	
+X-ray photon of highest energy is produced if an electron loses all its K.E. in one collision
+
+photon energy is proportional to frequency of radiation, so sharp cut-off at high $f$
+
+\example{An X-ray tube uses accelerating voltage of 5000 V, what is the highest frequency of the X-ray produced?}
+
+\sol electrical P.E. converts into K.E. of electron, then converts into X-ray photon
+\begin{equation*}
+	qV_\text{ac} = hf_\tmax \RA f_\tmax = \frac{qV_\text{ac}}{h} = \frac{1.60\times10^{-19}\times 5000}{6.63\times10^{-34}} \approx 1.2\times10^{18} \text{ Hz} \teoe
+\end{equation*}
+
+\question{Explain why the spectrum of X-ray would have a minimum wavelength.}
+
+
+
+
+\subsubsection*{characteristic radiation}
+
+discrete peaks in the X-ray spectrum arise from a process called \keypoint{characteristic radiation}\index{characteristic radiation}
+
+incident electrons can knock out orbital electrons from inner shells in target metal
+
+orbital electrons from higher energy levels drop to fill these vacancies
+
+\emph{de-excitation} of the electrons gives out energy as X-ray photons
+
+electron energy levels in atoms are discrete, so only certain X-ray frequencies are emitted
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=.7]
+	\draw[dashed] (0,0) circle (2) circle (4);
+	\foreach \i in {1,2,...,12}{
+		\pgfmathsetmacro{\x}{rand/5}
+		\pgfmathsetmacro{\y}{rand/5}
+		\shade [ball color = brown] (\x,\y) circle (0.12);
+		\pgfmathsetmacro{\x}{rand/5}
+		\pgfmathsetmacro{\y}{rand/5}
+		\shade [ball color = blue] (\x,\y) circle (0.12);
+	}
+	\draw[thick, ->] (-3,5)  -- (-1,3); \draw[thick] (-1,3) -- (0,2); \draw[thick,->] (0,2) -- (2,4); \draw[thick] (2,4) -- (3,5);
+	\node[left,twoline] at (-3,5){\ding{172} high K.E. incoming electron\\smashes into target atom};
+	\node[right,twoline] at (3,5){\ding{173} inner electron is ejected,\\leaving behind a vacancy};
+	\shade [ball color = green] (-2.5,4.5) circle (0.12);
+	\shade [ball color = green] (0,2) circle (0.12);
+	\shade [ball color = green] (-30:4) circle (0.12);
+	\draw[thick,blue,->] (-30:3.8) -- (-45:2.2);
+	\node[right,twoline] at (-29:4.2){\ding{174} outer electron drops to\\fill the unoccupied state};
+	\draw[thick,red,decorate,decoration=snake] (-40:3.1) --++ (-100:2.4);
+	\draw[thick,red,->] (-40:3.1) ++ (-100:2.4) -- ++(-100:.2); \node[right,twoline] at (2.1,-4.5) {\ding{175} characteristic X-ray\\photon is emitted};
+	\shade [ball color = green] (230:2) circle (0.12);
+	\shade [ball color = green] (30:4) circle (0.12);
+	\shade [ball color = green] (160:4) circle (0.12);
+	\shade [ball color = green] (250:4) circle (0.12);
+	\end{tikzpicture}
+	
+	production of characteristic radiation
+\end{figure}
+
+\cmt positions of characteristic lines are determined by target metal
+
+each metal has its unique electron energy level, producing unique characteristic lines
+
+\question{If accelerating voltage in the X-ray tube is increased, suggest and explain the changes to the X-ray spectrum.}
+
+\question{Summarise the principles of production of X-rays.}
+
+
+\subsubsection{X-ray attenuation}
+
+as an X-ray beam penetrates through a substance, its intensity decreases
+
+gradual decrease in X-ray intensity is called \keypoint{attenuation}\index{attenuation}
+
+change in X-ray intensity can be measured to extract information about patient's body
+
+the law of X-ray attenuation is given by $\boxed{I = I_0 \mathrm{e}^{-\mu x}}$
+
+this shows a beam of initial intensity $I_0$ decreases exponentially with distance $x$ travelled
+
+$\mu$ is \keypoint{linear attenuation constant}, or \keypoint{absorption constant} of the substance
+
+\cmt the equation $I = I_0 \mathrm{e}^{-\mu x}$ applies to \emph{parallel} beam of X-ray only
+
+intensity of a \emph{divergent} beam will decrease even without absorption
+
+\cmt recall that \emph{intensity} of radiation is defined as power transmitted per unit time: $I = \frac{P}{A}$
+
+this is related to number of photons in the beam per unit time, given by: $\frac{\Delta N}{\Delta t} \times hf$
+
+as each photon passes through some distance, it has certain probability to be absorbed
+
+we may think of $\mu$ as probability for one single photon to be absorbed per unit distance
+
+make analogy with nuclear decays, X-ray intensity should also decrease exponentially
+\footnote{You may have noticed the similarity between the law of X-ray attenuation ($I = I_0 \mathrm{e}^{-\mu x}$) and nuclear decay laws ($N=N_0 \mathrm{e}^{-\lambda t}$). The analogy is clear: intensity $I$ of radiation is analogous to number of undecayed nuclei $N$, distance $x$ is analogous to time $t$, and probability constant are given by $\mu$ and $\lambda$ respectively, where $\lambda$, the decay constant, tells the probability of decay for a radioactive nucleus per unit time.}
+
+\cmt substance with high value of $\mu$ is a good absorber of X-ray
+
+bones are much better absorbers than soft tissues ($\mu_\text{bone}>\mu_\text{tissue}$)
+
+with X-ray imaging techniques, bones are easily distinguished from soft tissues
+
+\cmt attenuation constant $\mu$ depends on hardness of an X-ray beam
+
+high-frequency X-ray is more penetrating, so a material has smaller $\mu$ at higher frequency
+
+
+\cmt can define \emph{half-value thickness} $x_\text{\tiny\sfrac{1}{2}}$ (recall half-life $t_\text{\tiny\sfrac{1}{2}}$ for nuclear decays)
+	
+this is thickness of material at which intensity of X-ray becomes halved
+	
+it follows that: $\frac{1}{2}I_0 = I_0 \mathrm{e}^{-\mu x_\text{\tiny\sfrac{1}{2}}} 
+\ra \boxed{x_\text{\tiny\sfrac{1}{2}} = \frac{\ln 2}{\mu}}$
+\footnote{Compare with half-life of nuclear decay: $\halflife = \frac{\ln 2}{\lambda}$.}
+
+
+
+\begin{wrapfigure}{r}{0.46\textwidth}
+	\vspace*{-18pt}
+	\centering
+	\begin{tikzpicture}[scale=0.7]
+	\draw[rounded corners=10,fill=pink!20] (-3,-1) rectangle (3,1);
+	\draw[rounded corners=5,fill=gray!50] (-1.6,-0.4) rectangle (1.6,0.4);
+	\draw (0.1,-0.7) --++ (0.2,-0.8) node[below]{muscle};
+	\draw (1,-0.2) --++ (1.3,-1.3) node[below right]{soft tissue};
+	\draw[thick,<->] (3.5,-1) -- (3.5,1) node[midway,right]{2.5 cm};
+	\draw[thick,<->] (-0.9,-0.4) -- (-0.9,0.4);
+	\draw (-1,0) --++ (-1,-1.5) node[below left]{1.0 cm};
+	\draw[dashed] (3,1) --++ (0.7,0) (3,-1) --++ (0.7,0);
+	\foreach \x in {-2.1,-0.7,0.7,2.1} {
+		\draw[thick,red,decorate,decoration=snake] (\x,3) --++ (0,-1.3);
+		\draw[thick,red,->] (\x,1.7) --++ (0,-0.4);	
+	}
+	\node[above] at (0,3.1) {X-ray beam};
+	\end{tikzpicture}
+	
+	\vspace*{0.3\baselineskip}
+	
+	attenuation constants for 30 keV X-ray
+	
+	\vspace*{0.2\baselineskip}
+	
+	\begin{tabular}{|c|c|}
+		\hline
+		& $\mu$/cm$^{-1}$ \\ \hline
+		tissue & 0.40 \\ \hline
+		bone & 2.55 \\ \hline
+	\end{tabular}
+	\vspace*{-12pt}
+\end{wrapfigure}
+
+
+\example{A parallel beam of 30 keV X-ray of initial intensity $I_0$ is incident on a specimen of soft tissue and bone as shown. Find the emergent intensity from the specimen if (a)  the beam passes through soft tissue alone, (b) the beam passes through the bone and the soft tissue.}
+	
+\sol through soft tissue only:
+
+{
+	\centering
+	
+	$ I = I_0 \mathrm{e}^{-\mu x} = I_0 \mathrm{e}^{-0.40\times2.5} \approx 0.37 I_0$
+	
+}
+
+through soft tissue and bone:
+
+{
+	\centering
+	
+	$ I = I_0 \mathrm{e}^{-\mu_\text{m} x_\text{m}} \mathrm{e}^{-\mu_\text{b} x_\text{b}}$
+	
+	$I_0 \mathrm{e}^{-0.40\times1.5} \times \mathrm{e}^{-2.55\times1.0}  \approx 0.043 I_0$
+	
+}
+
+emergent intensity will be very different depending on whether it travels through bone
+
+so there will be clear difference between bone and soft tissue in the image \eoe
+
+\question{Copper has a linear attenuation coefficient 0.41 mm$^{-1}$ for X-ray radiation of energy 100 keV. If a copper filter is able to reduce the intensity of a parallel beam of X-ray by 90\%, what is the thickness required?}
+
+
+\subsubsection{X-ray imaging techniques}
+
+basic principle of conventional X-ray imaging: expose patient to a beam of X-ray, a fraction of the beam is absorbed by patient's body, a film or a detector captures attenuated X-rays, resulting in a black-and-white shadow image
+
+high-quality imaging requires good sharpness, good contrast and minimal radiation dosage
+
+\subsubsection*{image sharpness}
+
+\keypoint{sharpness} of image means whether details on edges of structures can seen with ease
+	
+sharpness of image is mainly determined by \emph{width} of X-ray beam
+
+so a narrow beam of \emph{parallel} X-ray is desired
+
+\cmt parallel X-ray beam can be realized by
+
+\begin{compactitem}
+	\item[--] reducing size of target metal at anode of X-ray tube
+	
+	\item[--] reducing size of exit window of X-ray tube
+	
+	\item[--] using a set of lead slits to make the beam more parallel, known as \emph{collimation}
+	
+	\item[--] using \emph{anti-scatter screen} to reduce influence of scattering of radiation in patient's body
+	
+	\item[--] making sure that patient keep still when image is taken
+\end{compactitem}
+
+
+\subsubsection*{image contrast}
+
+\keypoint{contrast} means whether different structures show up with different degrees of blackening
+
+good contrast requires a great difference in X-ray intensity
+
+\cmt for substances with large difference in $\mu$, they naturally produce good contrast
+
+\cmt most soft tissues are poor absorbers of X-rays, not easy to distinguish them on same image
+
+artificial \keypoint{contrast media} such as iodine (I) injections , barium (Ba) meals\footnote{Contrast media usually contain elements of large atomic numbers, which means each atom accommodates a large number of electrons, so it is more likely for them to interact with X-ray photons, making these atoms good absorbers of radiation.} can be used to turn a tissue into a better absorber, therefore greatly improve contrast of image
+
+
+
+
+\newpage
+
+\question{The table below shows the linear attenuation
+	coefficient $\mu$ for X-ray beams of different energies in cortical bone and muscle. To produce an X-ray image where the bone is
+	clearly distinguished from muscle, why is it more desirable to use low-energy X-rays?}
+
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			maximum X-ray energy/keV & bone: $\mu$/cm$^{-1}$ & muscle: $\mu$/cm$^{-1}$ \\ \hline
+			30 & 2.55 & 0.40 \\ \hline
+			80 & 0.43 & 0.19 \\ \hline
+			200 & 0.25 & 0.14 \\ \hline
+			800 & 0.14 & 0.082 \\ \hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+
+
+\subsubsection*{dosage of radiation}
+
+
+X-ray radiation is ionising, hence harmful to human body
+
+image should be developed quickly, so exposure time is minimised to reduce possible harm
+
+to reduce exposure, or \keypoint{dosage} of radiation, efficient imaging systems are needed
+
+\cmt \keypoint{image intensifiers} are used to reduce dosage of X-ray radiation
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[force/.style={twoline,draw,thick,rounded corners,inner sep=.3cm}, xscale=0.81]
+	
+	\node [force] (input) at (3,0) {input\\phosphor};
+	\node [force] (cathode) at (8.3,0) {photo-\\cathode};
+	\node [force] (output) at (13.2,0) {fluorescent\\screen};
+	
+	\draw[thick,decorate,decoration=snake,->] (0,0) -- (input) node[midway,above]{X-ray};
+	\draw[thick,decorate,decoration=snake,->] (input) to node[midway,above]{visible light} (cathode);
+	\draw[thick,->] (cathode) to node[midway,above]{electrons} (output);
+	\draw[thick,->] (output) -- (17.2,0) node[midway,above]{to camera};
+	\end{tikzpicture}
+	
+	\caption*{illustration of how the image is developed efficiently with an image intensifier}
+\end{figure}
+
+
+
+\subsubsection{CT scans}
+
+conventional X-ray imaging only produces a 2D \emph{shadow image}
+
+information about \emph{depth} of structures cannot be displayed
+
+computerised axial tomography scan, or \keypoint{CT scan}\index{CT imaging}, is developed to produce 3D images
+
+
+\subsubsection*{principles of CT imaging}
+
+patient's body can be thought to consist of many 2D slices
+
+each slice can be divided into a grid of many units, called \keypoint{voxels}\index{voxel}
+
+to obtain image of one slice, computer-programmed X-rays are exposed from all directions
+
+detectors opposite to X-ray tube pick up transmitted signals and feed them to computer
+
+computer uses emergent intensities from all directions to deduce information about each voxel, therefore a 2D slice image can be built up
+
+this process is repeated, so images for many 2D slices are obtained
+
+2D slice images are combined to get a comprehensive 3D image
+
+the 3D image can be rotated and viewed from different angles
+
+\cmt advantages of CT imaging
+
+\begin{compactitem}
+	\item[--] precise position, shape, size of structures can be shown
+	
+	\item[--] tissues with similar attenuation coefficients can be distinguished
+
+\end{compactitem}
+
+\cmt disadvantages of CT imaging
+
+\begin{compactitem}
+	\item[--] more expensive than traditional 2D radiography
+	
+	\item[--] patient is exposed to higher radiation dosage
+\end{compactitem}
+
+\subsubsection*{building up images}
+
+we now discuss how information of each voxel is recovered from transmitted X-rays
+
+we consider a toy model, a $2\times2$ grid with 4 voxels
+
+each voxel makes its contribution to attenuation, described by numbers $a$, $b$, $c$ and $d$
+
+grid is exposed to a parallel beam of X-ray, readings from detectors are assigned to associated voxel, the voxels are reconstructed and recorded in a memory gird
+
+this process is repeated for four different directions
+
+all the memory grids are then added to construct a cumulative grid
+
+knowing background reading, which is $a+b+c+d$ from all voxels, and cumulative reading, information of the original voxels can be obtained within two simple steps
+
+step 1: subtract background reading from cumulative grid
+	
+step 2: divide the result by three
+
+the whole process is shown in the figure, which should be self-explanatory
+
+\newpage
+
+\begin{center}
+	\footnotesize
+	\begin{tikzpicture}[scale=.41]
+	\node at (2,42) {\normalsize original grid};
+	\node at (14,42) {\normalsize memory grids};
+	% voxel frames initialisation
+	\foreach \idx in {0,12,24,36}{
+		\draw[thick] (0,\idx) rectangle (4,\idx+4);
+		\node at (1,\idx+1) {$c$};
+		\node at (1,\idx+3) {$a$};
+		\node at (3,\idx+1) {$d$};
+		\node at (3,\idx+3) {$b$};
+		\draw[thick] (0,\idx+2) -- ++ (4,0) (2,\idx) -- ++(0,4);
+		\draw[thick] (12,\idx) rectangle (16,\idx+4);
+		\draw[thick] (12,\idx+2) -- ++ (4,0) (14,\idx) -- ++(0,4);
+		\node at (10,\idx+2) {\LARGE$\Rightarrow$};
+	}
+	\foreach \idx in {8,20,32} \node at (14,\idx) {\Huge $+$};
+	% angle = 0
+	\draw[thick] (6,36) rectangle (8,40) (6,38) -- (8,38);
+	\node at (7,37) {$c+d$};
+	\node at (7,39) {$a+b$};
+	\foreach \y in {36.5,38,39.5}{
+		\draw[thick,red,decorate,decoration=snake] (-3,\y) -- (-1,\y);
+		\draw[thick,red,->] (-1,\y) -- ++(.2,0);
+	}
+	\node at (13,39) {$a+b$};
+	\node at (13,37) {$c+d$};
+	\node at (15,39) {$a+b$};
+	\node at (15,37) {$c+d$};
+	% angle = 45
+	\draw[thick] (2.9,20.9) --++ (4.2,4.2) --++ (1.2,-1.2) --++ (-4.2,-4.2) -- cycle;
+	\draw[thick] (4.3,22.3) --++ (1.2,-1.2);
+	\draw[thick] (5.7,23.7) --++ (1.2,-1.2);
+	\node[rotate=45] at (4.2,20.9) {$c$};
+	\node[rotate=45] at (5.6,22.3) {$a+d$};
+	\node[rotate=45] at (7.0,23.7) {$b$};
+	\foreach \y in {-1.2,0,1.2}{
+		\draw[thick,red,decorate,decoration=snake] (0,28) ++ (-2.5,2.5) ++ (\y,\y) --++ (1.8,-1.8);
+		\draw[thick,red,->] (0,28) ++ (-.7,.7) ++ (\y,\y) -- ++(.2,-.2);
+	}
+	\node at (13,27) {$a+d$};
+	\node at (13,25) {$c$};
+	\node at (15,27) {$b$};
+	\node at (15,25) {$a+d$};
+	% angle = 90
+	\draw[thick] (0,8) rectangle (4,10) (2,8) -- (2,10);
+	\node at (1,9) {$a+c$};
+	\node at (3,9) {$b+d$};
+	\foreach \x in {0.5,2,3.5}{
+		\draw[thick,red,decorate,decoration=snake] (\x,19) -- (\x,17);
+		\draw[thick,red,->] (\x,17) -- ++(0,-.2);
+	}
+	\node at (13,15) {$a+c$};
+	\node at (13,13) {$a+c$};
+	\node at (15,15) {$b+d$};
+	\node at (15,13) {$b+d$};
+	% angle = 135
+	\draw[thick] (-3.1,1.1) --++ (4.2,-4.2) --++ (-1.2,-1.2) --++ (-4.2,4.2) -- cycle;
+	\draw[thick] (-1.7,-0.3) --++ (-1.2,-1.2);
+	\draw[thick] (-0.3,-1.7) --++ (-1.2,-1.2);
+	\node[rotate=-45] at (-3,-0.2) {$a$};
+	\node[rotate=-45] at (-1.6,-1.6) {$b+c$};
+	\node[rotate=-45] at (-0.2,-3.0) {$d$};
+	\foreach \y in {-1.2,0,1.2}{
+		\draw[thick,red,decorate,decoration=snake] (4,4) ++ (2.5,2.5) ++ (\y,-\y) --++ (-1.8,-1.8);
+		\draw[thick,red,->] (4,4) ++ (.7,.7) ++ (\y,-\y) -- ++(-.2,-.2);
+	}
+	\node at (13,3) {$a$};
+	\node at (13,1) {$b+c$};
+	\node at (15,3) {$b+c$};
+	\node at (15,1) {$d$};
+	% cumulative grid
+	\node at (25,40) {\normalsize background};
+	\node at (26,38) {\normalsize $=a+b+c+d$};
+	\draw[ultra thick] (18,39) arc(90:0:1) -- (19,21) arc(180:270:1) arc(90:180:1) -- (19,2) arc(0:-90:1);
+	\draw[thick] (22,17) rectangle (30,23);
+	\draw[thick] (26,17) -- (26,23) (22,20) -- (30,20);
+	\node[twoline] at (24,21.5) {$4a+b$\\$+c+d$};
+	\node[twoline] at (28,21.5) {$a+4b$\\$+c+d$};
+	\node[twoline] at (24,18.5) {$a+b$\\$+4c+d$};
+	\node[twoline] at (28,18.5) {$a+b$\\$+c+4d$};
+	\node[above,align=center] at (26,24) {\normalsize cumulative memory};
+	% recovering original grid
+	\node at (26,15) {\LARGE$\Downarrow$};
+	\node[right,twoline] at (26.5,15) {subtract\\background};
+	\draw[thick] (24,9) rectangle (28,13);
+	\draw[thick] (24,11) -- (28,11) (26,9) -- (26,13);
+	\node at (25,12) {$3a$};
+	\node at (27,12) {$3b$};
+	\node at (25,10) {$3c$};
+	\node at (27,10) {$3d$};
+	\node at (26,7) {\LARGE$\Downarrow$};
+	\node[right,twoline] at (26.5,7) {divide\\by 3};
+	\draw[thick] (24,1) rectangle (28,5);
+	\draw[thick] (24,3) -- (28,3) (26,1) -- (26,5);
+	\node at (25,4) {$a$};
+	\node at (27,4) {$b$};
+	\node at (25,2) {$c$};
+	\node at (27,2) {$d$};
+	\end{tikzpicture}
+	
+	{\normalsize  recovering information of the original $2\times 2$ voxels using 
+		
+	detector readings obtained from exposure at different angles}
+\end{center}
+
+\newpage
+
+in practice, high-quality 2D slice image is built up from many voxels, attenuated intensities from many different directions are measured by an array of many detecting units
+\footnote{For our simple toy model, each voxel is exposed for four times and superimposed with each of the other voxels once, this is why the subtract-background-and-divide-by-three trick works.}
+
+huge amount of data is to be collected and processed, this requires use of power computers
+
+\question{An X-ray image of a 2-by-2 pixel section is obtained by exposing X-rays from four different angles. Detector readings from four consecutive directions are summed to give the cumulative pattern shown. For any one direction, total of detector readings is 19. (a) Find the value of each pixel and mark them on the graph. (b) For each of the directions shown, state the readings measured by detectors.}
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[c]{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=1]
+		\draw (-1,-1) rectangle (1,1);
+		\draw (-1,0) -- (1,0) (0,-1) -- (0,1);
+		\foreach \x in {180,135,90,45} \draw[<-] (\x:2) -- ++(\x:1);
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}[c]{0.4\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=1.2]
+		\draw (-1,-1) rectangle (1,1);
+		\draw (-1,0) -- (1,0) (0,-1) -- (0,1);
+		\node at (0.5,0.5) {28};
+		\node at (0.5,-0.5) {31};
+		\node at (-0.5,0.5) {34};
+		\node at (-0.5,-0.5) {40};
+		\end{tikzpicture}
+		
+		cumulative reading
+	\end{minipage}
+\end{figure}
+
+\question{By reference to the principles of CT imaging, suggest why the radiation dosage from a CT scan is greater than a simple X-ray image.}
+
+
+
+\subsection{ultrasonic scans}
+
+\subsubsection{nature of ultrasound}
+
+sound wave is a \emph{longitudinal} \emph{mechanical} wave
+
+human hearing range is around 20 Hz (low pitch) $\sim$ 20,000 Hz (high pitch)
+
+sound waves of frequencies higher than 20,000 Hz is \keypoint{ultrasound}
+
+\cmt meaning of longitudinal waves and mechanical waves
+	
+propagation of sound waves require material medium (air, water, tissue, etc.)
+	
+longitudinal wave travels in a parallel direction to compression and rarefaction of medium
+	
+\cmt rationale for using ultrasounds in medical imaging
+	
+for a given medium, speed of sound is constant
+
+$v=\lambda f \ra$ greater frequency means shorter wavelength, which means better \emph{resolution}
+
+so fine details of small structures can be detected
+
+\question{Sound waves travel at a speed of around $1600\mps$ in soft tissues. Compare the wavelength of sound waves if they have a frequency of (a) 500 Hz, (b) 10 MHz.}
+
+\subsubsection{production of ultrasounds}
+
+sound can be produced by a \emph{piezo-electric transducer}\footnote{Piezo-electricity and its use as sensing devices have been discussed in $\S$\ref{ch-piezo}.}
+
+if apply a high-frequency alternating voltage across a piezo-electric crystal, the crystal is made to vibrate, ultrasound wave is produced
+
+\cmt frequency of ultrasound is determined by frequency of alternating voltage: $f_\text{sound} = f_\text{a.c.}$
+
+to generate ultrasounds, we need $f_\text{a.c.} > 20,000 \text{ Hz}$
+
+\cmt there is an optimum thickness for crystal to give out ultrasound of greatest intensity
+
+when thickness of crystal $d=\frac{1}{2}\lambda$, amplitude of vibration is maximum
+\footnote{Resonance occurs when a nice \emph{stationary wave} pattern is formed within the piezo-electric crystal. It can be shown that this occurs if the thickness of the crystal satisfies: $d=\left(n+\frac{1}{2}\right)\lambda$, where $n=0,1,2,\cdots$. However, additional thickness would cause greater attenuation, so the optimum thickness is $d=\frac{1}{2}\lambda$.}
+
+\cmt in ultrasonic scanning, reflected sound waves are detected and processed to build images
+
+the same piezo-electric transducer is also used to act as a sound detector
+
+for each pulse emitted, vibration of crystal must stop quickly before reflected echo arrives
+
+a damping mechanism is required to ensure vibration would stop in very short time
+
+\cmt a typical piezo-electric transducer used in ultrasonic scanning consists of several parts:
+
+
+
+
+\begin{compactitem}
+	\item[--] a piece of piezo-electric crystal (quartz, PZT, PVDF, etc.)
+	
+	this is the heart of the transducer, responsible for generating and detecting sound waves
+
+	\item[--] an acoustic window (made of good sound transmitter)
+	
+	volume of sound generated is boosted with the acoustic window
+	
+	\item[--] a damping block (usually made of epoxy-resin)
+	
+	this stops vibration of crystal quickly before reflected wave returns
+	
+	\item[--] electrodes/connecting wires
+	
+	signals can be sent to transducers from control units to generate ultrasounds
+	
+	signals detected by transducer can also be sent back to processing units to build images
+	
+	
+\end{compactitem}
+
+\subsubsection{attenuation of ultrasounds}
+
+just like X-rays, intensity of ultrasound also decreases as it propagates through a substance
+
+intensity $I$ decreases \emph{exponentially} with depth $x$: $\boxed{I = I_0 \mathrm{e}^{-\alpha x}}$
+
+$I_0$ is original intensity, $\alpha$ is called \keypoint{absorption coefficient} of the medium
+
+\cmt ultrasonic scans mostly rely on detection of reflected waves from various boundaries
+
+so attenuation is not a big problem, weak echoes from deep tissues can be \emph{amplified}
+
+
+
+\subsubsection{reflected \& transmitted intensity at boundaries of structures}
+
+\begin{wrapfigure}{r}{0.46\textwidth}
+	\vspace*{-5pt}
+	\centering
+	\begin{tikzpicture}[yscale=1.44]
+	\tikzstyle sound=[thick,blue,postaction={decorate},decoration={markings,mark=at position 0.5 with {\arrow{>}}}]
+	\draw (-2,0) -- (3,0) node[above=0.2cm]{medium 1} node[below=0.2cm]{medium 2} -- (4,0);
+	\draw[sound] (-0.2,2) -- (0,0) node[black,midway,left,twoline]{incident\\$I_0$};
+	\draw[sound] (0,0) -- (0.2,2) node[black,midway,right,twoline]{reflected\\$I_r$};
+	\draw[sound] (0,0) -- (0.1,-2) node[black,midway,right,twoline]{transmitted\\$I_t$};
+	\end{tikzpicture}
+	
+	\caption*{ultrasound at boundary of two medium}
+	\vspace*{-25pt}
+\end{wrapfigure}
+
+as ultrasound travels from one medium to another, it undergoes \emph{reflection} and \emph{transmission}
+
+intensities of incident, reflected and transmitted ultrasounds satisfy the obvious relation:
+
+{
+	\centering
+	
+	$ I_0 = I_r + I_t $
+	
+}
+
+for \emph{normal incidence}, fraction of reflected and transmitted ultrasounds are further given by:
+
+{
+	\centering
+	
+	reflection coefficient: $ \boxed{\frac{I_r}{I_0} = \left(\frac{Z_1-Z_2}{Z_1+Z_2}\right)^2 }$
+	
+	transmission coefficient: $ \boxed{\frac{I_t}{I_0} = 1-  \left(\frac{Z_1-Z_2}{Z_1+Z_2}\right)^2 }$\footnote{Proof of this relation involves solving second-order partial differential wave equations under certain boundary conditions, in which the idea of acoustic impedance is formally defined when one describes how much sound pressure is produced by vibration of acoustic medium at a given frequency.}
+	
+}
+
+\noindent where $Z$ is the medium's \emph{acoustic impedance}
+
+\cmt \keypoint{acoustic impedance}\index{acoustic impedance}, also called specific acoustic impedance, is defined as the product of density of medium and speed of sound wave travelling through it: $\boxed{Z=\rho c}$
+
+\example{Data for air and soft tissue is given in the table below. When an ultrasound is sent from air into human body at right angles, suggest what happens.}\label{ex-air-tissue}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		& density/kg m$^{-3}$ & speed of sound/m s$^{-1}$ \\ \hline
+		air & 1.29 & 330 \\ \hline
+		soft tissue & 1060 & 1540 \\ \hline
+	\end{tabular}
+\end{table}
+
+\sol let's first find the acoustic impedance for air and soft tissue:
+
+\eqskip $Z_\text{air} = \rho_\text{air} c_\text{air} = 1.29 \times 330 = 4.26 \times 10^2 \text{ kg m}^2 \text{s}^{-1}$
+
+\eqskip $Z_\text{tissue} = \rho_\text{tissue} c_\text{tissue} = 1060 \times 1540 = 1.63 \times 10^6 \text{ kg m}^2 \text{s}^{-1}$
+
+at air-tissue boundary, reflection coefficient is: $\frac{I_r}{I_i} = \left(\frac{4.26\times10^2-1.63\times10^6}{4.26\times10^2+1.63\times10^6} \right)^2 \approx 99.9\%$
+
+almost complete reflection, so almost no ultrasound can enter human body
+
+to overcome this problem, transduce is coupled to patient's skin using a \emph{gel}, which is a transparent watery substance that has a similar acoustic impedance to soft tissue,
+
+with \emph{impedance matching}, ultrasound can get into patient's body \eoe
+
+
+\example{An ultrasonic pulse of intensity $I_0$ is sent into a layer of muscle, it then arrives at a muscle-bone boundary (see figure). The speed of sound $c$, acoustic impedance $Z$ and absorption coefficient $\mu$ for muscle and bone are given in the table. (a) Find the intensity of the wave reflected from the muscle-bone boundary and received back at the surface of the muscle. (b) Find the arrival time of this signal after the pulse is transmitted into patient's body.}\label{ex-us-transmission}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[c]{0.55\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=1.4]
+		\draw (-1.5,0.55) rectangle (0,1.45);
+		\draw[fill=black] (-1.6,0.8) rectangle (-1.5,1.2);
+		\draw[fill=brown!20] (0,0) rectangle (1.8,2);
+		\draw[fill=gray!40] (1.8,0) rectangle (3,2);
+		\node[above] at (.9,2.1) {muscle};
+		\node[above] at (2.4,2.1) {bone};
+		\draw[->] (-1,1.1) -- (0,1.1) node[midway, above]{$I_0$};
+		\draw[->] (0,0.9) -- (-1,0.9) node[midway, below]{$I=$?};
+		\draw[<->] (0.05,-0.5) --++ (1.7,0) node[midway,above]{3.0 cm};
+		\draw[<->] (1.85,-0.5) --++ (1.1,0) node[midway,above]{2.0 cm};
+		\draw[line width=2pt] (-1.6,1) [out=180, in=0] to (-2.4,0.6);
+		\draw(-1.2,1.2) --++ (-0.4,0.5) node[above]{transducer};
+		\end{tikzpicture}
+	\end{minipage}\hfil
+	\begin{minipage}[c]{0.42\textwidth}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			& muscle & bone \\ \hline
+			$c$/m s${-1}$ & 1600 & 4000 \\ \hline
+			$Z$/$\text{kg m}^2 \text{s}^{-1}$ & $1.7\times10^6$ & $6.4\times10^6$ \\ \hline
+			$\mu$/m$^{-1}$ & 23 & 130 \\ \hline
+		\end{tabular}
+	\end{minipage}
+\end{figure}
+
+\sol intensity received at muscle surface: $I = I_0 \times {\underbrace{\vphantom{\left( \frac{Z_\text{m}-Z_\text{b}}{Z_\text{m}+Z_\text{b}}\right)^2} \mathrm{e}^{-\mu_\text{m} x_\text{m}}}_\text{attenuation in muscle}} \times  {\underbrace{\left( \frac{Z_\text{m}-Z_\text{b}}{Z_\text{m}+Z_\text{b}}\right)^2}_\text{reflection at boundary}}$
+\begin{equation*}
+	I = I_0 \times \mathrm{e}^{-23\times2\times0.030} \times \left( \frac{6.4\times10^6 - 1.7\times10^6}{6.4\times10^6 + 1.7\times10^6} \right)^2 \approx I_0 \times 0.252 \times 0.337 \approx 0.085 I_0
+\end{equation*}
+
+note that ultrasound travels from surface of muscle to the muscle-bone boundary, and then travels from the boundary back to the muscle surface, so it is attenuated through a total distance that equals twice the thickness of the muscle
+
+time taken for this return trip: $\Delta t = \frac{2x_\text{m}}{c_\text{m}} = \frac{2\times0.030}{1600} \approx 3.75\times10^{-5} \text{ s}$ 
+
+in practice, arrival time for echo waves are measured so depth of structures are found \eoe
+
+\question{Given that a gel has an acoustic impedance of $1.65 \times 10^6 \text{ kg m}^2 \text{s}^{-1}$. Use data in Example \ref{ex-air-tissue}, calculate the reflection coefficient when ultrasound is normally incident from a gel to the human body, and hence explain why a gel is put on the patient's skin during medical diagnosis using ultrasounds.}
+
+\question{It is a good idea to use ultrasound to image the lungs? Give your reasons.}
+
+\question{In Example \ref{ex-us-transmission}, if an ultrasound detector is couple to the surface of the bone at the far right, what intensity would be measured?}
+
+
+
+\subsubsection{ultrasound imaging}
+
+the principles of ultrasonic imaging can be summarised as the following:
+
+ultrasonic \emph{pulses} produced from \emph{piezo-electric transducer} are sent into patient’s body
+
+pulses are reflected from \emph{boundaries} of different media
+
+\emph{reflected waves}, or echoes, are received and detected by the same transducer
+
+these signals are processed to construct the image
+
+\emph{arrival times} of the reflected waves can give information about \emph{thickness} of structures
+
+\emph{intensity} of the reflected signals depend on acoustic impedance and attenuation coefficient of media, so can give information about \emph{nature} of structures
+
+
+\cmt advantages of ultrasound imaging
+
+\begin{compactitem}
+	\item[--] safe, no harmful radiation involved (can be used in diagnosis of fetus during pregnancy)
+	
+	\item[--] provides images in real-time, almost no processing delay
+	
+	\item[--] low cost, apparatuses of ultrasound scans are not expensive
+	
+	\item[--] portable, apparatuses can be easily brought to a patient's bedside
+\end{compactitem}
+	
+\cmt disadvantages of ultrasound imaging
+
+\begin{compactitem}
+	\item[--] difficult to image structures behind bones or air
+	
+	\item[--] require a highly-skilled operator to read images
+\end{compactitem}
+	
+\cmt ultrasounds are also used in other areas of medical diagnosis
+	
+\begin{compactitem}
+	\item[--] image flow of blood in vessels with Doppler ultrasonography
+	
+	\item[--] detect problems in liver, heart, kidney, abdomen, etc.
+	
+	\item[--] break up kidney stones by high-frequency resonance
+	
+	\item[--] clean teeth, medical devices, etc.
+\end{compactitem}
+
+
+
+
+\subsection{MRI}
+
+\subsubsection{nuclear magnetic resonance}\index{nuclear magnetic resonance}
+
+nuclei of some atoms have an intrinsic property called \keypoint{spin}
+
+at this stage, you can think of a nucleus as if it is spinning around
+\footnote{This picture might be helpful to the understanding of NMR, but is not correct in the context of quantum mechanics. Spin is a \emph{quantum} concept that has no analogy in classical physics. Spin is an \emph{intrinsic} property of particles. For a proton, an electron, or any elementary particle, they have a fixed magnitude of a spin number, which only depends on the type of particle. This spin number has nothing to do with rotation. Spin also gives information about directions, which is even more peculiar. The spin component along any axis is \emph{quantized}, i.e., only certain discrete values are allowed.}
+
+since all nuclei are positively-charged, spinning gives rise to a circulating current, magnetic fields are created around any nucleus, so spin makes nuclei behave like tiny magnets
+
+\subsubsection*{step 1. split of energy levels}
+
+in absence of magnetic field, nuclei align randomly, any orientation shares the same energy
+
+
+apply a strong magnetic field $B_0$, nuclei would rearrange themselves
+
+most nuclei line up parallel to $B_0$ $\longrightarrow$ stable, low-energy states
+
+a few line up anti-parallel to $B_0$ $\longrightarrow$ unstable high-energy states
+
+energy level of nuclei splits up when external magnetic field $B_0$ is switched on
+
+note that nucleus energy levels in presence of $B_0$ are discrete
+
+
+\subsubsection*{step 2. precession of nuclei}
+
+\begin{wrapfigure}{r}{0.42\textwidth}
+	\vspace*{-12pt}
+	\centering
+	\begin{tikzpicture}[decoration={markings,mark=at position 0.65 with {\arrow{>}}},scale=1.08]
+		\draw[thick, red, postaction={decorate}] (0,1.6) ellipse(0.9 and 0.3);
+		\draw[white,fill] (-0.2,1.85) rectangle (0.2,1.95);
+		\draw[thick,->] (0,-2) -- (0,2.4) node[above,twoline]{external\\magnetic\\field};
+		\draw[thick,teal] (-1.05,-1.8) -- (1.05,1.8) node[above right,black]{axis of spin};
+		\shade [ball color = brown] (0,0) circle (0.5);
+		\draw (-0.6,1.85) --++ (-0.5,0.3) node[above left,twoline]{path of\\precession};
+		\draw[thick,blue,postaction={decorate},rotate=-30.26] (0.48606,0.11726) arc(35.895:-215.895:0.6 and 0.2);
+		\draw (160:0.6) --++ (-0.6,-0.3) node[below left,twoline]{spin of\\nucleus};
+	\end{tikzpicture}
+	\vspace*{-16pt}
+\end{wrapfigure}
+
+
+nuclei do not line up exactly along external magnetic field $B_0$, axis of spin is slightly tilted
+
+axis of spin rotates about an axis parallel to $B_0$, this rotational motion is called \keypoint{precession}
+
+precession occurs at an angular frequency known as \keypoint{Larmor frequency}\index{Larmor frequency}, which is proportional to flux density $B_0$ of external field: $\boxed{\omega_0 = \gamma B_0}$
+
+$\gamma$ is the gyromagnetic ratio of the nucleus, which depends of the type of the nucleus
+
+\subsubsection*{step 3. nuclear magnetic resonance (NMR)}
+
+radio pulses $B_\text{RF}$ at same Larmor frequency are applied
+
+low-energy nuclei absorb RF photons and flip up into higher states
+
+this process is \keypoint{nuclear magnetic resonance} \footnote{NMR was first described and measured by \emph{Isidor Rabi} in 1938. Rabi was awarded the 1944 Nobel Physics Prize `for his resonance method for recording the magnetic properties of atomic nuclei'}
+
+\example{The gyromagnetic ratio for proton is $2.68\times10^8 \text{ rad s}^{-1} \text{ T}^{-1}$. What is the required frequency of the radiation pulse to cause magnetic resonance of hydrogen nuclei in a strong magnetic field of 1.8 T?}
+
+\sol Larmor frequency of precession: $\omega_0 = \gamma B_0 = 2.68\times10^8 \times 1.8 \approx 4.82\times 10^8 \radps$
+
+resonant frequency matches Larmor frequency, so: $f=\frac{\omega_0}{2\pi} = \frac{4.82\times 10^8}{2\pi} \approx 7.7\times10^7 \text{ Hz}$
+
+this frequency is within radio frequency, so \emph{radio pulses} should be applied \eoe
+
+
+\subsubsection*{step 4. relaxation}\index{relaxation}
+
+once RF pulses $B_\text{RF}$ are switched off, nuclei flip back to lower energy states
+
+during the process of \keypoint{relaxation}, or \keypoint{de-excitation}, RF photons of certain energies are released
+
+time taken for nuclei to relax depends on the environment of the nuclei
+
+relaxation time can give information about nature of materials
+
+\cmt there are two processes through with nuclei could relax
+
+\begin{compactitem}
+	\item[--] \emph{spin–lattice relaxation}, characterized by $T_1$ relaxation
+	
+	nuclei flip so that spin orientations return to equilibrium orientation in external field $B_0$
+	
+	energy of spinning nuclei is transferred to lattice of surrounding atoms
+	
+	\item[--] \emph{spin–spin relaxation}, characterized by $T_2$ relaxation
+	
+	component of spin transverse to $B_0$ would decay exponentially to its equilibrium state
+	
+	energy of spinning nuclei is transferred to other spinning nuclei
+\end{compactitem}
+
+different tissues (e.g., water and fat) have distinct $T_1$ and $T_2$ relaxation times
+
+hence various tissues can be identified based on combined information of $T_1$ and $T_2$
+
+\vspace*{\baselineskip}
+
+the whole idea of nuclear magnetic resonance and relaxation process is illustrated below
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}[c]{0.3\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\draw[very thick,->] (0,0) --++ (0,4.4) node[left]{$B_0$};
+		\shade [ball color = brown] (0.8,1.0) circle (0.25);
+		\draw[ultra thick,cyan,->] (0.7,0.5) --++ (0.2,1);
+		\shade [ball color = brown] (0.8,2.2) circle (0.25);
+		\draw[ultra thick,cyan,->] (0.9,1.7) --++ (-0.2,1);
+		\shade [ball color = brown] (0.8,3.4) circle (0.25);
+		\draw[ultra thick,cyan,->] (0.9,2.9) --++ (-0.2,1);
+		\shade [ball color = brown] (1.8,1.6) circle (0.25);
+		\draw[ultra thick,cyan,->] (1.7,1.1) --++ (0.2,1);
+		\shade [ball color = brown] (1.8,2.8) circle (0.25);
+		\draw[ultra thick,red,->] (1.7,3.3) --++ (0.2,-1);
+		\end{tikzpicture}
+		
+		realignment of nuclei under strong external field $B_0$
+	\end{minipage}\hfil
+	\begin{minipage}[c]{0.33\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\draw[very thick,->] (0,0) --++ (0,4.4) node[left]{$B_0$};
+		\shade [ball color = brown] (0.8,1.0) circle (0.25);
+		\draw[thick,dashed,cyan!30,->] (0.7,0.5) --++ (0.2,1);
+		\draw[ultra thick,red,->] (0.7,1.5) --++ (0.2,-1);
+		\draw[dashed,orange,->] (0.8,1.0) ++ (60:0.5) arc (60:-60:0.5);
+		\shade [ball color = brown] (0.8,2.2) circle (0.25);
+		\draw[thick,dashed,cyan!30,->] (0.9,1.7) --++ (-0.2,1);
+		\draw[ultra thick,red,->] (0.9,2.7) --++ (-0.2,-1);
+		\draw[dashed,orange,->] (0.8,2.2) ++ (120:0.5) arc (120:240:0.5);
+		\shade [ball color = brown] (0.8,3.4) circle (0.25);
+		\draw[ultra thick,cyan,->] (0.9,2.9) --++ (-0.2,1);
+		\shade [ball color = brown] (1.8,1.6) circle (0.25);
+		\draw[thick,dashed,cyan!30,->] (1.7,1.1) --++ (0.2,1);
+		\draw[ultra thick,red,->] (1.7,2.1) --++ (0.2,-1);
+		\draw[dashed,orange,->] (1.8,1.6) ++ (60:0.5) arc (60:-60:0.5);
+		\shade [ball color = brown] (1.8,2.8) circle (0.25);
+		\draw[ultra thick,red,->] (1.7,3.3) --++ (0.2,-1);
+		\foreach \y in {0.7,1.7,2.7,3.7} {
+			\draw[very thick, purple,decorate,decoration=snake] (-1.25,\y) --++ (0.8,0);
+			\draw[very thick, purple,->] (-0.45,\y) --++ (0.2,0);
+		}
+		\node[purple] at (-1,2.2) {$B_\text{RF}$};
+		\end{tikzpicture}
+		
+		magnetic resonance when radio pulses $B_\text{RF}$ are applied
+	\end{minipage}\hfil
+	\begin{minipage}[c]{0.33\textwidth}
+		\centering
+		\begin{tikzpicture}
+		\draw[very thick,->] (0,0) --++ (0,4.4) node[left]{$B_0$};
+		\shade [ball color = brown] (0.8,1.0) circle (0.25);
+		\draw[ultra thick,red,->] (0.7,1.5) --++ (0.2,-1);
+		\shade [ball color = brown] (0.8,2.2) circle (0.25);
+		\draw[thick,red!30,->] (0.9,2.7) --++ (-0.2,-1);
+		\draw[ultra thick,cyan,->] (0.9,1.7) --++ (-0.2,1);
+		\draw[dashed,orange,<-] (0.8,2.2) ++ (120:0.5) arc (120:240:0.5);
+		\draw[very thick, purple,decorate,decoration=snake] (0.8,2.2) ++ (160:0.6) --++ (160:0.9);
+		\draw[very thick, purple,->] (0.8,2.2) ++ (160:1.5) --++ (160:0.1);
+		\shade [ball color = brown] (0.8,3.4) circle (0.25);
+		\draw[ultra thick,cyan,->] (0.9,2.9) --++ (-0.2,1);
+		\shade [ball color = brown] (1.8,1.6) circle (0.25);
+		\draw[thick,red!30,->] (1.7,2.1) --++ (0.2,-1);
+		\draw[thick,ultra thick,cyan,->] (1.7,1.1) --++ (0.2,1);
+		\draw[dashed,orange,<-] (1.8,1.6) ++ (60:0.5) arc (60:-60:0.5);
+		\draw[very thick, purple,decorate,decoration=snake] (1.8,1.6) ++ (-50:0.6) --++ (-50:0.9);
+		\draw[very thick, purple,->] (1.8,1.6) ++ (-50:1.5) --++ (-50:0.1);
+		\shade [ball color = brown] (1.8,2.8) circle (0.25);
+		\draw[thick,red!30,->] (1.7,3.3) --++ (0.2,-1);
+		\draw[ultra thick,cyan,->] (1.7,2.3) --++ (0.2,1);
+		\draw[dashed,orange,<-] (1.8,2.8) ++ (60:0.5) arc (60:-60:0.5);
+		\draw[very thick, purple,decorate,decoration=snake] (1.8,2.8) ++ (32:0.6) --++ (32:0.9);
+		\draw[very thick, purple,->] (1.8,2.8) ++ (32:1.5) --++ (32:0.1);
+		\end{tikzpicture}
+		
+		RF photons are re-emitted during de-excitation of nuclei
+	\end{minipage}
+\end{figure}
+
+
+
+
+\subsubsection{magnetic resonance imaging}
+
+procedures of magnetic resonance imaging (MRI) are summarised as the following:
+
+large superconducting electromagnets are applied to produce \emph{strong uniform field} $B_0$
+
+nuclei then align parallel or anti-parallel to the field and \emph{precess} at \emph{Larmor frequency}
+
+a set of \emph{gradient coils} generate a \emph{non-uniform} field that superimposes with $B_0$
+
+this creates small variation in $B_0$ at different parts of the patient's body, so nuclei at different positions have slightly different precession frequencies
+
+\emph{RF coils} transmit \emph{radio pulses} $B_\text{RF}$ at Larmor frequency to excite nuclei
+
+this causes \emph{magnetic resonance} as nuclei absorb energy from $B_\text{RF}$
+
+nuclei then \emph{de-excite}, re-emitted signals are detected by another set of RF coils
+
+information is sent to a powerful computer, which processes data and builds up the image
+
+\emph{nature} of the substance is determined based on \emph{duration of relaxation}
+
+\emph{location} of nuclei is be determined precisely based on the differences in \emph{resonant frequencies}
+
+\cmt{advantages of MRI}
+
+\begin{compactitem}
+	\item[--] uses radiation in radio frequency, so no known biological hazards
+	
+	\item[--] good contrast between different soft tissues
+	
+	\item[--] produces 3D images, 2D slice image of any cross section can be obtained easily
+\end{compactitem}
+
+\cmt{disadvantages of MRI}
+
+\begin{compactitem}
+	\item[--] very expensive (superconducting coils must work at extremely low temperatures)
+	
+	\item[--] not suitable for patients with metallic implants, prostheses, heart pacemakers, etc.
+	
+	\item[--] patient must lie very still during MRI procedures
+	
+	\item[--] bones do not show up clearly on an MRI image (can combine MRI scan with CT)
+	
+\end{compactitem}
+
+\question{State the main components of an MRI scanner and describe their fumctions.}
