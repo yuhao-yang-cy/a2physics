@@ -162,8 +162,27 @@ heat required is proportional to its mass $m$ and temperature change $\Delta T$:
 \cmt $c$ is also an \emph{intensive} property, i.e., independent of size or shape of the sample
 
 
+\example{A block of 30 g ice at $-20^\circ$C is added to a large cup of 270 g water at 80$^\circ$C. Assume there is no energy lost, what is the final temperature of the mixture? (data: specific heat capacity of water is 4200 J kg$^{-1}$ K$^{-1}$, specific heat capacity of ice is 2100 J kg$^{-1}$ K$^{-1}$, specific latent heat of ice is $3.3\times10^5$ J kg$^{-1}$.}
+
+\sol energy lost by hot water = energy gain by ice cube
+\begin{equation*}
+	\underbrace{4200\times0.27\times(80-T)}_{\text{95 $^\circ\text{C}$ water $\to T$ $^\circ\text{C}$  water}} = 
+	\underbrace{2100\times0.030\times[0-(-20)]}_{-\text{20 $^\circ\text{C}$ ice $\to 0$ $^\circ\text{C}$  ice}} +
+	\underbrace{3.3\times10^5\times0.030}_{\text{0 $^\circ\text{C}$ ice $\to 0$ $^\circ\text{C}$ water}} + 
+	\underbrace{4200\times0.030\times(T-0)}_{\text{0 $^\circ\text{C}$ water $\to T$ $^\circ\text{C}$  water}}
+\end{equation*}
+
+\vspace*{-1em}
+\begin{equation*}
+	90720 - 1134T = 1260 + 9900 + 126 T
+\end{equation*}
+\begin{equation*}
+	T = \frac{90720-1260-9900}{1134+126} \approx 63 ^\circ\text{C} \teoe
+\end{equation*}
+
+
 \example{A 1.00 kg aluminium block is heated using an electrical heater. The current in the heater is 4.2 A and the p.d. across is 12 V. Measurements of the rising temperature are represented by the graph. Determine specific heat capacity  of aluminium.}
-	
+
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[scale=1]
@@ -186,25 +205,6 @@ heat required is proportional to its mass $m$ and temperature change $\Delta T$:
 $\frac{\Delta T}{\Delta t}$ is gradient of fitting line: $\frac{\Delta T}{\Delta t} = \frac{22.5}{550} \approx 4.09 \times 10^{-2} \text{ } \OC \text{ s}^{-1}$
 
 specific heat capacity: $c = \frac{4.2\times12}{1.00 \times 4.09 \times 10^{-2}} \approx 1230 \jpkgC$	\eoe
-
-
-\example{A block of 30 g ice at $-20^\circ$C is added to a large cup of 270 g water at 80$^\circ$C. Assume there is no energy lost, what is the final temperature of the mixture? (data: specific heat capacity of water is 4200 J kg$^{-1}$ K$^{-1}$, specific heat capacity of ice is 2100 J kg$^{-1}$ K$^{-1}$, specific latent heat of ice is $3.3\times10^5$ J kg$^{-1}$.}
-
-\sol energy lost by hot water = energy gain by ice cube
-\begin{equation*}
-	\underbrace{4200\times0.27\times(80-T)}_{\text{95 $^\circ\text{C}$ water $\to T$ $^\circ\text{C}$  water}} = 
-	\underbrace{2100\times0.030\times[0-(-20)]}_{-\text{20 $^\circ\text{C}$ ice $\to 0$ $^\circ\text{C}$  ice}} +
-	\underbrace{3.3\times10^5\times0.030}_{\text{0 $^\circ\text{C}$ ice $\to 0$ $^\circ\text{C}$ water}} + 
-	\underbrace{4200\times0.030\times(T-0)}_{\text{0 $^\circ\text{C}$ water $\to T$ $^\circ\text{C}$  water}}
-\end{equation*}
-
-\vspace*{-1em}
-\begin{equation*}
-	90720 - 1134T = 1260 + 9900 + 126 T
-\end{equation*}
-\begin{equation*}
-	T = \frac{90720-1260-9900}{1134+126} \approx 63 ^\circ\text{C} \teoe
-\end{equation*}
 
 \question{A mixture contains 5\% silver and 95\% of gold by weight. Some gold is melted and the correct weight of silver is added. The initial temperature of silver is $20^\circ$C. Use the data to calculate the initial temperature of gold so that the final mixture is at melting point of gold.}
 

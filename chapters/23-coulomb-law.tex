@@ -81,7 +81,7 @@ the field is produced by $Q$, so field strength only depends on the source $Q$
 viewed from \emph{outside} the sphere, it acts like a point charge concentrated at the centre
 \footnote{A brief explanation is given in Example \ref{ex-radial-efield}.}
 
-therefore, $E=\frac{Q}{\ec r^2}$ also holds for field strength at $r>R$\footnote{For electric field strength \emph{inside} a conducting sphere, detailed discussions are given in \S\ref{inside-conductors}.}
+therefore, $E=\frac{Q}{\ec r^2}$ also holds for field due to charged sphere at $r>R$\footnote{For electric field strength \emph{inside} a conducting sphere, detailed discussions are given in \S\ref{inside-conductors}.}
 
 where $r$ is the distance from the point of interest to \emph{centre} of the sphere
 
@@ -420,16 +420,16 @@ i.e., equipotential lines are \emph{contour lines} of equal electric potential
 
 \begin{center}
 	\begin{tikzpicture}[scale=1.35]
-	\draw (-3,0) node{$+Q$} circle [radius=0.5];
+	\draw (-2.7,0) node{$+Q$} circle [radius=0.5];
 	\foreach \s in {0,45,90,...,315}
-	\draw [blue, thick, ->] (-3,0) ++ (\s:0.5) -- ++(\s:1.8);
+	\draw [blue, thick, ->] (-2.7,0) ++ (\s:0.5) -- ++(\s:1.8);
 	
-	\draw (3,0) node{$-Q$} circle [radius=0.5];
+	\draw (2.7,0) node{$-Q$} circle [radius=0.5];
 	\foreach \s in {0,45,90,...,315}
-	\draw [blue, thick, <-] (3,0) ++ (\s:0.5) -- ++(\s:1.8);
+	\draw [blue, thick, <-] (2.7,0) ++ (\s:0.5) -- ++(\s:1.8);
 	
 	\foreach \s in {0.9,1.4,1.9}{
-		\draw [red,dashed] (-3,0) circle(\s) (3,0) circle(\s);}
+		\draw [red,dashed] (-2.7,0) circle(\s) (2.7,0) circle(\s);}
 	\end{tikzpicture}
 \end{center}
 

@@ -1,0 +1,911 @@
+\section{Telecommunication}
+
+
+telecommunication concerns transmitting information by electromagnetic means
+
+engineers focus on solving the problem of transmitting large volumes of information over long distances with minimal loss of signal strength and distortion due to noise
+
+in this chapter, we will study three of the key components in a communication system
+\footnote{There are other important processes in telecommunication. For example, digital signals are usually passed through an \emph{encoder} so that redundant information is removed and extra data is introduced to check for errors . Modulated signals are usually \emph{multiplexed}, so multiple users can share the same communication channel. Common multiplexing schemes include FDMA, TDMA, CDMA, etc.}
+
+\begin{itemize}[leftmargin=\parindent]
+	\item[$\circ$] \emph{modulator} and \emph{demodulator}
+	
+	variation of an information signal is represented by a carrier wave through modulation
+	
+	original information can be extracted through the reverse process called demodulation
+	
+	\item[$\circ$] \emph{analogue-to-digital} and \emph{digital-to-analogue converters}
+	
+	analogue signals are digitized to archive more reliable and efficient transmission
+	
+	digital signals are then converted back to analogue form reproduce original signal
+	
+	\item[$\circ$] \emph{communication channel}
+	
+	communication channel is a medium through which signals are transmitted
+	
+	each type of communication channel has its relative merits and disadvantages
+\end{itemize}
+
+
+
+\subsection{modulation}
+
+audio signals can be converted into a radio signal for transmission
+
+rather than being transmitting directly as a radio wave, information signal is usually encoded into a carrier wave for better transmission
+
+\begin{ilight}
+	\keypoint{modulation} means varying the amplitude or the frequency of a carrier wave in synchrony with the displacement of an information signal
+\end{ilight}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=1]
+	\draw [blue,thick,samples=250,domain=0:10,smooth,variable=\t] plot (\t, {cos(900*\t)});
+	\draw [blue,thick,samples=50,domain=0:10,variable=\t] plot (\t, {0.6*sin(90*\t)-2.5});
+	\draw [blue,thick,samples=250,domain=0:10,smooth,variable=\t] plot (\t, {(sin(90*\t)*0.6+1)*cos(900*\t)-5.5});
+	\draw [blue,thick,samples=400,domain=0:10,smooth,variable=\t] plot (\t, {cos(900*\t+450*(1-cos(90*\t)))-9});
+	\node[twoline] at (12,0) {carrier wave\\(before modulation)};
+	\node[twoline] at (12,-2.5) {information signal};
+	\node[twoline] at (12,-5.5) {amplitude modulated\\carrier wave\\(AM wave)};
+	\node[twoline] at (12,-9) {frequency modulated\\carrier wave\\(FM wave)};
+	\end{tikzpicture}
+	
+	\caption*{modulation of a carrier wave in accordance with an information signal}
+\end{figure}
+
+
+\cmt reasons for modulation
+
+\begin{compactitem}
+	\item[--] carrier wave has shorter wavelength, so shorter aerial is possible
+	
+	\item[--] each signal can be transmitted with a different carrier frequency
+	
+	so multiple signals can be transmitted at the same time without interfering each other
+	
+	\item[--] modulated carrier wave is less affected by noise
+	
+	\item[--] transmission over long distance is possible
+\end{compactitem}
+
+
+
+\subsubsection{amplitude modulation}
+
+for amplitude modulated carrier wave, frequency is unchanged
+
+amplitude varies with time according to displacement of information signal
+
+waveform of information signal determines the \emph{envelope} of the modulated wave
+
+\subsubsection*{spectrum of AM wave}
+
+amplitude modulated carrier wave is found to contain more than one frequencies
+
+mathematically, each AM wave can be considered as the sum of several simple sine waves
+
+\noindent proof: suppose the original carrier wave takes the form: $x_\text{c}(t) = A_\text{c} \sin \omega_\text{c} t$
+
+it is to be amplitude modulated by an information signal: $x_\text{m}(t)$
+
+modulated wave has a new amplitude that varies with time: $A'_\text{c}(t) = A_\text{c} + x_\text{m}(t)$
+
+
+for an audio signal of single frequency, say $x_\text{m}(t) = A_\text{m} \cos \omega_\text{m} t$, the AM wave takes the form:
+
+{
+	\centering
+	
+	$x'_\text{c}(t) = (A_\text{c} + A_\text{m} \cos \omega_\text{m} t)\sin \omega_\text{c} t = A_\text{c} \sin \omega_\text{c} t + A_\text{m} \sin \omega_\text{c} t \cos \omega_\text{m} t$
+	
+}
+
+using trigonometric identity: $\sin\alpha\sin\beta = \frac{1}{2}\left[ \sin(\alpha + \beta) + \sin(\alpha - \beta) \right]$, we find:
+
+{
+	\centering
+	
+	$x'_\text{c}(t) = A_\text{c} \sin\omega_\text{c} t + \frac{1}{2}A_\text{m} \sin(\omega_\text{c}+\omega_\text{m})t + + \frac{1}{2}A_\text{m} \sin(\omega_\text{c}-\omega_\text{m})t$
+	
+}
+
+AM wave is a combination of three components of frequencies $f_\text{c}$, $f_\text{c} + f_\text{m}$ and $f_\text{c} - f_\text{m}$ \eoe
+
+\cmt for an information signal of \emph{single} frequency, we can draw the spectrum for the AM wave
+
+apart from original carrier frequency, there are two more frequencies $f_\text{c} \pm f_\text{m}$, called \emph{sidebands}
+
+positions of sideband is determined by frequency of the information signal $f_\text{m}$
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=1.2]
+	\draw[<->] (0,4.2) node[left]{intensity} -- (0,0) -- (6,0) node[below] {$f$};
+	\draw[very thick, blue] (3,0)node[below]{$f_\text{c}$} --++ (0,3.4);
+	\draw[very thick, blue] (1.5,0) node[below]{$f_\text{c} - f_\text{m}$} --++ (0,1);
+	\draw[very thick, blue] (4.5,0) node[below]{$f_\text{c} + f_\text{m}$} --++ (0,1);
+	\draw[<->] (1.5,3.8) --++ (3,0) node[midway,above]{bandwidth $B=2f_\text{m}$};
+	\draw (1.5,3.6) --++ (0,0.4) (4.5,3.6) --++ (0,0.4);
+	\end{tikzpicture}
+\end{figure}
+
+
+
+
+\cmt information signal could contain a \emph{range} of frequencies (e.g., music signal)
+
+the two sidebands would spread into two symmetrical humps
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[scale=1.35]
+	\draw[<->] (0,4.5) node[left]{intensity} -- (0,0) -- (6,0) node[below] {$f$};
+	\draw[very thick, blue] (3,0)node[below]{$f_\text{c}$} --++ (0,3.5);
+	\draw[very thick, blue, smooth, domain=3.2:5, variable=\x] plot (\x,{1.0*(\x-3.2)*(\x-5)*(\x-5.5)*(1+0.08*sin(\x*960))});
+	\draw[very thick, blue, smooth, domain=1:2.8, variable=\x] plot (\x,{-1.0*(\x-1)*(\x-2.8)*(\x-0.5)*(1-0.08*sin(\x*960))});
+	\draw (5,0) node[below]{$f_\text{c} + f_\text{m,max}$}; 
+	\draw (1,0) node[below]{$f_\text{c} - f_\text{m,max}$};
+	\draw[<->] (1,4) --++ (4,0) node[midway,above]{bandwidth $B=2f_\text{m,max}$};
+	\draw (1,3.8) --++ (0,0.4) (5,3.8) --++ (0,0.4);
+	\end{tikzpicture}
+\end{figure}
+
+\cmt we define \keypoint{bandwidth} as the range of frequencies occupied by the modulated signal
+
+\begin{itemize}
+	\item[--] for a single-frequency information signal, bandwidth of AM wave is: 
+\end{itemize}
+
+{
+	\centering
+	
+	$B = (f_\text{c} + f_\text{m}) - (f_\text{c} - f_\text{m}) \RA \boxed{ B = 2f_\text{m}}$
+	
+}
+
+\begin{itemize}
+	\item[--] for a multi-frequency information signal, bandwidth of AM wave is:
+\end{itemize}
+
+{
+	\centering
+	
+	$B = (f_\text{c} + f_\text{m,max}) - (f_\text{c} - f_\text{m,max}) \RA \boxed{ B = 2f_\text{m,max}}$
+	
+}
+
+for sound signals, $f_\text{m} \approx 10^3 \text{ Hz}$, so bandwidth is around a few kHz
+
+compared with frequency of radio waves, bandwidth of AM is quite small
+
+\cmt size of bandwidth determines number of channels available in a given frequency range
+
+smaller bandwidth for AM means more channels are possible
+
+\example{A radio station is broadcasting several audio signals with same bandwidth. Wavelengths of carrier waves available for this radio station ranges from $3.0\times10^3$ m to $1.5\times10^4$ m. The variation of voltage of a modulated signal is shown. (a) State the frequency of unmodulated carrier wave and the frequency of the signal wave. (b) Find the bandwidth of this signal. (c) Find the maximum number of radio channels that could be broadcast at the same time for this station.}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+	\draw[->] (0,-3.5) -- (0,4) node[left]{$V$/V};
+	\draw[->] (0,0) -- (12,0) node[right]{$t$/ms};
+	\draw[step=0.5, gray, very thin] (0,-3.5) grid (11.5,3.5);
+	\draw [blue,thick,samples=300,domain=0:11.5,smooth] plot (\x, {(cos(0.5*pi*\x r)+2)*cos(5*pi*\x r)});
+	\foreach \x in {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1} {
+		\draw[white,fill] (\x*10-0.2,-0.42) rectangle (\x*10+0.2,-0.08);
+		\node[below] at (\x*10,0) {$\x$};
+	}
+	\foreach \y in {-3,-2,...,3} \node[left] at (0,\y) {$\y$};
+	\end{tikzpicture}
+\end{figure}
+
+\sol frequency of carrier wave: $f_\text{c} = \frac{1}{T_\text{c}} = \frac{1}{0.04 \text{ ms}} = 25 \text{ kHz}$
+
+\eqyskip frequency of audio signal: $f_\text{m} = \frac{1}{T_\text{m}} = \frac{1}{0.40 \text{ ms}} = 2.5 \text{ kHz}$
+	
+bandwidth of the signal: $B = 2 f_\text{m} = 2\times2.5 = 5.0 \text{ kHz}$
+
+range of available carrier frequencies is found using $f=\frac{c}{\lambda}$:
+
+maximum carrier frequency: $f_\tmax = \frac{c}{\lambda_\tmin} = \frac{3.0\times10^8}{3.0\times10^3} = 1.0\times10^5 \text{ Hz} = 100 \text{ kHz}$
+
+minimum carrier frequency: $f_\tmin = \frac{c}{\lambda_\tmax} = \frac{3.0\times10^8}{1.5\times10^4} = 2.0\times10^4 \text{ Hz} = 20 \text{ kHz}$
+
+\eqyskip number of radio channels: $n = \frac{f_\tmax - f_\tmin}{B} = \frac{100-20}{5.0} = 16$ \eoe
+
+\question{An amplitude modulated radio wave carries an audio signal of a single frequency. In the power spectrum, it is found to contain three frequencies: 45 kHz, 50 kHz, and 55 kHz.(a) What is the frequency of the carrier wave? (b) What is the frequency of the audio signal? (c) What is the bandwidth for this AM wave?}
+
+\question{A sinusoidal carrier wave has a frequency of 200 kHz. It is amplitude modulated for the broadcast of music that has frequencies ranging between 30 Hz and 4000 Hz. Sketch the power spectrum for the transmitted signal, hence or otherwise, find the bandwidth for this signal. You should label the frequency values on your graph.}
+
+\subsubsection{frequency modulation}
+
+for frequency modulated carrier wave, amplitude is unaltered
+
+frequency varies with time according to displacement of information signal
+
+\cmt shift in frequency of carrier wave is determined by a parameter called \emph{frequency deviation}
+
+frequency deviation is usually given in kHz V$^{-1}$
+
+this means if displacement of information wave changes by one volt, frequency deviation gives the amount of change in frequency for the carrier wave
+
+\cmt FM wave give very complicated spectrum
+\footnote{FM spectrum is so complicated that you are only supposed to know it is complicated. You will not be asked to sketch a power spectrum for FM wave in A-Levels.}
+\footnote{If a carrier wave $x_\text{c} = A_\text{c} \sin \omega_\text{c} t$ is to be frequency modulated by an information signal $x_\text{m}$, the FM wave takes the form: $x_\text{c}(t) = A_c \sin \left[ \omega_\text{c}t + f_\Delta \int_0^t x_\text{m}t(t) \dd t \right]$, where $f_\Delta$ is the frequency deviation factor. In particular, for an information signal of single frequency $x_\text{m} = A_\text{m} \cos\omega_\text{m} t$, it can be shown that the FM wave becomes $ x_\text{c}(t) = A_\text{c} \sin \left[\omega_\text{c} t + \frac{A_\text{m}f_\Delta}{\omega_\text{m}} \sin \omega_\text{m} t\right]$. Judging from the mathematical descriptions, FM wave is obviously much more complicated than the AM wave.}
+
+as a consequence, each FM signal occupies very large bandwidth
+
+\example{A carrier wave of amplitude 5.0 V and frequency 80 kHz is modulated in frequency by a sinusoidal information wave of amplitude 3.0 V and frequency 4000 Hz. The frequency deviation of the carrier wave is 2.0 kHz V$^{-1}$. Describe the variation of this frequency modulated carrier wave.}
+
+\sol amplitude of modulated wave remains unchanged, so it is still 5.0 V
+
+as displacement of information wave varies between $+3.0$ V to $-3.0$ V, maximum frequency shift for the carrier wave is: $\pm 3.0 \times 2.0 = \pm 6.0 \text{ kHz}$
+
+maximum frequency of FM wave: $f_\tmax = 80 + 6.0 = 86 \text{ kHz}$
+
+minimum frequency of FM wave: $f_\tmin = 80 - 6.0 = 74 \text{ kHz}$
+
+so frequency of modulated wave changes from a maximum value of 86 kHz to a minimum value of 74 kHz and then back to the maximum value repeatedly at a rate of 4000 s$^{-1}$ \eoe
+
+\question{A carrier wave has a frequency of 900 kHz. It is frequency modulated by an audio signal of	frequency 6.0 kHz and amplitude 2.5 V. The frequency deviation for modulation is 30 kHz V$^{-1}$. (a) Find the maximum and minimum frequency of the modulated wave. (b) Describe how the frequency of the modulated wave changes.}
+
+
+
+\subsubsection{comparison between AM and FM}
+
+\cmt relative advantages of AM transmission
+
+\begin{compactitem}
+	\item[--] electronics for AM transmission is less complicated, so cheaper radio sets
+	
+	\item[--] narrower bandwidth for AM channel, so more channels are available in a given range
+	
+	\item[--] AM wave has lower frequencies, hence longer wavelengths
+	
+	this means AM waves can better diffract around barriers (e.g., buildings, mountains)
+	
+	each AM transmitter covers a greater area, so fewer AM transmitters required than FM
+	
+\end{compactitem}
+
+
+\cmt relative advantages of FM transmission
+
+\begin{compactitem}
+	\item[--] FM transmission is less affected by noise
+	
+	noise would superimpose with transmitted signal, so amplitude is altered by noise
+	
+	but for FM, variation of information signal is represented by variation in frequency
+	
+	\item[--] greater bandwidth for FM, so better reproduction quality of sound
+	
+	\item[--] FM transmission is more energy efficient
+	
+	for AM waves, information is carried in the sidebands
+	
+	but the sidebands only take a small fraction of total power
+	
+\end{compactitem}
+
+
+\question{Suggest two reasons why FM broadcasting is more costly than AM.}
+
+
+
+\subsection{digital transmission}\label{digital-transmission}
+
+\subsubsection{analogue \& digital signals}
+
+\rcyskip
+
+\begin{ilight}
+	an \keypoint{analogue signal}  a continuous signal that can take any value
+\end{ilight}
+
+\begin{ilight}	
+	a \keypoint{digital signal} is a discrete signal that can only take 0's and 1's (or highs and lows), no intermediate value is allowed
+\end{ilight}
+
+
+
+\subsubsection{regeneration}
+
+there are two major problems during the transmission of a signal: attenuation and noise
+
+\begin{ilight}
+	\keypoint{attenuation} means gradual loss of signal power/intensity during transmission
+\end{ilight}
+
+\begin{ilight}
+	\keypoint{noise} refers to the unwanted random interference that distorts the signal
+\end{ilight}
+
+at the receiver end, we would want to remove noise and amplify the attenuated signal, so original signal is recovered, this process is called \keypoint{regeneration}
+
+
+\cmt for an analogue signal, noise can not be distinguished
+
+so noise will be amplified together with the weakened signal
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+	\foreach \s in {0,5,10} \draw[<->] (\s,3)node[left]{$V$} -- (\s,0) --++ (3.5,0)node[below]{$t$};
+	\draw[blue,very thick,domain=0:3.2] plot (\x,{0.5*(\x-0.3)*(\x-2)*(\x-2.8)+1.8});
+	\draw[blue,very thick,samples=120,smooth,domain=5:8.2] plot (\x,{(0.15*(\x-5.3)*(\x-7)*(\x-7.8)+1.8*0.3)*(1+0.06*sin(779*(\x-5)*sin(1357*(\x-4)))});
+	\draw[blue,very thick,samples=120,smooth,domain=10:13.2] plot (\x,{(0.5*(\x-10.3)*(\x-12)*(\x-12.8)+1.8)*(1+0.06*sin(779*(\x-10)*sin(1357*(\x-9)))});
+	\draw[->] (3.5,1.5) -- (4.8,1.5) node[midway,above]{\scriptsize attenuate} node[midway,below]{\scriptsize noise};
+	\draw[->] (8.5,1.5) -- (9.8,1.5) node[midway,above]{\scriptsize amplify};
+	\end{tikzpicture}
+	
+	\caption*{noise in an analogue system is amplified along with the weakened signal}
+\end{figure}
+
+\cmt for a digital signal, it is either 0 or 1, any fluctuation must be due to noise
+
+so noise can easily be removed from a digital signal, signal is regenerated
+
+circuit for a simple regenerator amplifier is introduced in \S\ref{ch-regenerator}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+	\foreach \s in {0,5,10} \draw[<->] (\s,3)node[left]{$V$} -- (\s,0) --++ (3.5,0)node[below]{$t$};
+	\draw[blue,very thick] (0,2.5) -- (0.64,2.5) -- (0.64,0) -- (1.28,0) -- (1.28,2.5) -- (2.56,2.5) -- (2.56,0) -- (3.2,0);
+	\draw[blue,very thick] (10,2.5) -- (10.64,2.5) -- (10.64,0) -- (11.28,0) -- (11.28,2.5) -- (12.56,2.5) -- (12.56,0) -- (13.2,0);
+	\draw[blue,very thick,samples=25,smooth,domain=5:5.64] plot (\x,{.8+0.05*sin(777*(\x-7)*sin(909*(\x-5)))});
+	\draw[blue,very thick,samples=25,smooth,domain=5.64:6.28] plot (\x,{0.05*sin(777*(\x-7)*sin(909*(\x-5)))});
+	\draw[blue,very thick,samples=50,smooth,domain=6.28:7.56] plot (\x,{.8+0.05*sin(777*(\x-7)*sin(909*(\x-5)))});
+	\draw[blue,very thick,samples=25,smooth,domain=7.56:8.2] plot (\x,{0.05*sin(777*(\x-7)*sin(909*(\x-5)))});
+	\draw[blue,very thick] (5.64,0.78050) --++ (0,-.8);
+	\draw[blue,very thick] (6.28,0.79466) --++ (0,-.8);
+	\draw[blue,very thick] (7.56,0.82938) --++ (0,-.8);
+	\draw[->] (3.5,1.5) -- (4.8,1.5) node[midway,above]{\scriptsize attenuate} node[midway,below]{\scriptsize noise};
+	\draw[->] (8.5,1.5) -- (9.8,1.5) node[midway,above]{\scriptsize amplify} node[midway,below]{\scriptsize regenerate};
+	\end{tikzpicture}
+	
+	\caption*{noise in a digital system can be removed through regeneration}
+\end{figure}
+
+
+\subsubsection*{advantage of digital transmission}
+
+transmission of data in digital form brings many advantages:
+
+\begin{itemize}[leftmargin=\parindent]
+	\item[$\circ$] noise can be removed through regeneration
+	
+	\item[$\circ$] only two states are involved, so more reliable and easier electronics
+	
+	\item[$\circ$] digital signals can be encrypted, so better security
+	
+	\item[$\circ$] extra data can be added, so errors can be checked
+	
+	\item[$\circ$] bandwidth is small, so rate of data transmission is higher
+	
+	\item[$\circ$] data in digital forms are stored and processed more easily
+	
+\end{itemize}
+
+
+
+\subsubsection{binary numbers}
+
+most signals that make up speech, music, radio, and television are analogue signals
+
+for more reliable and more efficient transmission of data, it is necessary to convert analogue signals into digital forms
+
+this requires the use of 0's and 1's to represent different voltage levels
+
+we next study the binary number system in which a number is expressed in 0's and 1's
+
+\cmt each digit in a binary number is called a \emph{bit}
+
+\cmt for a binary number, each bit represents an increasing power of 2
+
+the bit on left-hand/right-hand side of a binary number has highest/lowest value, called the \emph{most/least significant bit}, or MSB/LSB in short
+
+\example{Convert the binary numbers into decimal numbers: (a) 11001 (b) 10110.}
+
+\sol $11011_2 = 1\times2^4 + 1\times2^3 + 0\times2^2 + 0\times2^1 + 1\times2^0 = 2^4 + 2^3 + 2^0 = 16 + 8 + 1 = 25$
+
+$110110_2 = 1 \times 2^5 + 1\times2^4 + 0\times2^3 + 1\times2^2 + 1\times2^1 + 0\times2^0 = 2^5 + 2^4 + 2^2 + 2^1 = 32 + 16 + 4 + 2 = 54$ \eoe
+
+\example{Convert the decimal numbers into binary numbers: (a) 13 (b) 28.}
+
+\sol $13 = 8 + 4 + 1 = 2^3 + 2^2 + 2^0 = 1\times2^3 + 1\times2^2 + 0\times2^1 + 1\times2^0 = 1101_2$
+
+$28 = 16 + 8 + 4 = 2^4 + 2^3 + 2^2 = 1\times 2^4 + 1\times2^3 + 1\times2^2 + 0\times2^1 + 0\times2^0 = 11100_2$ \eoe
+
+\cmt a $n$-bit binary system can represent $2^n$ different numbers
+
+increasing the number of bits improves the precision of representation of voltage levels
+
+\subsubsection{analogue-to-digital conversion}
+
+digital transmission of an audio signal is represented by the diagram below:
+
+\begin{figure}[ht]
+	\begin{center}
+	\begin{circuitikz}
+		% transmitter
+		% microphone
+		\draw[thick] (0.2,0) circle(0.4) (-0.2,-0.4) --++ (0,0.8);
+		\draw[thick,->] (0.6,0) -- (3,0);
+		\draw[<->] (0.8,2) node[left]{\scriptsize $V$} -- (0.8,0.6) -- (2.6,0.6) node[below]{\scriptsize $t$};
+		\draw[blue,thick,domain=0.8:2.6,smooth,samples=36] plot (\x, {cos((\x-1)*260)*exp(-1.5*\x+1.2)*0.6+1.2});
+		\foreach \x in {0.8,1.2,1.6,2.0,2.4} {
+			\draw[red,fill] (\x, {cos((\x-1)*260)*exp(-1.5*\x+1.2)*0.6+1.2}) circle(0.04);
+			\draw[red,dotted] (\x, {cos((\x-1)*260)*exp(-1.5*\x+1.2)*0.6+1.2}) -- (\x,0.6);
+		}
+		% ADC
+		\draw[thick] (3,-0.6) rectangle (6,0.6);
+		\draw[thick,->] (6,0) -- (8.2,0) node[midway, above]{\scriptsize $\cdots$ (0111) (1010)};
+		% PSC
+		\draw[thick] (8.2,-0.6) rectangle (10.8,0.6);
+		\draw[thick,->] (10.8,0) -- (13.1,0) node[midway, above]{\scriptsize $\cdots $ \underline{1} \underline{1} \underline{1} \underline{0} \underline{0} \underline{1} \underline{0} \underline{1}};
+		% nodes
+		\node at (0.2,-0.8) {microphone};
+		\node[twolinecap] at (4.5,0) {{\footnotesize analogue-to-digital}\\{\footnotesize converter (ADC)}};
+		\node[twolinecap] at (9.5,0) {{\footnotesize parallel-to-serial}\\{\footnotesize converter}};
+		% receiver end
+		\draw [rounded corners, dashed] (13.1,0) -- (13.2,0) -- (13.2,-4) -- (13.1,-4);
+		\draw [rounded corners, dashed] (13.2,0) -- (13.35,0) -- (13.35,-4) -- (13.2,-4);
+		\draw (13.1, -1.8) -- (12.5,-2);
+		\node[left,twoline] at (12.7,-2){{\footnotesize pulses transmitted}\\{\footnotesize through some}\\{\footnotesize communication channel}};
+		% SPC
+		\draw[thick,->] (13.1,-4) -- (10.8,-4) node[midway, above]{\scriptsize \underline{1} \underline{0} \underline{1} \underline{0} \underline{0} \underline{1} \underline{1} \underline{1} $\cdots $ };
+		\draw[thick] (8.2,-4.6) rectangle (10.8,-3.4);
+		
+		% DAC
+		\draw[thick] (3,-4.6) rectangle (6,-3.4);
+		\draw[thick,<-] (6,-4) -- (8.2,-4) node[midway, above]{\scriptsize (1010) (0111) $\cdots$ };
+		% loudspeaker
+		% shifted sample values: -2.43, -2.60, -2.97, -2.82, -2.74
+		\draw[thick,->] (3,-4) -- (0.6,-4);
+		\draw[<->] (0.8,-2) node[left]{\scriptsize $V$} -- (0.8,-3.4) -- (2.6,-3.4) node[below]{\scriptsize $t$};
+		\draw[thick,blue] (0.8,-2.5) -- (1.2,-2.5) -- (1.2, -2.6) -- (1.6, -2.6) -- (1.6, -3.0) -- (2.0, -3.0) -- (2.0, -2.8) -- (2.4, -2.8) -- (2.4, -2.7) --++ (0.2,0);
+		\foreach \x/\y in {0.8/-2.5,1.2/-2.6,1.6/-3.0,2.0/-2.8,2.4/-2.7} {
+			\draw[red,fill] (\x,\y) circle(0.04);
+		}
+		% loudspeaker
+		\draw[thick] (0.3,-4.3) rectangle (0.6,-3.7);
+		\draw[thick] (0.3,-4.3) -- (0,-4.6) -- (0,-3.4) -- (0.3,-3.7);
+		\foreach \a in {0.7,0.85,1.0} \draw[thick] (0.4,-4) ++ (150:\a) arc(150:210:\a);
+		% nodes
+		\node[twolinecap] at (4.5,-4) {{\footnotesize digital-to-analogue}\\{\footnotesize converter (DAC)}};
+		\node[twolinecap] at (9.5,-4) {{\footnotesize serial-to-parallel}\\{\footnotesize converter}};
+		\node at (0,-5) {speaker};
+	\end{circuitikz}
+\end{center}
+\caption*{transmission and reproduction of an audio signal in digital forms}
+\end{figure}
+
+\cmt audio signal collected by a \emph{microphone} is an analogue signal
+
+it must be converted into a digital signal for more reliable transmission
+
+\cmt \keypoint{analogue-to-digital converter} (ADC) takes samples of the signal at regular time intervals
+
+each sample value is then converted into a binary number according to voltage levels
+
+\cmt \keypoint{parallel-to-serial converter} takes all bits of a binary number produced by ADC
+
+each bit is then transmitted one after another
+
+\cmt at receiver end, the process is reversed to reproduce original audio signal
+
+\cmt quality of reproduction can be improved by two means:
+
+\begin{compactitem}
+	\item[--] increasing sampling frequency, so step width is reduced
+	
+	high-frequency components in original signal can be detected
+	
+	\item[--] increasing number of bits for the binary system, so step height is reduced
+	
+	smaller variations in voltages can be represented more precisely
+	
+\end{compactitem}
+
+\example{An analogue signal is passed through a analogue-to-digital converter for digital transmission. Samples are taken at a frequency of 1.0 kHz. Each sample is then converted into a 4-bit binary number. (a) State the values of all samples taken for this signal. (c) Draw the pattern of the reproduced signal.}
+
+\begin{figure}[ht]
+	\centering
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=0.9]
+		\draw[->] (0,0) -- (0,8) node[left]{$V$/V};
+		\draw (0,0) -- (6.5,0);
+		\node[below] at (3.25,-0.55) {$t$/ms};
+		\node[below] at (3.25,-1.25) {original analogue signal};
+		\draw[step=0.5, gray, very thin] (0,0) grid (6.5,7.5);
+		\draw [blue,very thick,samples=40,domain=0:6.5,smooth] plot (\x, {(4*exp(-\x)+\x*\x/16.6+\x/2.2)+cos(0.9*pi*\x r)});
+		\foreach \x in {0,1,...,6} {
+			\draw[white,fill] (\x-0.2,-0.42) rectangle (\x+0.2,-0.08);
+			\node[below] at (\x,0) {$\x$};
+		}
+		\foreach \y in {0,1,...,15} \node[left] at (0,\y/2) {$\y$};
+		\end{tikzpicture}
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\begin{tikzpicture}[scale=0.9]
+		\draw[->] (0,0) -- (0,8) node[left]{$V$/V};
+		\draw (0,0) -- (6.5,0);
+		\node[below] at (3.25,-0.55) {$t$/ms};
+		\node[below] at (3.25,-1.25) {reproduced signal};
+		\draw[step=0.5, gray, very thin] (0,0) grid (6.5,7.5);
+		\foreach \x in {0,1,...,6} {
+			\draw[white,fill] (\x-0.2,-0.42) rectangle (\x+0.2,-0.08);
+			\node[below] at (\x,0) {$\x$};
+		}
+		\foreach \y in {0,1,...,15} \node[left] at (0,\y/2) {$\y$};
+		\draw[very thick, red] (0,10/2) -- (1,10/2) -- (1,1/2)  -- (2,1/2)  -- (2,5/2) -- (3,5/2) -- (3,3/2)  -- (4,3/2) -- (4,6/2) -- (5,6/2) -- (5,7/2) -- (6,7/2) -- (6,9/2) -- (6.5,9/2); 
+		\end{tikzpicture}
+	\end{minipage}	
+\end{figure}
+
+\sol sampling frequency is 1.0 kHz, so samples are taken every 1.0 ms
+
+four-bit binary system is implemented, so $2^4=16$ voltage steps are represented
+
+these voltage levels are $0,1,2,\cdots,15 \text{ V}$
+
+for a sample value between two voltage levels, it is rounded down
+
+all samples taken for this signal can be summarised in the following table:
+
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|}
+		\hline
+		$t$/ms & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		sample value/V & 10.0 & 2.0 & 5.0 & 3.0 & 6.3 & 7.6 & 9.2 \\ \hline
+		voltage level/V & 10 & 2 & 5 & 3 & 6 & 7 & 9 \\ \hline
+		digital number & 1010 & 0010 & 0101 & 0011 & 0110 & 0111 & 1001 \\ \hline
+	\end{tabular}
+\end{figure}
+
+these digital numbers are used to reproduce the analogue signal as shown \eoe
+
+
+
+
+
+
+\subsection{communication channels}
+
+signals can be transmitted through various communication channels
+
+we next look at relative advantages and disadvantages of each channel
+
+\subsubsection{wire pairs}
+
+a \keypoint{wire pair} consists of two insulated wires twisted around each other\footnote{The idea behind the wire pair is that, by putting the two wires very close together, they are exposed to noise equally on average. So noise can be cancelled out at receiver by taking the difference signal. Compared with a single wire, twisting reduces interference, but still, wire pair is more affected by noise compared with other channels of communication.}
+
+\cmt advantages of wire pairs: low cost, easy to install
+
+\cmt disadvantages of wire pairs
+
+\begin{compactitem}
+	\item[--] affected by noise (unwanted signals are easily picked up)
+	
+	\item[--] exist cross-linking (signal in one circuit easily induces a copy in a nearby circuit)
+	
+	\item[--] low security (easy to tap into a wire pair)
+	
+	\item[--] high attenuation (wire pair radiates electromagnetic waves when current in wire varies)
+\end{compactitem}
+
+\cmt applications: telephone to socket, amplifier to loudspeaker, etc.
+
+\subsubsection{coaxial cables}
+
+coaxial cable is a development of the wire pair
+
+coaxial cable consists of a central core shielded by an outer conductor which is \emph{earthed}
+
+central core serves as the transmitting wire
+
+outer conductor acts as signal return path and prevents interference getting into the core
+
+\cmt advantages of coaxial cables:
+
+\begin{compactitem}
+	\item[--] less noise and cross-linking (central core is shielded by outer conductor)
+	
+	\item[--] less attenuation (radiation of electromagnetic waves is prevented)
+	
+	\item[--] greater bandwidth, so higher rate of data transmission
+	
+	\item[--] higher security (more difficult to tap in than a wire pair)
+\end{compactitem}
+
+
+\cmt applications: television to aerial, computer to projector, landline to local exchange, etc.
+
+
+
+
+\subsubsection{optic fibres}
+
+\keypoint{optic fibre} includes a core surrounded by a transparent cladding material
+
+the core has a higher refraction index than the cladding, so this allows light to be kept in the core by \emph{total internal reflection}
+
+optic fibre can hence be used as a waveguide to transmit light signals
+
+\cmt advantages of optic fibres
+
+\begin{compactitem}
+	\item[--] very low attenuation (light is totally internally reflected, so it stays in core)
+	
+	\item[--] very little noise (light is immune to electromagnetic radiation)
+	
+	\item[--] very large bandwidth (light has much higher than frequencies than electrical signals)
+	
+	\item[--] ideal for digital transmission (light pulses can be switched on and off rapidly)
+	
+	\item[--] low weight and low cost (made of glass or plastic fibres)
+\end{compactitem}
+
+\cmt applications: internet broadband, transcontinental communication, etc.
+
+\subsubsection{radio waves}
+
+radio waves are part of electromagnetic spectrum with wavelengths $\lambda \approx 10\text{ cm} \sim 10 \text{ km}$
+
+radio waves can be used to transmit signals through different paths
+
+\cmt surface wave ($\lambda \approx 0.1 \sim 10 \text{ km}$, $f\approx 30 \text{ kHz} \sim 3 \text{ MHz}$)
+
+surface waves travel close to surface of earth
+
+long wavelength means they can diffract around obstacles
+
+\cmt sky wave ($\lambda \approx 10 \sim 100 \text{ m}$, $f\approx 3 \sim 30 \text{ MHz}$)
+
+sky waves can be reflected by the \emph{ionosphere} (a layer of charged particles in atmosphere)
+
+sky waves travel over large distances via multiple reflections by ionosphere and ground
+
+sky wave depends on atmosphere conditions so reception is not very reliable
+
+\cmt space wave ($\lambda \approx 10\text{ cm} \sim 10 \text{ m}$, $f\approx 30 \text{ MHz} \sim 3 \text{ GHz} $)
+
+short-wave radio waves can penetrate atmosphere and reach satellites
+
+satellite can regenerate the signal and re-transmit them back to receiver
+
+space waves are also used on surface of earth, but their short wavelength means they cannot diffract sufficiently, so transmission to receiver has to be \emph{line-of-sight}
+
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=0.95]
+\tikzstyle emwave=[very thick,postaction={decorate},decoration={markings,mark=at position 0.75 with {\arrow{>}}}]
+\draw[very thick] (68:16) arc (68:112:16);
+\draw[dotted] (70:20) arc (70:110:20);
+\foreach \a in {72,108} {
+\draw[fill] (\a:16.6) circle(0.1);
+\draw[very thick] (\a:16.5) --++ (\a+180:0.25) (\a:16.5) --++ (\a+180-30:0.3) (\a:16.5) --++ (\a+180+30:0.3);
+\draw[very thick] (\a:16.25) -- (\a-.4:16) (\a:16.25) -- (\a+.4:16);
+}
+\draw[blue,emwave,] (106:16.5) arc(106:74:16.5) node[above,midway]{surface wave};
+\draw[emwave,DarkGreen] (106.5:16.75) -- (90:20) node[above,midway,rotate=39.75]{sky wave};
+\draw[emwave,DarkGreen] (90:20) -- (73.5:16.75);
+% satellite
+\draw[thick] (-0.2,25.65) rectangle (0.2,26.35); %body
+\draw[thick] (0.3,25.75) rectangle (1.2,26.25); % right wing
+\draw[thick] (-0.3,25.75) rectangle (-1.2,26.25); % left wing
+\draw[thick] (0.3, 26) -- (1.2,26) (-0.3, 26) -- (-1.2,26);
+\draw[thick] (-0.05,26.35) --++ (0,0.1) --++ (0.1,0) --++ (0,-0.1); % connection parts
+\draw[thick] (0.2,26.05) --++ (0.1,0) (0.2,25.95) --++ (0.1,0); % connection parts
+\draw[thick] (-0.2,26.05) --++ (-0.1,0) (-0.2,25.95) --++ (-0.1,0); % connection parts
+\draw[thick] (0.05,25.65) --++ (0,-0.1) (-0.05,25.65) --++ (0,-0.1);
+\draw[thick] (-0.25,25.55) rectangle (0.25,25.3); % aerial
+\draw[thick] (0.25,25.3) -- (0.12,25.1) -- (-0.12,25.1) -- (-0.25,25.3);
+\foreach \x in {0.45,0.6,0.75,0.9,1.05} {
+\draw[very thick] (\x,25.75) --++ (0,0.5);
+\draw[very thick] (-\x,25.75) --++ (0,0.5);
+\draw[very thick] (\x*5/9-.75*5/9,25.3) --++ (0,0.25);
+}
+\foreach \x in {0.45,0.6,0.75} \draw[very thick] (0,25.3) ++ (240:\x) arc(240:300:\x); % signals
+\draw[purple,emwave] (107:17) -- (-0.3,24.3) node[above,pos=0.6,twoline,rotate=59.86]{space wave\\(uplink)};
+\draw[purple,emwave] (0.3,24.3) -- (73:17) node[above,pos=0.4,twoline,rotate=-59.86]{space wave\\(downlink)};
+% nodes
+\node at (1.2,25.3) {satellite};
+\draw (75:20) --++ (0.5,0.5) node[above]{ionosphere};
+\draw (108:15.6) node[rotate=18] {transmitter};
+\draw (72:15.6) node[rotate=-18] {receiver};
+\node at (0,15.2) {\Large earth};
+\end{tikzpicture}
+\caption*{use of radio waves in telecommunication}
+\end{figure}
+
+
+
+\subsubsection*{communication satellites}
+
+\cmt communication by satellite has several advantages compared with sky waves
+
+\begin{compactitem}
+	\item[--] satellite amplifies the signal for its return to surface, reception signal is stronger
+	
+	\item[--] space wave uses higher frequencies, this allows for greater bandwidth
+	
+	so more information can be transmitted per unit time
+	
+	\item[--] sky wave lacks stability, but communication by satellite is consistent
+\end{compactitem}
+
+\cmt uplink and downlink for satellite communication must use different frequencies
+
+since uplink is greatly attenuated, downlink must be greatly amplified
+
+to avoid uplink being swamped by downlink signals, different carrier frequencies are used
+
+\cmt one type of useful satellites are the \emph{geostationary satellites}
+
+geostationary satellite always stays in same position with respect to a ground observer
+
+it has a period of 24 hours, moves from west to east in an equatorial orbit
+
+\begin{compactitem}
+	\item[--] advantages
+	
+	relative at rest, so no need to track, satellite dish can be fixed
+	
+	\item[--] disadvantages
+	
+	orbit is very high (radius of orbit is over 6 times of radius of earth), so long time delay
+	
+	orbit is above equator, so cannot cover areas of high latitudes
+\end{compactitem}
+
+
+\cmt another type of useful satellites are the \emph{polar satellites}
+
+polar satellites pass over the two poles of the earth at around 1000 km above ground
+
+\begin{compactitem}
+	\item[--] advantages
+	
+	lower orbit, so shorter time delay
+	
+	give better details for surface observation (e.g., street map, weather forecast, spy, etc.)
+	
+	\item[--] disadvantages
+	
+	not synchronous with ground observers, so satellite needs to be tracked
+	
+	channel must be swapped between satellites for continuous communication
+\end{compactitem}
+
+
+
+\subsubsection{microwaves}
+
+microwaves have higher frequencies ($f\approx 3 \sim 300 \text{ GHz} $)  than radio waves \footnote{There is no clear boundary of frequency (or wavelength) between radio waves and microwaves. Usually we take a few GHz (or a few cm) as the borderline.}
+
+high frequency means higher bandwidth, greater rate of data transmission is possible
+
+but their wavelengths are shorter ($\lambda \approx 0.1 \sim 10 \text{ cm}$), so not very able to diffract around barriers, transmission must be line-of-sight
+
+\cmt application: Wi-Fi, bluetooth connections, mobile phone networks, satellite links, etc.
+
+
+
+\subsubsection*{causes of attenuation in communication channels}
+
+each communication channel suffers some degree of power loss
+
+\begin{compactitem}
+	\item[--] wire pair/coaxial cable: heat loss due to resistance and radiation of energy
+	
+	\item[--] optic fibre: scattering due to impurities and defects in optic fibre\footnote{In practice, infra-red is usually used in optic fibres rather than visible light. Infra-red has longer wavelength, so they have better diffraction ability. Less scattering effect means attenuation is lower.}
+	
+	\item[--] radio waves/microwaves: absorption by atmosphere/air molecules
+\end{compactitem}
+
+
+
+\subsection{the decibel scale}
+
+in telecommunication, engineers often want to evaluate the following:
+
+\begin{compactitem}
+	\item [--] how much signal power is lost during transmission
+	
+	\item [--] how the received power compares with noise level
+	
+	\item [--] by what extent a signal is intensified if it is sent into an amplifier
+\end{compactitem}
+
+these all involve computing ratios of powers of some kind, which are usually very large
+
+\vspace*{\baselineskip}
+
+engineers introduce a logarithmic scale to express power ratios, known as the \keypoint{decibel scale}
+
+with the decibel scale, power ratio $\frac{P_1}{P_2}$ is now expressed as $\boxed{10\log\frac{P_1}{P_2}}$\footnote{This is the logarithm to base 10, which can also be written as $\log_{10}$ or $\lg$.}
+
+in electrical engineering, signal attenuation (degree of power decrease), signal-to-noise ratio and gain of amplifer (value of amplification) are usually given in decibels:
+
+\begin{compactitem}
+	\item[--] $ \boxed{\text{attentuation} = 10\log\frac{P_\text{in}}{P_\text{out}}}$
+	
+	\item[--] $ \boxed{\text{signal-to-noise ratio} = 10\log\frac{P_\text{out}}{P_\text{noise}}}$
+	
+	\item[--] $ \boxed{\text{gain of amplifier} = 10\log\frac{P_\text{out}}{P_\text{in}}}$
+\end{compactitem}
+
+\cmt unit for the decibel scale: dB
+
+ratio in dB is actually unit free
+
+dB is simply a reminder that we are using a logarithmic scale to express a ratio
+
+\cmt rationales for using the decibel scale
+
+\begin{compactitem}
+	\item[--] ratios given in dB give more manageable numbers
+	
+	\item[--] ratios given in dB can be added or subtracted
+	\footnote{This follows from the property of the logarithmic function: $\log x + \log y = \log (xy) $. 
+		
+		Note that: $10\log\frac{P_1}{P_2} + 10\log\frac{P_2}{P_3} = 10\log\left(\frac{P_1}{P_2} \times \frac{P_2}{P_3}\right) = 10\log\frac{P_1}{P_3}$. This means if we know the power ratio of $P_1$ to $P_2$ in dB and the power ratio of $P_2$ to $P_3$ in dB, we can immediately add the two numbers together to get the the power ratio of $P_1$ to $P_3$ in dB.
+		
+	}
+\end{compactitem}
+
+
+
+
+\example{A signal of power 0.040 mW is sent into an amplifier. The gain of the amplifier is 36 db. What is the power for the output signal?}
+
+\solc
+\begin{equation*}
+	10\log\frac{P_\text{out}}{P_\text{out}} = 36 \RA 10\log\frac{P_\text{out}}{0.040}=3.6 \RA P_\text{out} = 10^{3.6} \times 0.040 \approx 159 \text{ mW} \teoe
+\end{equation*}
+
+\example{An optic fibre is known to have an attenuation of 0.12 dB km$^{-1}$. The transmitted signal sent into the optic fibre has a power of 50 mW. The noise level at receiver end is 8.0 $\mu$W. If the signal-to-noise ratio at receiver is at least 25 dB, what is the maximum length of the fibre?}
+
+\sol let's first find minimum reception power from the signal-to-noise ratio:
+
+{
+	\centering
+	
+	$10\log\frac{P_\text{out}}{P_\text{noise}} = 25 \RA \log\frac{P_\text{out}}{8.0\times10^{-6}}=2.5 \RA P_\text{out} = 10^{2.5} \times 8.0\times10^{-6} \approx 2.53\times10^{-3} \text{ W} $
+	
+}
+
+$\text{maximum attenuation in channel} = 10\log\frac{P_\text{in}}{P_\text{out}} = 10\log\frac{50\times10^{-3}}{2.53\times10^{-3}} \approx 130 \text{ dB}$
+
+maximum length of optic fibre: $L = \frac{130}{0.12} \approx 108 \text{ km}$ \eoe
+ 
+
+\example{An electrical signal of 60 mW is transmitted along a cable of length 94 km. The cable has an attenuation of 3.2 dB km$^{-1}$. Repeater amplifiers of gain of 27 dB are placed every 8.0 km along the cable. What is the power of the received signal?}
+
+\sol total attenuation in cable: $94\times3.2 = 300.8 \text{ dB}$
+
+number of amplifiers: $\frac{94}{8.0} = 11.75 \ra$ 11 amplifiers are placed
+
+total gain due to amplifiers: $11\times27=297 \text{ dB}$
+
+so net attenuation during transmission: $300.8-297 = 3.8 \text{ dB}$
+\begin{equation*}
+	10\log\frac{P_\text{in}}{P_\text{out}} = 3.8 \RA \log\frac{60}{P_\text{out}} = 0.38 \RA P_\text{out} = \frac{60}{10^{0.38}} \approx 25 \text{ mW} \teoe
+\end{equation*}
+
+\question{A signal is transmitted through a cable of total length of 5.0 km,. The signal attenuation per unit length is this cable is 12 dB km$^{-1}$. If the reception power is $2.9\times10^{-7}$ W, find the power of the input signal.}
+
+\question{An input signal of power 28 mW is passed along two cables followed by an amplifier at the receiver end for output. If the attenuation in the cables are 29 dB and 38 db respectively, and the amplifier has a gain of 43 dB. What is the output power from the amplifier?}
+
+\question{Input signal of power 12 mW is sent along an optic fibre. The noise level at the receiver end of the optic fibre is 0.75 $\mu$W. It is required that the signal-to-noise ratio in the receiver must not fall below 35 dB. For this transmission, the maximum uninterrupted length of the optic fibre is 48 km. (a) What is the minimum acceptable power of the signal at the receiver? (b) What is the attenuation per unit length of the fibre?}

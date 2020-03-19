@@ -107,6 +107,10 @@ in general, any object moving along circular path is accelerating
 	\omega = \frac{2\pi}{T} = \frac{2\pi}{40} \approx 0.157 \radps \qquad v = \omega r = 0.157 \times 2.5 \approx 0.39 \mps \teoe
 \end{equation*}
 
+\question{What is the angular velocity of the minute hand of a clock?}
+
+\question{A spacecraft moves around the earth in a circular orbit. The spacecraft has a speed of $7200 \mps$ at a height of 1300 km above the surface of the earth. Given that the radius of the earth is 6400 km. (a) What is the angular speed of this spacecraft? (b) What is its period?}
+
 
 \subsubsection{centripetal acceleration}
 
@@ -157,7 +161,7 @@ change in \emph{magnitude} of velocity will give rise to \emph{tangential accele
 
 this is related to \emph{angular acceleration}\footnote{Angular acceleration is analogous to linear acceleration $\alpha$, defined as rate of change of angular velocity: $\alpha = \frac{\dd \omega}{\dd t} = \frac{\dd^2 \theta}{\dd t^2}$ ($\star$). Similar to $v=\omega r = \ddt{s}$, the relation $a=\alpha r = \ddt{v}$ also holds.}  , which is beyond the syllabus
 
-
+\question{A racing car makes a $180^\circ$ turn in 2.0 s. Assume the path is a semi-circle with a radius of 30 m and the car maintains a constant speed during the turn. (a) What is the angular velocity of the car? (b) What is the centripetal acceleration?}
 
 \subsection{centripetal force}
 
@@ -174,13 +178,15 @@ there must be a \emph{net force} on an object performing circular motion
 
 using Newton's 2$^\text{nd}$ law: $\boxed{ F_c = m\frac{v^2}{r} = m\omega^2r}$
 
-\cmt $F_c$ is not a new force by nature
+\cmt $F_c$ is not a new force by nature, it can have a variety of origins
 
 $F_c$ is a resultant of forces you learned before (weight, tension, contact force, friction, etc.)
 
 \cmt $F_c$ acts at right angle to direction of velocity
 
-or equivalently, if $\fnet \perp v$, then this net force provides centripetal force for circular motion
+or equivalently, if $\fnet \perp v$ and $\fnet$ is of constant magnitude
+
+then this net force provides centripetal force for circular motion
 
 \cmt effect of $F_c$: change \emph{direction} of motion, or maintain circular orbits
 
@@ -205,13 +211,28 @@ again the idea of tangential force is beyond the syllabus
 
 
 
-\example{A rock is able to orbit around the earth near the surface of the earth. Given that radius of the earth $R=6400$ km and air resistance is ignored, (a) what is its orbital speed? (b) What is the orbital period?}
+\example{A rock is able to orbit around the earth near the earth's surface. Let's ignore air resistance for this question, so the rock is acted by weight only. Given that radius of the earth $R=6400$ km. (a) What is the orbital speed of the rock? (b) What is the orbital period?}
 	
 \sol weight of object provides centripetal force: $mg = \frac{mv^2}{R}$
 	
 orbital speed: $v = \sqrt{gR} = \sqrt{9.81\times6.4\times10^6} \approx 7.9\times10^3 \mps$
 
 period: $T = \frac{2\pi R}{v} = \frac{2\pi\times6.4\times10^6}{7.9\times10^3} \approx 5.1\times10^3 \text{ s} \approx 85 \text{ min}$ \eoe
+
+\example{A turntable can rotate freely about a vertical axis through its centre. A small object is placed on the turntable at distance $d=40$ cm from the centre. The turntable is then set to rotate, and the angular speed of rotation is slowly increased. The coefficient of friction between the object and the turntable is $\mu = 0.30$. If the object does not slide off the turntable, find the maximum number of revolutions per minute.}
+
+\sol if object stays on turntable, friction provides the centripetal force required: $f = m\omega^2 d$
+
+increasing $\omega$ requires greater friction to provide centripetal force
+
+but maximum limiting friction possible is: $f_\text{lim}  = \mu N = \mu mg$, therefore
+\begin{equation*}
+f \leq f_\text{lim} \RA m\omega^2d \leq \mu mg \RA \omega^2 \leq \frac{\mu g}{d} \RA \omega_\tmax = \sqrt{\frac{0.30\times9.81}{0.40}} \approx 2.71 \radps
+\end{equation*}
+
+period of revolution: $T_\tmin = \frac{2\pi}{\omega_\tmax} = \frac{2\pi}{2.71} \approx 2.32 \text{ s}$
+
+number of revolutions in one minute: $n_\tmax = \frac{t}{T_\tmin} = \frac{60}{2.32} \approx 25.9 $ \eoe
 
 
 \example{Particle $P$ of mass $m=0.40$ kg is attached to one end of a light inextensible string of length $r=0.80$ m. The particle is whirled at a constant angular speed $\omega$ in a vertical plane. (a) Given that the string never becomes slack, find the minimum value of $\omega$. (b) Given instead that the string will break if the tension is greater than 20 N, find the maximum value of $\omega$.}
@@ -251,20 +272,7 @@ m\omega^2 r + mg \leq T_\tmax \RA \omega^2 \leq \frac{T_\tmax}{m} - \frac{g}{r}
 	\omega_\tmax = \sqrt{\frac{T_\tmax}{m} - \frac{g}{r}} = \sqrt{\frac{20}{0.40} - \frac{9.81}{0.80}} \approx 6.1 \radps \teoe
 \end{equation*}
 
-\example{A turntable can rotate freely about a vertical axis through its centre. A small object is placed on the turntable at distance $d=40$ cm from the centre. The turntable is then set to rotate, and the angular speed of rotation is slowly increased. The coefficient of friction between the object and the turntable is $\mu = 0.30$. If the object does not slide off the turntable, find the maximum number of revolutions per minute.}
 
-\sol if object stays on turntable, friction provides the centripetal force required: $f = m\omega^2 d$
-
-increasing $\omega$ requires greater friction to provide centripetal force
-
-but maximum limiting friction possible is: $f_\text{lim}  = \mu N = \mu mg$, therefore
-\begin{equation*}
-f \leq f_\text{lim} \RA m\omega^2d \leq \mu mg \RA \omega^2 \leq \frac{\mu g}{d} \RA \omega_\tmax = \sqrt{\frac{0.30\times9.81}{0.40}} \approx 2.71 \radps
-\end{equation*}
-
-period of revolution: $T_\tmin = \frac{2\pi}{\omega_\tmax} = \frac{2\pi}{2.71} \approx 2.32 \text{ s}$
-
-number of revolutions in one minute: $n_\tmax = \frac{t}{T_\tmin} = \frac{60}{2.32} \approx 25.9 $ \eoe
 
 
 
@@ -344,6 +352,19 @@ at lowest point: $\, F_c = T- mg = m \frac{v^2}{r}$
 	T = mg + m\frac{v^2}{r} = mg + m\frac{2gr}{r} = 3mg \teoe
 \end{equation*}
 
+\question{Suggest what provides centripetal force in the following cases. (a) An athlete running on a curved track. (b) An aeroplane banking at a constant altitude. (c) A satellite moving around the earth.}
+
 \question{A turntable that can rotate freely in a horizontal plane is covered by dry mud. When the angular speed of rotation is gradually increased, state and explain whether the mud near edge of the plate or near the mud will first leave the plate?}
 
 \question{A bucket of water is swung at a constant speed and the motion describes a circle of radius $r=1.0 $m in the vertical plane. If the water does not pour down from the bucket even when it is at the highest position, how fast do you need to swing the bucket?}
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\centering
+	\begin{tikzpicture}
+	\draw[thick] (-4,2) -- (-3,1) to [out=-45, in=180] (0,-1) arc[radius=1,start angle = -90, end angle = 245] (.3,-1) -- (2,-1);
+	\draw[dashed] (0,1) node[above]{$T$} -- (-3,1) node[above right]{$P$};
+	\draw (-3.2,1.2) -- ++(0.1,0.1) -- ++(0.4,-0.4) -- ++(-0.1,-0.1);
+	\end{tikzpicture}
+\end{wrapfigure}
+
+\question{This question is about the design of a roller-coaster. We consider a slider that starts from rest from a point $P$ and slides along a frictionless circular track as sketched below. $P$ is at the same height as the top of the track $T$. (a) Show that the slider cannot get to $T$. (b) As a designer for a roller-coaster, you have to make sure the slider can reach point $T$ and continue to slide along the track, what is the minimum height for the point of release?}

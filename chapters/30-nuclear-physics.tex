@@ -70,7 +70,7 @@ useful notions in nuclear physics related to this idea can now be introduced
 \end{ilight}
 
 \begin{ilight}
-	energy needed to separate the nucleons in a nucleus to infinity, or equivalently, energy released when free individual nucleons combine to form a nucleus, is called the \keypoint{nuclear binding energy} ($E_B$)
+	energy needed to separate the nucleons in a nucleus to infinity, or equivalently, energy released when free individual nucleons combine to form a nucleus, is called the \keypoint{nuclear binding energy} ($E_B$)\index{binding energy}
 \end{ilight}
 
 \cmt for a nucleus $Z$ with proton number $Z$ and nucleon number $A$ (represented by $^A_Z X$)
@@ -111,7 +111,7 @@ binding energy per nucleon: $\epsilon_b = \frac{E_b}{A} = \frac{7.812 \times 10^
 
 \question{What is the binding energy for the hydrogen nucleus $^1_1\text{H}$?}
 
-\question{Why is the rest mass of proton slightly larger than the unified atomic mass unit?}
+\question{Why is rest mass of proton slightly larger than the unified atomic mass unit?}
 
 \subsubsection{nuclear stability}
 
@@ -163,7 +163,7 @@ nuclei are all positively charged, for two nuclei to come close enough to fuse t
 
 \cmt vast amount of energy of the sun and other \emph{stars} are created through fusion
 
-extreme high temperature and high density at core of stars make fusion reactions possible
+extreme high temperature and high density at core of stars make fusion possible
 \footnote{Even for the simplest fusion reaction, fusing hydrogen into helium, at least $1.5\times 10^7 \text{ K}$ is required. This is basically how the sun shines and nurtures lives on the earth, and also many other stars in the universe power energies. For a sufficiently massive star, when it burns out of its fuel, its core collapses and becomes hot enough to start to fuse heavier elements. If a star is not able to fuse again, nuclear reaction ceases, the star collapses and becomes a \emph{white dwarf}. For a giant star, nuclear reactions can go all the way up to $^{56}_{26}$Fe. At this point, no more energy can be produced through fusion. The star collapses extremely rapidly and then explodes, creating a \emph{supernova}, during which all elements heavier than $^{56}_{26}$Fe are formed. ($\star$)}
 
 
@@ -387,6 +387,8 @@ $ ^1_1\text{H} + ^2_1\text{D} \longrightarrow ^3_2\text{He} + \text{energy}$
 
 
 
+\newpage
+
 
 
 \question{Another fusion reaction in the proton-proton chain is represented by:}
@@ -442,7 +444,7 @@ since nuclear decay is spontaneous, this number is a constant, called the decay 
 	\keypoint{decay constant}\index{decay constant} is the probability for one nucleus to decay per unit time: $\boxed{\lambda = \frac{\Delta N}{N\Delta t}}$
 \end{ilight}
 
-\cmt to describe the rate of decay, we introduce the notion of \keypoint{activity}
+\cmt to describe the rate of decay, we introduce the notion of \keypoint{activity}\index{activity}
 
 activity is defined as the number of nuclei that undergo decay per unit time: $\boxed{A=\frac{\Delta N}{\Delta t}}$
 
@@ -486,22 +488,26 @@ this shows that decay events obey \emph{exponential decay laws}
 
 $N_0$ is initial number of nuclei in the sample at $t=0$
 
-\cmt since activity $A=\lambda N$, so activity varies with time as: $\boxed{A(t) = A_0 \mathrm{e}^{- \lambda t}}$
-
-\cmt $\lambda \up \ra$ higher probability of decay, or greater rate of decay 
+\cmt $\lambda \up \ra$ higher probability of decay, or greater rate of decay
 
 \begin{figure}[ht]
 	\centering
-		\begin{tikzpicture}[yscale=1.5,xscale=1.2]
-		\draw[thick,<->] (0,3.6) node[left]{$N$} -- (0,3.2) node[left]{$N_0$} -- (0,0) -- (6,0) node[below]{$t$};
-		\draw[thick,->] (4,3.2) --++ (0,-1.2) node[midway,right]{$\lambda \up$};
-		\draw [thick,color=orange,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-1.8*\x)});
-		\draw [thick,color=purple,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-0.6*\x)});
-		\draw [thick,color=blue,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-0.2*\x)});
-		\end{tikzpicture}
-		
-		\caption*{exponential decay law for number of nuclei: $N(t)=N_0\mathrm{e}^{-\lambda t}$}
+	\begin{tikzpicture}[yscale=1.5,xscale=1.2]
+	\draw[thick,<->] (0,3.6) node[left]{$N$} -- (0,3.2) node[left]{$N_0$} -- (0,0) -- (6,0) node[below]{$t$};
+	\draw[thick,->] (4,3.2) --++ (0,-1.2) node[midway,right]{$\lambda \up$};
+	\draw [thick,color=orange,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-1.8*\x)});
+	\draw [thick,color=purple,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-0.6*\x)});
+	\draw [thick,color=blue,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-0.2*\x)});
+	\end{tikzpicture}
+	
+	\caption*{exponential decay law for number of nuclei: $N(t)=N_0\mathrm{e}^{-\lambda t}$}
 \end{figure}
+
+\cmt since activity $A=\lambda N$, so activity varies with time as: $\boxed{A(t) = A_0 \mathrm{e}^{- \lambda t}}$
+
+
+
+
 
 \example{A sample containing $6.0\times10^7$ iodine-131 nuclei has an activity of 60 Bq. (a) What is the decay constant of iodine-131? (b) How many nuclei remain undecayed after 20 days?}
 
@@ -617,7 +623,7 @@ activity obeys exponential decay, so we would expect count rate to satisfy: $\bo
 	\pgfmathsetseed{\number\pdfrandomseed}
 	\draw[<->] (0,4.2)node[left]{$\ln R$} -- (0,0) -- (5,0)node[below]{$t$};
 	\draw[red,thick] (0,3.5) -- (4.375,0);
-	\foreach \x in {0,0.6,1.1,1.6,2.2,2.7,3.1,3.6,4.2}{
+	\foreach \x in {0,0.6,1.1,1.6,2.2,2.7,3.1,3.6}{
 	\pgfmathsetmacro\somevalue{0.2*rand}
 	\draw[thick] (\x-.08,3.58-0.8*\x+\somevalue) --++ (0.16,-0.16);
 	\draw[thick] (\x-.08,3.42-0.8*\x+\somevalue) --++ (0.16,0.16);

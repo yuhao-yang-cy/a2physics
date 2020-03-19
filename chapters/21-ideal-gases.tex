@@ -10,7 +10,7 @@
 	
 	\vspace*{-20pt}
 	
-	\includegraphics[width=6.4cm]{gas-random-motion}
+	\includegraphics[width=6cm]{gas-random-motion}
 		
 	motion of gas molecules in a container
 	
@@ -207,10 +207,10 @@ we will next recover these laws from the ideal gas equation
 
 Boyle's law was discovered by \emph{Robert Boyle} in 1662, based on experimental observations
 
-\begin{wrapfigure}{r}{4.5cm}
+\begin{wrapfigure}{r}{5cm}
 	\centering
 	\vspace*{-10pt}
-		\begin{tikzpicture}[scale=1]
+		\begin{tikzpicture}[yscale=1.2]
 		\draw [thick, <->] (0,4) node[left]{$p$} -- (0,0) node[below]{$0$} -- (4,0) node[below]{$V$};
 		\draw [very thick,blue,domain=0.28:3.6,samples=20,smooth,variable=\x] plot (\x,{1/\x)});
 		\draw (2.5,2) node{$pV=\text{const}$};
@@ -228,7 +228,7 @@ $\boxed{pV=\text{const}}$, or $\boxed{p \propto \frac{1}{V}}$
 
 } 
 
-i.e., pressure $p$ of gas is inversely proportional to volume $V$
+pressure $p$ of gas is inversely proportional to volume $V$
 
 \cmt for a gas with fixed temperature: $p_1 V_1 = p_2 V_2$
 
@@ -348,7 +348,7 @@ volume of molecules is negligible compared to volume occupied by gas
 
 \end{ilight}
 
-\example{A mass of 20 g helium-4 at a temperature of 37$^\circ$C has a pressure of $1.2\times10^5 \text{ Pa}$. Each helium-4 atom has a diameter of 280 pm. (a) Find the volume occupied by the gas. (b) Find the volume of atoms in this gas. (c) Compare the two volumes, suggest whether this gas can be considered as an ideal gas.}
+\example{A mass of 20 g helium-4 at a temperature of 37$^\circ$C has a pressure of $1.2\times10^5 \text{ Pa}$. Each helium-4 atom has a diameter of 280 pm. (a) Find the volume occupied by the gas and the volume of atoms in this gas. (b) Compare the two volumes, suggest whether this gas can be considered as an ideal gas.}
 
 \sol number of helium molecules: $N = nN_A = \frac{m}{M} \times N_A = \frac{20}{4.0} \times 6.02\times10^{23} \approx 3.01\times10^{24} $
 
@@ -362,9 +362,7 @@ volume of one atom: $V_\text{atom} = \frac{4}{3}\pi r^3 = \frac{4}{3} \pi\times(
 
 volume of all atoms: $V_\text{atoms} = N V_\text{atom} = 3.01\times10^{24} \times 1.15\times10^{-29} \text{ m}^3 \approx 3.46 \times 10^{-5} \text{ m}^{3}$
 
-$V_\text{gas} \gg V_\text{atoms}$, so negligible volume of molecules compared to volume of gas
-
-this gas can approximate to an ideal gas \eoe
+$V_\text{gas} \gg V_\text{atoms}$, so this gas can approximate to an ideal gas \eoe
 
 
 \subsubsection{pressure (quantitative view)}
@@ -379,7 +377,7 @@ let's first consider the effect of one single molecule moving in one dimension o
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=1]
 \coordinate (A) at (0,0); 
 \coordinate (B) at (3,0);
 \coordinate (C) at (4.5,1); 
@@ -413,8 +411,6 @@ average force acting: $F_x=\frac{\Delta P_x}{\Delta t} = \frac{2mv_x}{\tfrac{2l}
 
 average pressure: $p_x=\frac{F}{A} = \frac{mv_x^2}{lA} = \RA p_x = \frac{mv_x^2}{V}$
 
-\vspace*{\baselineskip}
-
 generalisation to $N$ molecules moving in 3-D
 
 \begin{compactitem}
@@ -430,7 +426,6 @@ generalisation to $N$ molecules moving in 3-D
 		
 \end{compactitem}
 
-\vspace*{\baselineskip}
 
 therefore we find the pressure of an ideal gas is given by: $\boxed{p = \frac{Nm\avg{v^2}}{3V}}$
 
@@ -489,7 +484,7 @@ recall our statement in \S\ref{s-gas-intro}, higher temperature means higher spe
 molecules have this energy because they are moving through space
 
 total kinetic energy may also include \emph{rotational} K.E. and \emph{vibrational} K.E.
-\footnote{There is an important result in classical thermal physics, known as the \emph{equipartition of energy theorem}\index{equipartition of energy theorem ($\star$)}. It states that the average energy per molecule is $\frac{1}{2}kT$ for each independent \emph{degree of freedom}. A molecule can move in three directions, corresponding to three translational degrees of freedom, thus its mean translational kinetic energy is $\frac{3}{2}kT$. For a polyatomic gas (each molecule consists of several atoms), apart from translational motion , it has additional rotational degrees of freedom and different vibrational modes, so its average energy can be calculated by counting the total number of degrees of freedom.}
+\footnote{There is an important result in classical thermal physics, known as the \emph{equipartition of energy theorem}. It states that the average energy per molecule is $\frac{1}{2}kT$ for each independent \emph{degree of freedom}. A molecule can move in three directions, corresponding to three translational degrees of freedom, thus its mean translational kinetic energy is $\frac{3}{2}kT$. For a polyatomic gas (each molecule consists of several atoms), apart from translational motion , it has additional rotational degrees of freedom and different vibrational modes, so its average energy can be calculated by counting the total number of degrees of freedom.}
 
 \cmt $\avg{E_k} = \frac{3}{2}k T$ gives the \emph{mean}, or \emph{average} K.E. per molecule
 
