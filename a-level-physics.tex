@@ -60,11 +60,11 @@
 	\begin{tikzpicture}[remember picture, overlay]
 	\draw[fill=Gray!70,draw=Gray!70] (2pt,0) rectangle (6,0.1pt);
 	\end{tikzpicture}}%
-\titlecontents{subsection}[8.3pc]
+\titlecontents{subsection}[8.1pc]
 {\addvspace{1pt}}
-{\contentslabel[\thecontentslabel]{1.6pc}}{}
+{\contentslabel[\thecontentslabel]{2.1pc}}{}
 {\hfill\small \thecontentspage}[]
-\titlecontents*{subsubsection}[8.3pc]
+\titlecontents*{subsubsection}[8.1pc]
 {\addvspace{-1pt}\small}{}{}
 {\ - \small\thecontentspage}
 [ /\ ][]
@@ -188,6 +188,7 @@
 \setcounter{page}{1}
 \pagenumbering{roman} 
 \pagestyle{plain}
+\include{issues}
 \tableofcontents
 %\listoffigures
 
@@ -198,6 +199,8 @@
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
+
+
 \include{18-circular-motion}
 \include{19-gravitation}
 \include{20-oscillation}
@@ -206,12 +209,18 @@
 \include{23-coulomb-law}
 \include{24-capacitance}
 \include{25-magnetic-fields}
-%\include{26-charged-particles} %combined with 25
 \include{27-electromagnetic-induction}
 \include{28-alternating-currents}
 \include{29-quantum-physics}
 \include{30-nuclear-physics}
+\include{31-electronics}
+\include{32-medical-imaging}
+\include{33-telecommunication}
 \newpage
+
+%\phantomsection
+%\cleardoublepage
+%\addcontentsline{toc}{section}{\indexname}
 \printindex
 
 \end{document}
