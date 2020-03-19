@@ -2,7 +2,9 @@
 
 This is a set of very concise lecture notes written for [CIE A-level Physics](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/) (syllabus code 9231). Presumably the target audience of the notes are students studying the relevant course.
 
-I have started typesetting my handwritten notes into LaTeX since a long time ago, but it is until very recently I see hope that this work appears to get close to completion. There are 16 chapters to cover in the course, as you will see in the list below. I have finished typesetting the 14 of them - nearly 90% of the whole project. Hopefully, this number will continue to grow to 100%.
+Note that there will be an update for the syllabus since 2022. The sections on electronics and telecommunication are removed from the new syllabus, while some introductory astronomy and cosmology are added in. The rest of the subject contents mostly remain unchanged.
+
+So far, my lecture notes cover the subject contents in current syllabus only. But I have plans to extend these notes for the new syllabus.
 
 ## Table of Contents
 
@@ -19,13 +21,10 @@ I have started typesetting my handwritten notes into LaTeX since a long time ago
 - [x] Quantum Physics
 - [x] Nuclear Physics
 - [x] Electronics
-- [ ] Telecommunication
+- [x] Telecommunication
 - [x] Medical Imaging
 - [ ] Astronomy & Cosmology
 
-Note that there will be an update for the syllabus since 2022. The sections on electronics and telecommunication are removed from the new syllabus, while some introductory astronomy and cosmology are added in. The rest of the subject contents mostly remain unchanged.
-
-So far, my lecture notes cover the subject contents in current syllabus only. But I have plans to extend these notes for the new syllabus.
 
 ## How to Use
 
