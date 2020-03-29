@@ -32,7 +32,7 @@ Master file: a-level-physics.tex
 
 The master file references the included chapters, each chapter is in separated .tex file as suggested by file names.
 
-My default compiler is XeLaTeX, which is recommended. PdfLaTeX also works fine for me. I am not sure about other compilers.
+My default compiler is PdfLaTeX, which is recommended. XeLaTeX also works fine for me. I am not sure about other compilers.
 
 If you are a student, you might simply want to [download the compiled .pdf file](https://github.com/yuhao-yang-cy/a2physics/blob/master/a-level-physics.pdf) for your own use.
 
