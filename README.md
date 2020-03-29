@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a set of very concise lecture notes written for [CIE A-level Physics](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/) (syllabus code 9231). Presumably the target audience of the notes are students studying the relevant course.
+This is a set of very concise lecture notes written for [CIE A-level Physics](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/) (syllabus code 9702). Presumably the target audience of the notes are students studying the relevant course.
 
 Note that there will be an update for the syllabus since 2022. The sections on electronics and telecommunication are removed from the new syllabus, while some introductory astronomy and cosmology are added in. The rest of the subject contents mostly remain unchanged.
 
