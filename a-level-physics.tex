@@ -6,7 +6,9 @@
 \lhead{ \fancyplain{}{Yuhao Yang} }
 \rhead{ \fancyplain{}{\leftmark} }
 \cfoot{ \fancyplain{}{\thepage} }
-\usepackage[unicode]{hyperref}
+%\usepackage[utf8]{inputenc}
+\usepackage[unicode, pdfencoding=auto]{hyperref}
+\usepackage[bottom]{footmisc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{latexsym}
@@ -100,6 +102,8 @@
 \makeatother
 
 
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-1.6pt}
 
 % % % % % % % % % %
 
@@ -150,11 +154,11 @@
 % highlight environment
 \newenvironment{ilight}
   {\centering
-  	\vspace*{6pt}
+  	\vspace*{-5pt}
   	\begin{tcolorbox}[colframe=Gray,colback=LightGrey!15]
   \setlength{\baselineskip}{\baselineskip}%
   }
-  {\end{tcolorbox}\vspace*{-4pt}}
+  {\end{tcolorbox}\vspace*{-8pt}}
 
 
 \newcommand{\keypoint}[1]{\textbf{\textcolor{red}{#1}}}
@@ -200,7 +204,6 @@
 \pagenumbering{arabic}
 
 
-
 \include{18-circular-motion}
 \include{19-gravitation}
 \include{20-oscillation}
@@ -213,9 +216,11 @@
 \include{28-alternating-currents}
 \include{29-quantum-physics}
 \include{30-nuclear-physics}
-\include{31-electronics}
 \include{32-medical-imaging}
+\include{34-astro}
+\include{31-electronics}
 \include{33-telecommunication}
+
 \newpage
 
 %\phantomsection
