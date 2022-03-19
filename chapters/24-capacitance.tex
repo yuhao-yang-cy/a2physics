@@ -122,7 +122,7 @@ $A$ is area of plate, $d$ is distance between plates, both are geometrical quant
 
 there are two closely related notions of capacitance: \emph{mutual} capacitance and \emph{self} capacitance
 
-the definition for capacitance given in the previous section, is actually \emph{mutual} capacitance\footnote{In many cases, the term capactiance is a shorthand for mutual capacitance.}
+the definition for capacitance given in the previous section, is actually \emph{mutual} capacitance%\footnote{In many cases, the term capactiance is a shorthand for mutual capacitance.}
 
 on the other hand, all bodies are able to store electrical charge
 
@@ -307,7 +307,7 @@ half of stored energy is lost as heat when electrons flow between two capacitors
 
 consider next two series capacitors
 
-same charge $Q$ on each plate: $Q=Q_1=Q_2$\footnote{Initially, the H-shaped isolated section between capacitors is uncharged. But no charge can enter or leave this section, its net charge must remain zero. Since a capacitor carries equal and opposite charges on its plates, so every capacitor in series carries same charge $Q$}
+same charge $Q$ on each plate: $Q=Q_1=Q_2$\footnote{Initially, the H-shaped isolated section between capacitors is uncharged. Since no charge can enter or leave this section, its net charge must remain zero, so same charge $Q$ on each plate of series capacitors.}
 
 p.d. is shared: $V_\text{total} = V_1 + V_2$
 
@@ -334,11 +334,14 @@ explanation: when several capacitors connected in series, equivalent to a parall
 
 \example{For the circuit shown below, find the p.d. across each of the capacitor.}
 
-\begin{center}
-	\begin{circuitikz}[european resistors,scale=0.9]
+\begin{figure}[ht]
+	\centering
+	\vspace*{-12pt}
+	\begin{circuitikz}[european resistors,scale=0.8]
 		\draw (0,0) to[C,l_=$C_1{=}4.0\mu\text{F}$] (3,0) to[C,l_=$C_2{=}12\mu\text{F}$] (6,0) -- (6,3) to[battery,l_=$V{=}8.0\text{V}$] (0,3) -- (0,0);
 	\end{circuitikz}
-\end{center}
+    \vspace*{-12pt}
+\end{figure}
 
 \sol using result for combined capacitance, we have: $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_2} \right)^{-1} = \left( \frac{1}{4.0} + \frac{1}{12} \right)^{-1} = 3.0 \text{ }\mu\text{F}$
 
@@ -367,6 +370,7 @@ more complicated capacitor networks can be considered as a combination of some s
 
 \example{$C_1=C_2=C_3=C_4=10\muF$, calculate the capacitance of the network (a) and (b).}\label{ex-Cnet}
 \begin{center}
+	\vspace*{-8pt}
 \begin{minipage}{0.4\linewidth}
 \begin{center}
 \begin{circuitikz}[european resistors,scale=0.65]
@@ -374,6 +378,7 @@ more complicated capacitor networks can be considered as a combination of some s
 \draw (-1,1) -- (0,1) (4,1) -- (5,1);
 \end{circuitikz}
 
+\vspace*{-8pt}
 (a)
 \end{center}
 \end{minipage}
@@ -385,6 +390,7 @@ more complicated capacitor networks can be considered as a combination of some s
 \draw (3,1) to[C,l^=$C_4$] (6,1);
 \end{circuitikz}
 
+\vspace*{-8pt}
 (b)
 \end{center}
 \end{minipage}
@@ -402,17 +408,16 @@ $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_{23}} + \frac{1}{C_4} \right
 
 \example{Four identical capacitors are arranged as shown. Each capacitor can withstand a maximum p.d. of 12 V, what is the maximum safe p.d. to be applied between the terminals?}
 
-{
-	
+\begin{figure}[ht]
 	\centering
-	
+	\vspace*{-15pt}
 	\begin{circuitikz}[european resistors,scale=0.75]
 		\draw (0,0) -- (0,2) to[C,l^=$C$] (3,2) -- (3,0) to[C,l^=$C$] (0,0);
 		\draw (-3,1) to[C,l^=$C$] (0,1);
 		\draw (3,1) to[C,l^=$C$] (6,1);
 	\end{circuitikz}
-
-}
+\vspace*{-15pt}
+\end{figure}
 
 \sol suppose charge on the leftmost capacitor is $Q$, then charge of rightmost capacitor is also $Q$
 
@@ -467,11 +472,11 @@ as a quick review, we compare capacitor networks with resistor networks
 \end{center}
 
 
+\newpage
 
+\subsection{charging \& discharging capacitors} \label{sec:charging-capacitors}
 
-\subsection{charging \& discharging capacitors ($\star$)} \label{sec:charging-capacitors}
-
-in this section, we will investigate how the p.d. across a capacitor changes with time when it is being charged, and we will also look into discharging processes\footnote{This section is not required by the CIE A-Level exams. However, the contents introduced here may appear in the A-Level syllabus of other examination board.}
+in this section, we will investigate how the p.d. across a capacitor changes with time when it is being charged, and we will also look into discharging processes%\footnote{This section is not required by the CIE A-Level exams. However, the contents introduced here may appear in the A-Level syllabus of other examination board.}
 
 \subsubsection{charging phase}
 

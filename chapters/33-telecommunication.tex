@@ -1,4 +1,4 @@
-\section{Telecommunication}
+\section{\texorpdfstring{Telecommunication ($\ast$)}{Telecommunication}}
 
 
 telecommunication concerns transmitting information by electromagnetic means
@@ -54,6 +54,7 @@ rather than being transmitting directly as a radio wave, information signal is u
 	\end{tikzpicture}
 	
 	\caption*{modulation of a carrier wave in accordance with an information signal}
+	\vspace*{-8pt}
 \end{figure}
 
 
@@ -87,7 +88,7 @@ amplitude modulated carrier wave is found to contain more than one frequencies
 
 mathematically, each AM wave can be considered as the sum of several simple sine waves
 
-\noindent proof: suppose the original carrier wave takes the form: $x_\text{c}(t) = A_\text{c} \sin \omega_\text{c} t$
+\noindent proof ($\ast$): suppose the original carrier wave takes the form: $x_\text{c}(t) = A_\text{c} \sin \omega_\text{c} t$
 
 it is to be amplitude modulated by an information signal: $x_\text{m}(t)$
 
@@ -122,7 +123,7 @@ positions of sideband is determined by frequency of the information signal $f_\t
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[scale=1.2]
+	\begin{tikzpicture}[scale=1.25]
 	\draw[<->] (0,4.2) node[left]{intensity} -- (0,0) -- (6,0) node[below] {$f$};
 	\draw[very thick, blue] (3,0)node[below]{$f_\text{c}$} --++ (0,3.4);
 	\draw[very thick, blue] (1.5,0) node[below]{$f_\text{c} - f_\text{m}$} --++ (0,1);
@@ -130,6 +131,7 @@ positions of sideband is determined by frequency of the information signal $f_\t
 	\draw[<->] (1.5,3.8) --++ (3,0) node[midway,above]{bandwidth $B=2f_\text{m}$};
 	\draw (1.5,3.6) --++ (0,0.4) (4.5,3.6) --++ (0,0.4);
 	\end{tikzpicture}
+	\vspace*{-10pt}
 \end{figure}
 
 
@@ -142,7 +144,7 @@ the two sidebands would spread into two symmetrical humps
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[scale=1.35]
+	\begin{tikzpicture}[scale=1.44]
 	\draw[<->] (0,4.5) node[left]{intensity} -- (0,0) -- (6,0) node[below] {$f$};
 	\draw[very thick, blue] (3,0)node[below]{$f_\text{c}$} --++ (0,3.5);
 	\draw[very thick, blue, smooth, domain=3.2:5, variable=\x] plot (\x,{1.0*(\x-3.2)*(\x-5)*(\x-5.5)*(1+0.08*sin(\x*960))});
@@ -152,6 +154,7 @@ the two sidebands would spread into two symmetrical humps
 	\draw[<->] (1,4) --++ (4,0) node[midway,above]{bandwidth $B=2f_\text{m,max}$};
 	\draw (1,3.8) --++ (0,0.4) (5,3.8) --++ (0,0.4);
 	\end{tikzpicture}
+	\vspace*{-10pt}
 \end{figure}
 
 \cmt we define \keypoint{bandwidth} as the range of frequencies occupied by the modulated signal\index{bandwidth}
@@ -548,7 +551,8 @@ each bit is then transmitted one after another
 		\foreach \y in {0,1,...,15} \node[left] at (0,\y/2) {$\y$};
 		\draw[very thick, red] (0,10/2) -- (1,10/2) -- (1,1/2)  -- (2,1/2)  -- (2,5/2) -- (3,5/2) -- (3,3/2)  -- (4,3/2) -- (4,6/2) -- (5,6/2) -- (5,7/2) -- (6,7/2) -- (6,9/2) -- (6.5,9/2); 
 		\end{tikzpicture}
-	\end{minipage}	
+	\end{minipage}
+	\vspace*{-10pt}
 \end{figure}
 
 \sol sampling frequency is 1.0 kHz, so samples are taken every 1.0 ms
@@ -570,6 +574,7 @@ all samples taken for this signal can be summarised in the following table:
 		voltage level/V & 10 & 2 & 5 & 3 & 6 & 7 & 9 \\ \hline
 		digital number & 1010 & 0010 & 0101 & 0011 & 0110 & 0111 & 1001 \\ \hline
 	\end{tabular}
+	\vspace*{-10pt}
 \end{figure}
 
 these digital numbers are used to reproduce the analogue signal as shown \eoe

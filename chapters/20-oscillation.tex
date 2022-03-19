@@ -2,6 +2,8 @@
 
 \subsection{oscillatory motion}
 
+\rcyskip
+
 \begin{ilight}
 	\keypoint{oscillation} refers to a repetitive back and forth motion about its \emph{equilibrium position}
 \end{ilight}
@@ -107,7 +109,7 @@ $\Delta\phi$ is found in terms of fraction of an oscillation: $\Delta\phi = \fra
 \foreach \s in {-20,-10,...,20}
     \draw (0,\s/10) node[left]{\footnotesize{\s}};
 \end{tikzpicture}
-\vspace*{-25pt}
+\vspace*{-15pt}
 \end{wrapfigure}
 
 \sol both have period $T=60$ ms
@@ -138,6 +140,8 @@ if at equilibrium position, then no acceleration or restoring force
 
 
 \subsection{simple harmonic oscillation}
+
+\rcyskip
 
 \begin{ilight}
 	if an oscillator has an acceleration always proportional to its displacement from the equilibrium position, and acceleration is in opposite direction to displacement, then the oscillator is performing \keypoint{simple harmonic motion}\index{simple harmonic motion}
@@ -353,9 +357,7 @@ period for a simple pendulum: $\boxed{T= 2\pi\sqrt{\frac{L}{g}}}$
 
 \cmt period and frequency of a pendulum are determined by length of the string $L$ only
 
-as long as angular displacement remains small, frequency does not depend on amplitude
-
-fix length $L$, then simple pendulum oscillates at same frequency no matter what amplitude
+as long as displacement remains small, frequency does not depend on amplitude
 
 \cmt $L \up \ra T \up$, longer pendulums oscillate more slowly
 
@@ -497,7 +499,7 @@ from graph: amplitude $x_0 = 30 \text{ cm}$, period $T=4.0 \text{ s}$
 
 angular frequency: $\omega = \frac{2\pi}{T} = \frac{2\pi}{4} = \frac{\pi}{2} \radps$ 
 
-greatest speed: $v_\tmax = \omega A =  \frac{\pi}{2} \times 30  \approx 47 \cmps$ 
+greatest speed: $v_\tmax = \omega x_0 =  \frac{\pi}{2} \times 30  \approx 47 \cmps$ 
 
 at $t=1.0$ s, $x=0 \RA a=0$
 
@@ -511,7 +513,7 @@ at $t=1.0$ s, $x=0 \RA a=0$
 consider the \emph{ideal} mass-spring oscillator, its vibrational energy consists of two parts:
 
 \begin{compactitem}
-	\item[-] kinetic energy of the mass: $E_k = \frac{1}{2} mv^2 = \frac{1}{2} m \omega^2 A^2 \cos^2\omega t \xlongequal{v=\pm\omega\sqrt{x_0^2-x^2}} \frac{1}{2}m\omega^2 (x_0^2-x^2)$
+	\item[-] kinetic energy of the mass: $E_k = \frac{1}{2} mv^2 = \frac{1}{2} m \omega^2 x_0^2 \cos^2\omega t \xlongequal{v=\pm\omega\sqrt{x_0^2-x^2}} \frac{1}{2}m\omega^2 (x_0^2-x^2)$
 	
 	\item[-] (elastic) potential energy in the spring: $E_p = \frac{1}{2} kx^2  \xlongequal{\omega = \sqrt{\frac{k}{m}}} \frac{1}{2}m\omega^2 x^2$
 \end{compactitem}
@@ -633,7 +635,7 @@ it occurs when system returns to equilibrium in \emph{shortest} time without any
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[xscale=1.5,yscale=1.1]
+	\begin{tikzpicture}[xscale=1.5,yscale=0.9]
 	\draw [thick, ->] (-0.5,0) --(7.5,0) node[below]{$t$};
 	\draw [thick, ->] (0,-3) --(0,3) node[left]{$x$};
 	\draw [dashed,domain=0:7.2,samples=50,smooth,variable=\x] plot (\x,{2.5*cos(\x*2.5 r)});
@@ -645,7 +647,7 @@ it occurs when system returns to equilibrium in \emph{shortest} time without any
 	\draw (0.8*pi,0) node[below] {$T$};
 	\draw (1.6*pi,0) node[below] {$2T$};
 	\end{tikzpicture}
-	
+	\vspace*{-10pt}
 \end{figure}
 
 \cmt critical damping is desirable in many engineering designs \footnote{When a damped oscillator is required, critically-damped system provides the quickest approach to equilibrium without overshooting, while lightly-damped system reaches the zero position quickly but continues to oscillate, and heavily-damped system reaches zero position in very long time.}

@@ -593,7 +593,7 @@ electric potential at distance $r$ from sphere's centre is: $V=\frac{Q}{4\pi\eps
 	\centering
 	\noindent\begin{minipage}{0.45\linewidth}
 		\centering
-		\begin{tikzpicture}[yscale=1.2,xscale=1.2]
+		\begin{tikzpicture}[scale=1.1]
 		\draw[thick,<->] (0,5) node[left]{$E$} -- (0,0) -- (1,0) node[below]{$R$} -- (4.5,0) node[below]{$r$};
 		\draw [thick,color=blue,domain=1:4.5,samples=20,smooth,variable=\x] plot (\x,{4.5/\x/\x});
 		\draw[thick,blue] (0,0.02) -- (1,0.02);
@@ -601,12 +601,10 @@ electric potential at distance $r$ from sphere's centre is: $V=\frac{Q}{4\pi\eps
 		\draw[dashed] (0,4.5/4) node[left]{{\scriptsize $\frac{E_0}{4}$}} -- (2,4.5/4) -- (2,0) node[below]{$2R$};
 		\draw[dashed] (0,4.5/9) node[left]{{\scriptsize $\frac{E_0}{9}$}} -- (3,4.5/9) -- (3,0) node[below]{$3R$};
 		\end{tikzpicture}
-		
-
 	\end{minipage}
 	\begin{minipage}{0.45\linewidth}
 		\centering
-		\begin{tikzpicture}[yscale=1.2,xscale=1.2]
+		\begin{tikzpicture}[scale=1.1]
 		\draw[thick,<->] (0,5) node[left]{$V$} -- (0,0) -- (1,0) node[below]{$R$} -- (4.5,0) node[below]{$r$};
 		\draw [thick,color=blue,domain=1:4.5,samples=20,smooth,variable=\x] plot (\x,{4.5/\x});
 		\draw[dashed] (0,4.5) node[left]{$V_0$} -- (1,4.5) -- (1,0) node[below]{$R$};
@@ -614,7 +612,6 @@ electric potential at distance $r$ from sphere's centre is: $V=\frac{Q}{4\pi\eps
 		\draw[dashed] (0,4.5/3) node[left]{{\scriptsize $\frac{V_0}{3}$}} -- (3,4.5/3) -- (3,0) node[below]{$3R$};
 		\draw[thick,blue] (0,4.5) -- (1,4.5);
 		\end{tikzpicture}
-		
 
 	\end{minipage}
 
@@ -660,7 +657,7 @@ $\Delta V= \int \dd V \xlongequal{E = -\dd V/\dd r}  \int (-)E \dd r =  -\int E 
 }
 
 \eqyskip this gives the inverse relation: $\boxed{\Delta V = -\int E \dd r}$
-\footnote{These equations are correct if the charge is moving in the parallel direction to the field, i.e., the motion is along the field lines. But an object can move in all directions in the field. More rigorously, if we take the vector nature of electric field into account, we should write $\Delta V = - \int \mathbf{E}\cdot\dd\mathbf{r}$, and $\mathbf{E} = - \frac{\partial V}{\partial \mathbf{r}}$. ($\star$)}
+\footnote{These equations are correct if the charge is moving in the parallel direction to the field, i.e., the motion is along the field lines. But an object can move in all directions in the field. More rigorously, if we take the vector nature of electric field into account, we should write $\Delta V = - \int \mathbf{E}\cdot\dd\mathbf{r}$, and $\mathbf{E} = - \frac{\partial V}{\partial \mathbf{r}}$. ($\ast$)}
 
 \cmt given a $V$-$r$ graph, gradient of curve gives field strength
 
@@ -669,7 +666,7 @@ conversely, given a $E$-$r$ graph, area under curve gives change in potential
 \cmt can also write $F = - \frac{\dd U}{\dd r}$ and $\Delta U = -\int F \dd r$
 
 force always acts in a direction to lower the potential energy of an object
-\footnote{This result can be generalised to a very important principle of physical laws called the \emph{least action principle}. It states that any motion of a system tends to minimise the action, a physical quantity related to the energy of the system. This fundamental law plays a crucial role in the study of theoretical physics. ($\star$)}
+\footnote{This result can be generalised to a very important principle of physical laws called the \emph{least action principle}. It states that any motion of a system tends to minimise the action, a physical quantity related to the energy of the system. This fundamental law plays a crucial role in the study of theoretical physics. ($\ast$)}
 
 \example{The variation of electric potential near a charged object is shown on the graph. Calculate the electric field strength at 5.0 cm from the centre of the object.}\label{ex-grad-pot}
 

@@ -17,6 +17,8 @@ any object attracts any other object through the gravitational force
 	\end{tikzpicture}
 	
 	\caption*{gravitational attraction between $M$ and $m$}
+	
+	\vspace*{-15pt}
 \end{figure}
 
 \begin{ilight}
@@ -40,7 +42,8 @@ i.e., particles with no size, therefore distance $r$ can be easily defined
 \begin{wrapfigure}{r}{5.4cm}
 	\begin{tikzpicture}[scale=1]
 	\shade [ball color = yellow] (-2,0) node{$M$} circle (0.8);
-	\shade [ball color = cyan] (2,0) node[above]{$m$} circle (0.15);
+	\shade [ball color = cyan] (2,0) circle (0.15);
+	\node[above] at (2, 0.1) {$m$};
 	\draw [thick, <->] (-2,-1.5) -- (0,-1.5) node[above]{$r$} --(2,-1.5);
 	\draw [thick,dashed] (-2,-0.3) -- (-2,-1.5);
 	\draw [thick,dashed] (2,0) -- (2,-1.5);
@@ -51,7 +54,7 @@ i.e., particles with no size, therefore distance $r$ can be easily defined
 \cmt a sphere with uniform mass distribution (e.g., stars, planets) can be treated as a \emph{point model}
 
 distance $r$ is taken between centres of the spheres
-\footnote{This is known as \emph{shell theorem}: a spherically symmetric shell (i.e., a hollow ball) affects external objects gravitationally as though all of its mass were concentrated at its centre, and it exerts no net gravitational force on any object inside, regardless of the object's location within the shell. ($\star$)}
+\footnote{This is known as \emph{shell theorem}: a spherically symmetric shell (i.e., a hollow ball) affects external objects gravitationally as though all of its mass were concentrated at its centre, and it exerts no net gravitational force on any object inside, regardless of the object's location within the shell. ($\ast$)}
 
 (see Example \ref{uniform-grav-field}, field lines around a planet \emph{seem} to point towards centre of planet)
 
@@ -70,6 +73,7 @@ F = \frac{GMm}{R^2} = \frac{6.67\times10^{-11}\times6.0\times10^{24}\times60}{(6
 
 \begin{figure}[ht]
 	\centering
+	\vspace*{-10pt}
 	\begin{tikzpicture}
 	\draw[dashed] (0,0) circle(2);
 	\shade [ball color = yellow] (0,0) node[left]{$M$} circle (0.1);
@@ -78,18 +82,21 @@ F = \frac{GMm}{R^2} = \frac{6.67\times10^{-11}\times6.0\times10^{24}\times60}{(6
 	\end{tikzpicture}
 	
 	\caption*{a planet/satellite orbiting around a star/earth}
+	
+	\vspace*{-10pt}
 \end{figure}
 
 a planet/satellite can move around a star/earth in circular orbit
 
 circular motion requires centripetal force
 
-for these objects, gravitational force provides centripetal force
+for these objects, gravitational force provides centripetal force\vspace*{2pt}
 \begin{equation*}
 F_\text{grav} = F_c \RA
 \boxed{\frac{GMm}{r^2} = \frac{mv^2}{r}} \quad \text{or} \quad \boxed{\frac{GMm}{r^2} = m \omega^2 r}
 \end{equation*}
 
+\vspace*{2pt}
 \example{GPS (Global Positioning System) satellites move in a circular orbits at about 20000 km above the earth's surface. The Earth has a radius $R = 6.4 \times 10^6$ m  and mass $M = 6.0 \times 10^{24}$ kg. (a) Find the speed of GPS satellites. (b) Find its orbital period.}
 
 \solc
@@ -113,7 +120,7 @@ r = \left( \frac{GMT^2}{4\pi^2} \right)^{1/3} = \left( \frac{6.67\times10^{-11} 
 \example{Assuming the planets in the solar system all move around the sun in circular orbits, show that the square of  orbital period is proportional to the cube of orbital radius.
 	\footnote{This is known as \emph{Kepler's 3rd law} for planetary motions. In the early 17th century, German astronomer Johannes Kepler discovered three scientific laws which describes how planets move around the sun. This $T^2 \propto r^3$ relation not only holds for circular orbits but are also correct for elliptical orbits.
 		
-		Isaac Newton proved that Kepler's laws are consequences of his own law of universal gravitation, and therefore explained why the planets move in this way. ($\star$)}}
+		Isaac Newton proved that Kepler's laws are consequences of his own law of universal gravitation, and therefore explained why the planets move in this way.}}
 
 \solc
 \begin{equation*}
@@ -357,7 +364,7 @@ so potential energy is equal to (negative) work done to move the object to a spe
 
 we may choose a zero G.P.E. point, for example, $E_p(0) = 0$ at sea level
 
-if mass $m$ is moved up for a height $h$, work done by gravity is $W=-mgh$\footnote{Negative sign because this is actually work against gravity.}
+if mass $m$ is moved up for a height $h$, work done by gravity is $W=-mgh$\footnote{Negative sign because this is work against gravity.}
 
 this causes a change in gravitational potential energy $\Delta E_p=-W=mg h$
 

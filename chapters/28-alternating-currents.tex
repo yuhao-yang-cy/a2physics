@@ -43,7 +43,7 @@ frequency and period of the signal are given by:
 
 \centering
 
-$\omega = 2 \pi f$, $\,$ $T = \frac{1}{f} = \frac{2\pi}{\omega} $
+$\boxed{\omega = 2 \pi f}$, $\,$ $\boxed{T = \frac{1}{f} = \frac{2\pi}{\omega}} $
 
 }
 
@@ -128,7 +128,7 @@ physically, r.m.s. value of an alternating current is defined as follows
 \cmt for \emph{sine waves}, r.m.s values are related to peak values by: $\boxed{I_\text{r.m.s} = \frac{1}{\sqrt{2}}I_0}$ and $\boxed{V_\text{r.m.s} = \frac{1}{\sqrt{2}}V_0}$
 
 \begin{compactenum}
-	\item[proof:] total energy dissipation in one period is: $W_T = \int^T_0 P \dd  t$
+	\item[proof ($\ast$):] total energy dissipation in one period is: $W_T = \int^T_0 P \dd  t$
 	
 	\eqyskip
 	
@@ -153,7 +153,7 @@ physically, r.m.s. value of an alternating current is defined as follows
 
 for other waveforms, e.g., square waves or triangle waves, numerical constant is different
 
-\cmt value of voltages stated for mains electricity supply usually refers to the r.m.s. value\footnote{Different countries have different standards. For example, China mains electricity supplies a voltage of 220 V. UK uses a 230 V distribution system. USA has national standard of a 110 V voltage. These are all r.m.s. voltages.}
+\cmt value of voltages stated for mains electricity supply usually refers to the r.m.s. value\footnote{Different countries have different standards. China mains electricity supplies a r.m.s. voltage of 220 V. UK uses a r.m.s. 230 V distribution system. USA has national standard of a r.m.s. 110 V voltage.}
 
 \example{An a.c. power supply produces a sinusoidal output across a resistor of 30 $\Omega$. The maximum voltage is found to be 75 V. Find energy dissipated in the resistor in 2.0 minutes.}
 
@@ -212,17 +212,19 @@ when beam hits fluorescent screen, entire trace of the beam can be seen across t
 \end{tikzpicture}
 \end{wrapfigure}
 
+
+
 suppose the time base setting is $10$ ms/div, and the voltage gain is $5$ V/div.
  
 4 vertical divisions from highest to lowest, so
 
-\eqskip peak voltage: $V_0= \frac{1}{2} \times 4 \times 5 = 10 \text{ V}$
+\phantom{++} peak voltage: $V_0= \frac{1}{2} \times 4 \times 5 = 10 \text{ V}$
 
 3 horizontal divisions between peak to peak, so
 
-\eqskip period: $T = 3 \times 10 = 30 \text{ ms}$
+\phantom{++}  period: $T = 3 \times 10 = 30 \text{ ms}$
 	
-\eqskip frequency $f = \frac{1}{T} = \frac{1}{30\times10^{-3}} \approx 33.3 \text{ Hz} $ \eoe
+\phantom{++}  frequency $f = \frac{1}{T} = \frac{1}{30\times10^{-3}} \approx 33.3 \text{ Hz} $ \eoe
 
 
 
@@ -473,6 +475,7 @@ smoothing uses \emph{capacitors}\index{capacitor}, which are connected in \emph{
 		\draw (4.5,-3) -- (6,-3) (4.5,0) -- (6,0);
 		\draw[<->] (5.5,-3) -- (5.5,-1.5) node[right]{$V_\text{out}$} -- (5.5,0);
 	\end{circuitikz}
+
 \end{figure}
 
 capacitor can store electrical energy as voltage output from rectifier rises
@@ -504,6 +507,7 @@ less fluctuation in $V_\text{out}$ so we say $V_\text{out}$ is now smoothed
 \draw (2*pi-0.1,0.4) --++ (0.8,0.1) node[right,twoline]{$V_\text{out}$ without\\smoothing};
 \draw[blue] (2*pi,0.95) --++ (0.6,0.2) node[right,twoline]{$V_\text{out}$ after\\smoothing};
 \end{tikzpicture}
+\vspace*{-8pt}
 \end{figure}
 
 \cmt effect of smoothing is controlled by choice of load resistor $R$ and smoothing capacitor $C$

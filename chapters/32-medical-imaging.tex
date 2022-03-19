@@ -5,8 +5,8 @@ symptoms of disease are to be diagnosed without cutting patient open, or inserti
 \begin{compactitem}
 	\item[--] X-ray/CT imaging
 	\item[--] ultrasonic scans
-	\item[--] PET (positron emission tomography) scans
 	\item[--] MRI (magnetic resonance imaging)
+	\item[--] PET (positron emission tomography) scans] 
 \end{compactitem}
 
 \subsection{X-ray imaging}
@@ -45,7 +45,7 @@ the diagram below illustrates the production of X-ray in a \emph{X-ray tube}\ind
 
 \begin{figure}[htp]
 \centering
-\begin{circuitikz}[scale=.92]
+\begin{circuitikz}[xscale=0.95]
 	\draw[ultra thick,gray,fill=gray!25] (-5,-3) rectangle (5,3);  % tube background
 	\draw[thick] (-5.5,1) -- (-5.5,4.5) -- (-0.5,4.5)  (.5,4.5) -- (5.5,4.5) -- (5.5,0.5) -- (4,0.5);  % high voltage supply
 	\draw[thick] (.45,4.5) circle (0.06) node[above]{$+$};
@@ -74,6 +74,7 @@ the diagram below illustrates the production of X-ray in a \emph{X-ray tube}\ind
 	\node[below] at (-.3,-3.1) {exit window}; % exit window
 \end{circuitikz}
 X-ray production tube
+\vspace*{-12pt}
 \end{figure}
 
 under a strong electric field, electrons are pulled out from a heated cathode
@@ -123,6 +124,7 @@ so information about patient's body can be obtained
 	\draw[thick,->] (tube) to node[midway,above]{original spectrum} (patient);
 	\draw[thick,->] (patient) to node[midway,above]{emergent X-ray} (imaging);
 	\end{tikzpicture}
+	\vspace*{-12pt}
 \end{center}
 
 so we need to study properties of \emph{X-ray spectrum} as it is produced in X-ray tubes\index{X-ray!spectrum}\index{spectrum!X-ray spectrum}
@@ -146,6 +148,7 @@ the graph below shows a typical frequency spectrum of X-ray emitted from an X-ra
 		\draw[thick,blue,domain=4.1:7.,samples=20,variable=\x,smooth] plot (\x,{xrayspectrum(\x)}); 
 	\end{tikzpicture}
 	\caption*{frequency spectrum of X-ray beam produced in an X-ray tube}
+	\vspace*{-12pt}
 \end{figure}
 
 this spectrum consists of two parts: a \emph{continuous background}, and a few \emph{discrete spikes}
@@ -264,7 +267,7 @@ as each photon passes through some distance, it has certain probability to be ab
 we may think of $\mu$ as probability for one single photon to be absorbed per unit distance
 
 make analogy with nuclear decays, X-ray intensity should also decrease exponentially
-\footnote{You may have noticed the similarity between the law of X-ray attenuation ($I = I_0 \mathrm{e}^{-\mu x}$) and nuclear decay laws ($N=N_0 \mathrm{e}^{-\lambda t}$). The analogy is clear: intensity $I$ of radiation is analogous to number of undecayed nuclei $N$, distance $x$ is analogous to time $t$, and probability constant are given by $\mu$ and $\lambda$ respectively, where $\lambda$, the decay constant, tells the probability of decay for a radioactive nucleus per unit time.}
+\footnote{You may have noticed the similarity between the law of X-ray attenuation ($I = I_0 \mathrm{e}^{-\mu x}$) and nuclear decay laws ($N=N_0 \mathrm{e}^{-\lambda t}$). The analogy is clear: intensity $I$ of radiation is analogous to number of undecayed nuclei $N$, distance $x$ is analogous to time $t$, and probability constant are $\mu$ and $\lambda$ respectively, where $\lambda$, the decay constant, tells the probability of decay for a radioactive nucleus per unit time.}
 
 \cmt substance with high value of $\mu$ is a good absorber of X-ray
 
@@ -293,8 +296,8 @@ it follows that: $\frac{1}{2}I_0 = I_0 \mathrm{e}^{-\mu x_\text{\tiny\sfrac{1}{2
 	\begin{tikzpicture}[scale=0.7]
 	\draw[rounded corners=10,fill=pink!20] (-3,-1) rectangle (3,1);
 	\draw[rounded corners=5,fill=gray!50] (-1.6,-0.4) rectangle (1.6,0.4);
-	\draw (0.1,-0.7) --++ (0.2,-0.8) node[below]{muscle};
-	\draw (1,-0.2) --++ (1.3,-1.3) node[below right]{soft tissue};
+	\draw (0.1,-0.7) --++ (0.2,-0.8) node[below]{soft tissue};
+	\draw (1,-0.2) --++ (1.6,-1.3) node[below right]{bone};
 	\draw[thick,<->] (3.5,-1) -- (3.5,1) node[midway,right]{2.5 cm};
 	\draw[thick,<->] (-0.9,-0.4) -- (-0.9,0.4);
 	\draw (-1,0) --++ (-1,-1.5) node[below left]{1.0 cm};
@@ -375,10 +378,10 @@ so a narrow beam of \emph{parallel} X-ray is desired
 	\item[--] using a set of lead slits to make the beam more parallel, known as \emph{collimation}
 	
 	\item[--] using \emph{anti-scatter screen} to reduce influence of scattering of radiation in patient's body
-	
-	\item[--] making sure that patient keep still when image is taken
+
 \end{compactitem}
 
+\cmt good sharpness also requires patient to keep still when image is taken
 
 \subsubsection*{image contrast}
 
@@ -443,6 +446,7 @@ to reduce exposure, or \keypoint{dosage} of radiation, efficient imaging systems
 	\end{tikzpicture}
 	
 	\caption*{illustration of how the image is developed efficiently with an image intensifier}
+	\vspace*{-12pt}
 \end{figure}
 
 
@@ -491,7 +495,7 @@ the 3D image can be rotated and viewed from different angles
 	\item[--] patient is exposed to higher radiation dosage
 \end{compactitem}
 
-\subsubsection*{building up images}
+\subsubsection*{building up images ($\ast$)}
 
 we now discuss how information of each voxel is recovered from transmitted X-rays
 
@@ -689,7 +693,7 @@ so fine details of small structures can be detected
 
 \subsubsection{production of ultrasounds}
 
-sound can be produced by a \emph{piezo-electric transducer}\footnote{Piezo-electricity and its use as sensing devices have been discussed in $\S$\ref{ch-piezo}.}
+sound can be produced by a \emph{piezo-electric transducer}\footnote{Piezo-electricity and its use as sensing devices will be discussed in $\S$\ref{ch-piezo}.}
 
 if apply a high-frequency alternating voltage across a piezo-electric crystal, the crystal is made to vibrate, ultrasound wave is produced
 
@@ -925,7 +929,7 @@ these signals are processed to construct the image
 
 
 
-\subsection{MRI}
+\subsection{\texorpdfstring{MRI ($\ast$)}{MRI}}
 
 \subsubsection{nuclear magnetic resonance}\index{nuclear magnetic resonance}
 
@@ -1161,4 +1165,126 @@ information is sent to a powerful computer, which processes data and builds up t
 	
 \end{compactitem}
 
-\question{State the main components of an MRI scanner and describe their fumctions.}
+\question{State the main components of an MRI scanner and describe their functions.}
+
+\newpage
+
+\subsection{PET}\index{PET imaging}
+
+\subsubsection{positron}\index{positron}
+
+\keypoint{positron}, also called \emph{anti-electron}, is the \emph{anti-particle} of electron
+
+\cmt mass of a positron is same as mass of an electron ($m_e = 9.11 \times 10^{-31} \text{ kg}$)
+
+\cmt charge of a positron is opposite to charge of an electron ($+e = 1.60 \times 10^{-19} \text{ C}$)
+
+\cmt positrons can be produced using radioactive $\beta^+$-emitters
+\begin{equation*}
+	^A_Z X \longrightarrow ^{\phantom{-1}A}_{Z-1} Y + ^{\phantom{+}0}_{+1} \beta^+ + ^0_0 \nu
+\end{equation*}
+
+an isotope that is commonly used is fluorine-18: $^{18}_{\phantom{1}9} \text{F} \longrightarrow ^{18}_{\phantom{1}8} \text{O} + ^{\phantom{+}0}_{+1} \beta^+ + ^0_0 \nu$
+
+fluorine-18 is prepared by bombarding oxygen-18 with protons\footnote{To send protons towards the target nuclei, we can accelerate them using a \emph{cyclotron} (see \S\ref{ch-cyclotron}).}: $^{18}_{\phantom{1}8} \text{O} +  _1^1 \text{p} \longrightarrow  ^{18}_{\phantom{1}9} \text{F}  + _0^1 \text{n}$
+
+\question{Another isotope of oxygen, oxygen-15 ($^{15}_{\phantom{1}8} \text{O}$), can undergo decay via positron emission. Write down the equation representing this decay process.}
+
+\subsubsection{electron--positron annihilation} \index{annihilation}
+
+when a positron meets up with an electron, they \emph{annihilate} and produce two $\gamma$-photons\footnote{In case you have forgotten what is meant by a photon, go back and review \S\ref{ch-photon-theory} and \S\ref{ch-photon-momentum}.}
+\begin{equation*}
+	e^+ + e^- \longrightarrow \gamma + \gamma
+\end{equation*}
+
+\cmt mass-energy is conserved during annihilation process
+
+mass-energy of electron-positron pair transforms into electromagnetic energy of $\gamma$-photons
+
+so energy of each $\gamma$-photon: $E_\gamma = m_e c^2 = 9.11\times10^{-31} \times (3.00 \times 10^8)^2 \approx 8.2 \times 10^{-14} \text{ J}$
+
+using $E=hf$, we find frequency of each $\gamma$-photon: $f = \frac{E}{h} = \frac{8.2 \times 10^{-14}}{6.63\times10^{-34}} \approx 1.2 \times 10^{20} \text{ Hz}$
+
+\cmt total momentum is also conserved during annihilation
+
+K.E. of electron-positron pair is usually negligible, so zero initial momentum
+
+by conservation of momentum, total final momentum of the two $\gamma$-photons must be zero
+
+so the two $\gamma$-photons carry equal but opposite momentum
+
+\begin{compactitem}
+	\item[--] equal momentum means the two $\gamma$-photons have same energy
+	
+	so they have same frequency and same wavelength
+	
+	\item[--] opposite momentum means the two $\gamma$-photons travel in opposite directions
+	
+	so they move off from site of annihilation at $180^\circ$ to each other
+	
+\end{compactitem}
+
+\question{The annihilation of a
+proton and an antiproton has been observed by particle physicists. Find the energy released during the process of proton–antiproton annihilation.}
+
+\question{When an electron and a positron annihilate, (a) what is the wavelength of the $\gamma$-photon produced? (b) What is the momentum of the $\gamma$-photon produced?}
+
+
+
+\subsubsection{positron emission tomography (PET)}
+
+for a PET scan, a small amount of tracer is injected into patient's body 
+
+\keypoint{tracers} are molecules labelled with $\beta^+$-emitting nuclides (e.g., flourine-18\footnote{The flourine-18 nuclide can bind to a specific glucose based molecule, forming fluorodeoxyglucose (FDG, chemical formula $\text{C}_6\text{H}_{11}\text{}^{18}\text{F}\text{O}5$), which is one of the most common tracers.})
+
+tracers travel around human body and accumulate at certain organs and tissues\footnote{In particular, the tracers tend to accumulate in tumors. Cancer cells are more metabolically active than normal cells. They absorb the tracers at a higher rate, and therefore emit positrons at a higher rate. This effect can be seen on PET scans, allowing the doctor to detect caner at early stages or examine the effects of cancer therapy.}
+
+\begin{wrapfigure}{r}{0.62\textwidth}
+    \vspace*{-12pt}
+    \centering
+    \begin{tikzpicture}
+		\draw[thick, gray] (0,0) circle (2);
+		\draw[thick, gray] (0,0) circle (2.1);
+		\foreach \y in {0, 10, ..., 350} {
+				\draw[thick, gray] (\y:2) -- (\y:2.1);
+			}
+		\draw[thick, blue, ->] (0.7,0.2) -- (40:2);
+		\draw[thick, blue, ->] (0.7,0.2) -- (-0.84, -1.81);
+		\draw[white, fill] (0.7,0.2) circle(0.12);
+		\node at (0.7,0.2) {$\ast$};
+		\draw (-0.5, -1.6) --++ (1, -1.2) node[below right] {line of response};
+		\draw (0.8, 0.15) --++ (1.6, -0.6) node[below right, twoline] {annihilation of \\ electron-positron pair};
+		\draw (70:2.05) --++ (0.8, 0.4) node[above right]{$\gamma$-detectors};
+		\draw (-0.84, -1.81) node[below left]{{\Large $A$}};
+		\draw (40:2) node[above right]{{\Large $B$}};
+    \end{tikzpicture}
+    \vspace*{-25pt}
+\end{wrapfigure}
+
+positrons are produced through $\beta^+$-decay of tracers
+
+these positrons immediately annihilate with nearby electrons
+
+two $\gamma$-photons are produced and move in opposite directions
+
+the $\gamma$-photon pair are captured by a ring of detectors
+
+\keypoint{line of response} can be established
+
+\emph{difference in arrival time} can be used to find exact \emph{location} of the annihilation event
+
+\emph{number of events per unit time} detected at one place can further tell tracer \emph{concentration}
+
+\example{Two $\gamma$-photons are produced from the annihilation of an electron-positron pair, and they hit the detectors $A$ and $B$. Given that the two detectors are separated by 80 cm, and the arrival of the $\gamma$-photon at detector $A$ comes 1.2 ns later than the signal picked up at detector $B$. On which point along the line joining $A$ and $B$ does the annihilation event occur?}
+
+\sol the two $\gamma$-photons cover a total distance:
+\begin{equation*}
+	d = d_A + d_B = 80 \text{ cm}
+\end{equation*}
+
+but one photon covers a greater distance than the other:
+\begin{equation*}
+	d_A - d_B = c \Delta t = 3.00\times10^8 \times 1.2 \times 10^{-9} = 0.36 \text{ m} = 36 \text{ cm}
+\end{equation*}
+
+solving the two equations, we find: $d_A = 58 \text{ cm}$ and $d_B = 22 \text{ cm}$ \eoe

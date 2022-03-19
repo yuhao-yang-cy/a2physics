@@ -125,7 +125,7 @@ a graph of $\epsilon_b$ against nucleon number $A$ can be plotted based on exper
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.92]
 \draw[thick,<->] (0,9.5*.75) node[left]{$\epsilon_b$/MeV} -- (0,0) -- (250*.045,0) node[below]{$A$};
 \foreach \A in {0,50,...,200} \draw[thick] (\A*0.045,0) node[below]{\A} --++ (0,0.1);
 \foreach \eb in {0,1,...,9} \draw[thick] (0,\eb*0.75) --++ (-0.1,0) node[left]{\eb};
@@ -139,6 +139,8 @@ a graph of $\epsilon_b$ against nucleon number $A$ can be plotted based on exper
 \end{tikzpicture}
 
 \caption*{binding energy per nucleon $\epsilon_b$ against nucleon number $A$}
+
+\vspace*{-12pt}
 \end{figure}
 
 
@@ -164,7 +166,7 @@ nuclei are all positively charged, for two nuclei to come close enough to fuse t
 \cmt vast amount of energy of the sun and other \emph{stars} are created through fusion
 
 extreme high temperature and high density at core of stars make fusion possible
-\footnote{Even for the simplest fusion reaction, fusing hydrogen into helium, at least $1.5\times 10^7 \text{ K}$ is required. This is basically how the sun shines and nurtures lives on the earth, and also many other stars in the universe power energies. For a sufficiently massive star, when it burns out of its fuel, its core collapses and becomes hot enough to start to fuse heavier elements. If a star is not able to fuse again, nuclear reaction ceases, the star collapses and becomes a \emph{white dwarf}. For a giant star, nuclear reactions can go all the way up to $^{56}_{26}$Fe. At this point, no more energy can be produced through fusion. The star collapses extremely rapidly and then explodes, creating a \emph{supernova}, during which all elements heavier than $^{56}_{26}$Fe are formed. ($\star$)}
+\footnote{Even for the simplest fusion reaction, fusing hydrogen into helium, at least $1.5\times 10^7 \text{ K}$ is required. This is basically how the sun shines and nurtures lives on the earth, and also many other stars in the universe power energies. For a sufficiently massive star, when it burns out of its fuel, its core collapses and becomes hot enough to start to fuse heavier elements. If a star is not able to fuse again, nuclear reaction ceases, the star collapses and becomes a \emph{white dwarf}. For a giant star, nuclear reactions can go all the way up to $^{56}_{26}$Fe. At this point, no more energy can be produced through fusion. The star collapses extremely rapidly and then explodes, creating a \emph{supernova}, during which all elements heavier than $^{56}_{26}$Fe are formed. ($\ast$)}
 
 
 \subsubsection{fission}
@@ -185,7 +187,7 @@ fission can also be \emph{induced} by bombarding the nucleus with an incident ne
 
 induced fission is used by humans to generate nuclear power or to build nuclear weapons
 
-\subsubsection*{nuclear reactors ($\star$)}
+\subsubsection*{nuclear reactors ($\ast$)}
 
 nuclear reactors make use of energy released from induced fission reactions
 
@@ -386,11 +388,6 @@ $ ^1_1\text{H} + ^2_1\text{D} \longrightarrow ^3_2\text{He} + \text{energy}$
 \noindent Calculate the energy released in this reaction.
 
 
-
-\newpage
-
-
-
 \question{Another fusion reaction in the proton-proton chain is represented by:}
 
 {
@@ -492,7 +489,7 @@ $N_0$ is initial number of nuclei in the sample at $t=0$
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[yscale=1.5,xscale=1.2]
+	\begin{tikzpicture}[yscale=1.6,xscale=1.25]
 	\draw[thick,<->] (0,3.6) node[left]{$N$} -- (0,3.2) node[left]{$N_0$} -- (0,0) -- (6,0) node[below]{$t$};
 	\draw[thick,->] (4,3.2) --++ (0,-1.2) node[midway,right]{$\lambda \up$};
 	\draw [thick,color=orange,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2*exp(-1.8*\x)});
@@ -501,6 +498,7 @@ $N_0$ is initial number of nuclei in the sample at $t=0$
 	\end{tikzpicture}
 	
 	\caption*{exponential decay law for number of nuclei: $N(t)=N_0\mathrm{e}^{-\lambda t}$}
+	\vspace*{-12pt}
 \end{figure}
 
 \cmt since activity $A=\lambda N$, so activity varies with time as: $\boxed{A(t) = A_0 \mathrm{e}^{- \lambda t}}$
@@ -561,6 +559,7 @@ half-life of a sample of isotope does not depend on initial number of nuclei or 
 	\end{tikzpicture}
 	
 	\caption*{half-life of radioactive decay}
+	\vspace*{-12pt}
 \end{figure}
 
 \example{Radium-224 has a half-life of 3.63 days. (a) What is the activity from 6.0 mg of pure radium-224? (b) How many radium-224 nuclei have undergone decay after 10 days?}
@@ -620,11 +619,11 @@ activity obeys exponential decay, so we would expect count rate to satisfy: $\bo
 	\vspace*{-8pt}
 	\centering
 	\begin{tikzpicture}
-	\pgfmathsetseed{\number\pdfrandomseed}
+	%\pgfmathsetseed{\number\pdfrandomseed}
 	\draw[<->] (0,4.2)node[left]{$\ln R$} -- (0,0) -- (5,0)node[below]{$t$};
 	\draw[red,thick] (0,3.5) -- (4.375,0);
-	\foreach \x in {0,0.6,1.1,1.6,2.2,2.7,3.1,3.6}{
-	\pgfmathsetmacro\somevalue{0.2*rand}
+	\foreach \x in {0,0.4,0.6,0.85,1.1,1.3,1.6,1.85,2.2,2.44,2.7,3.1,3.25,3.6}{
+	\pgfmathsetmacro\somevalue{0.1*rand}
 	\draw[thick] (\x-.08,3.58-0.8*\x+\somevalue) --++ (0.16,-0.16);
 	\draw[thick] (\x-.08,3.42-0.8*\x+\somevalue) --++ (0.16,0.16);
 	}

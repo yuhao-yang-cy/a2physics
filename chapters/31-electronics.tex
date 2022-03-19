@@ -1,4 +1,4 @@
-\section{Electronics}
+\section{\texorpdfstring{Electronics ($\ast$)}{Electronics}}
 
 electronic sensors basically consist of three parts
 
@@ -165,6 +165,8 @@ so piezo-electric transducer is also found in \emph{microphones}
 		\end{circuitikz}
 		\caption*{symbol for a loudspeaker}
 	\end{minipage}
+
+\vspace*{-12pt}
 \end{figure}
 
 \cmt mechanism of piezo-electricity is explained on molecular level
@@ -299,7 +301,7 @@ op-amp is building block for many electronic devices
 
 \cmt output voltage of op-amp is given by: $\boxed{V_\text{out}= G_0(V_+ - V_-)}$
 
-$G_0$ is value of amplification of an open-loop\footnote{It is called an open loop in the sense that there is no loop linking $V_\text{out}$ to input terminals of the op-amp.} amplifier, called \keypoint{open-loop gain}
+$G_0$ is value of amplification of an open-loop\footnote{It is called an open loop in the sense that there is no loop linking $V_\text{out}$ to the input of the op-amp.} amplifier, called \keypoint{open-loop gain}
 
 \cmt value of $G_0$ is not well controlled in manufacturing processes
 
@@ -373,6 +375,7 @@ so $V_\text{out} = \pm V_S$ depending on which one of $V_+$ and $V_-$ is larger,
 			(opamp.up) -- (0,3);
 			\draw[<->,thick] (2,0) -- (2,-3) node[midway,right]{$V_\text{out}$};
 		\end{circuitikz}
+	\vspace*{-8pt}
 \end{figure}
 	
 \sol this is a comparator whose input voltages are determined from two potential divider circuits
@@ -486,6 +489,7 @@ a feedback network is also called a \emph{closed loop}
 	\end{circuitikz}
 
 \caption*{negative feedback mechanism}
+\vspace*{-8pt}
 \end{figure}
 
 let's look into the effect of introducing negative feedback into the amplifier circuit\footnote{Discussions in this section are not required by the syllabus. If you do not have the appetite, you may just skip to the conclusions.}
@@ -590,7 +594,7 @@ from this equation, we can relate $V_\text{out}$ to $V_\text{in}$:
 
 \subsubsection{non-inverting amplifier}
 
-another type of common amplifier circuit is called \keypoint{non-inverting amplifier}\index{amplifier!non-inverting}
+another type of common amplifier circuit is called \keypoint{non-inverting amplifier}\index{amplifier!non-inverting amplifier}
 
 \begin{figure}[htp]
 	\centering
@@ -670,6 +674,7 @@ if we find $V_\text{out}$ greater than supply voltage from a calculation, true $
 
 \begin{figure}[ht]
 	\centering
+	\vspace*{-12pt}
 	\begin{circuitikz}[european resistors]
 		\draw[thick] (0,0) node[op amp] (opamp) {}
 		(opamp.+) -- (-2,-0.5) -- (-2,-1.5) node[ground]{} 
@@ -716,6 +721,7 @@ for $V_\text{in} = -3.0$ V: $V_\text{out}=9.0\times(-3.0)=-27 \text{ V}$, output
 
 \begin{figure}[ht]
 	\centering
+	\vspace*{-8pt}
 	\begin{circuitikz}[european resistors,scale=1]
 		\draw[thick] (0,0) node[op amp] (opamp) {}
 		(opamp.+) -- (-2,-0.5) -- (-2,-2) node[ground]{} 
@@ -896,7 +902,8 @@ current flowing in the coils of the electromagnet induces a magnetic field to at
 		\draw[thick] (0,-4) -- (5,-4) node[ground]{} -- (6,-4);
 	\end{circuitikz}
 
-	\caption*{output from processing units connected to a relay}	
+	\caption*{output from processing units connected to a relay}
+	\vspace*{-12pt}
 \end{figure}
 
 \cmt in practice, a relay is usually connected with two \emph{diodes} for the following reasons:
@@ -929,13 +936,14 @@ change in $x$ would cause change in output voltage from the processing units
 
 \begin{wrapfigure}{r}{0.45\textwidth}
 	\centering
-	\vspace*{-15pt}
+	\vspace*{-5pt}
 	\begin{tikzpicture}
 	\draw[<->] (0,4) node[left]{$V_\text{out}$} -- (0,0) -- (5,0) node[below]{$x$};
 	\draw[thick, orange, domain=0.3:5,samples=36,smooth,variable=\x] plot (\x,{10/(\x+2)-0.8});
 	\foreach \x in {0.6,1.4,1.9,2.6,3.7,4.3} \draw[thick] (\x-0.06,{10/(\x+2)-0.86}) --++ (0.12,0.12) ++ (0,-0.12) --++ (-0.12,0.12);
 	\end{tikzpicture}
 	\caption*{example of a calibration curve}
+	\vspace*{-15pt}
 \end{wrapfigure}
 
 for convenience, we would hope value of $x$ can be directly read off from a voltmeter, so we need associate a value of $V_\text{out}$ with a value for $x$
@@ -1139,9 +1147,9 @@ so what we have here is a \emph{binary-to-decimal converter}
 
 \question{For the summing amplifier introduced, if $R_\text{f}=R_1=10$ k$\Omega$, $R_1=1.0$ k$\Omega$, and $R_3=100$ $\Omega$, find an expression for the voltage reading displayed on the voltmeter, and hence suggest the function of this circuit.}
 
-\question{Design a non-inverting summing amplifier where the inputs are sent into the non-inverting input of the op-amp. ($\star$)}
+\question{Design a non-inverting summing amplifier where the inputs are sent into the non-inverting input of the op-amp. ($\ast$)}
 
-\question{Design a circuit for a house such that a fire alarm can be automatically triggered when the temperature in the house becomes too high. ($\star$)}
+\question{Design a circuit for a house such that a fire alarm can be automatically triggered when the temperature in the house becomes too high. ($\ast$)}
 
 
 
