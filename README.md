@@ -2,9 +2,11 @@
 
 This is a set of very concise lecture notes written for [CIE A-level Physics](https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-international-as-and-a-level-physics-9702/) (syllabus code 9702). Presumably the target audience of the notes are students studying the relevant course.
 
-Note that there will be an update for the syllabus since 2022. The sections on electronics and telecommunication are removed from the new syllabus, while some introductory astronomy and cosmology are added in. The rest of the subject contents mostly remain unchanged.
+Note that there has been an update for the syllabus since 2022. I am still working on the updates so that the notes are tailored for the new syllabus. I am glad to see some *introductory astronomy and cosmology* being added into the new syllabus, so you will see one new chapter coming in.
 
-So far, my lecture notes cover the subject contents in current syllabus only. But I have plans to extend these notes for the new syllabus.
+The contents of *electronics* and *telecommunication* have been removed from the new syllabus. As those future engineers might want to look at these topics, so I kept the two chapters in the new edition nonetheless.
+
+Also very importantly, I am certain that there are tons of typos in the notes. If you spot any error, please let me know
 
 ## Table of Contents
 
@@ -20,10 +22,10 @@ So far, my lecture notes cover the subject contents in current syllabus only. Bu
 - [x] Alternating Currents
 - [x] Quantum Physics
 - [x] Nuclear Physics
+- [x] Medical Imaging
+- [x] Astronomy & Cosmology
 - [x] Electronics
 - [x] Telecommunication
-- [x] Medical Imaging
-- [ ] Astronomy & Cosmology
 
 
 ## How to Use
