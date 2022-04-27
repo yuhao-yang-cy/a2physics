@@ -338,16 +338,16 @@ explanation: when several capacitors connected in series, equivalent to a parall
 	\centering
 	\vspace*{-12pt}
 	\begin{circuitikz}[european resistors,scale=0.8]
-		\draw (0,0) to[C,l_=$C_1{=}4.0\mu\text{F}$] (3,0) to[C,l_=$C_2{=}12\mu\text{F}$] (6,0) -- (6,3) to[battery,l_=$V{=}8.0\text{V}$] (0,3) -- (0,0);
+		\draw (0,0) to[C,l_=$C_1{=}4.0\text{ }\mu\text{F}$] (3,0) to[C,l_=$C_2{=}12\text{ }\mu\text{F}$] (6,0) -- (6,3) to[battery,l_=$V{=}8.0\text{ V}$] (0,3) -- (0,0);
 	\end{circuitikz}
     \vspace*{-12pt}
 \end{figure}
 
 \sol using result for combined capacitance, we have: $C_\text{total} = \left( \frac{1}{C_1} + \frac{1}{C_2} \right)^{-1} = \left( \frac{1}{4.0} + \frac{1}{12} \right)^{-1} = 3.0 \text{ }\mu\text{F}$
 
-charge for the network: $Q = C_\text{total} V_\text{total} = 3.0 \times 8.0 = 24 \mu\text{C}$
+charge for the network: $Q = C_\text{total} V_\text{total} = 3.0 \times 8.0 = 24 \text{ }\mu\text{C}$
 
-series network so all capacitors have same $Q$, so: $Q_1=Q_2=24 \mu\text{C}$
+series network so all capacitors have same $Q$, so: $Q_1=Q_2=24 \text{ }\mu\text{C}$
 
 p.d. across each individual capacitor: $V_1 = \frac{Q_1}{C_1} = \frac{24}{4.0} = 6.0 \text{ V}, \quad V_2 = \frac{Q_2}{C_2} = \frac{24}{12} = 2.0 \text{ V}$
 
@@ -486,7 +486,7 @@ in this section, we will investigate how the p.d. across a capacitor changes wit
 	\begin{circuitikz}[european resistors, scale=1.2]
 		\draw (0,0) -- (0,3) to[battery,l^=$\mathcal{E}$] (3,3) to[R,l^=$R$] (3,0) to[C,l^=$C$] (0,0);
 	\end{circuitikz}
-\vspace*{-10pt}
+\vspace*{-25pt}
 \end{wrapfigure}
 
 	initial state: no charge in capacitor: $Q(0)=0, V_C(0)=0$
@@ -524,25 +524,27 @@ as electric charges are separated onto the two plates, pushing more $+Q$/$-Q$ on
 charge will continue to flow if there exists a potential difference
 
 when $V_C = \mathcal{E}$, no charge flow, hence	charging current gradually drops to zero
+
+
 		
 \subsubsection{discharging phase}
 
+capacitor initially charged with $Q(0)=Q, V_C(0) = V_0$
+	
+at any instant, $\dd Q = -C \dd V_C$ (minus sign because charge decreases during discharging)
 
-		
-	capacitor initially charged with $Q(0)=Q, V_C(0) = V_0$
+\newpage
 	
-	at any instant, $\dd Q = -C \dd V_C$ (minus sign because charge decreases during discharging)
-	
-	\begin{wrapfigure}{r}{5.4cm}
+\begin{wrapfigure}{r}{5.4cm}
 		\centering
 		\vspace*{-12pt}
 		\begin{circuitikz}[european resistors, xscale=1.2, yscale=1.5]
 			\draw (0,0) -- (0,2) to[C,l^=$C$] (3,2) -- (3,0) to[R,l^=$R$] (0,0);
 		\end{circuitikz}
-	\vspace*{-25pt}
-	\end{wrapfigure}
+\vspace*{-35pt}
+\end{wrapfigure}
 
-	also $V_C=V_R$ because in parallel
+	also $V_C=V_R$ because $C$ and $R$ are in parallel
 	
 	charge change: $\dd Q = I \dd t = \frac{V_C}{R} \dd t = - C \dd V_C$
 	
@@ -572,7 +574,7 @@ when $V_C = \mathcal{E}$, no charge flow, hence	charging current gradually drops
 	\noindent\begin{minipage}{0.45\linewidth}
 		\centering
 		\begin{tikzpicture}[xscale=0.9]
-		\draw[thick,<->] (0,4) node[left]{$V_C$} -- (0,3.2) node[left]{$\epsilon$} -- (0,0) -- (6,0) node[below]{$t$};
+		\draw[thick,<->] (0,4) node[left]{$V_C$} -- (0,3.2) node[left]{$\mathcal{E}$} -- (0,0) -- (6,0) node[below]{$t$};
 		\draw[thick,dashed] (0,3.2) -- (5.5,3.2);
 		\draw [thick,color=blue,domain=0:5.6,samples=12,smooth,variable=\x] plot (\x,{3.2-3.2*exp(-1.2*\x)});
 		\end{tikzpicture}
@@ -593,14 +595,14 @@ when $V_C = \mathcal{E}$, no charge flow, hence	charging current gradually drops
 
 \subsubsection{time constant}
 
-$\tau \equiv RC$ is called \emph{time constant}, which determines charging and discharging rate of a capacitor
+$\tau \equiv RC$ is called \keypoint{time constant}, which determines charging and discharging rate of a capacitor
 
 $R\up$ $\Rightarrow$ smaller charging/discharging current $\Rightarrow$ takes longer to charge/discharge
 
 $C\up$ $\Rightarrow$ more charge to be charged/discharged $\Rightarrow$ takes longer
 
-charging or discharging of capacitors is not instantaneous, always a certain time delay
+charging or discharging of capacitors is not instantaneous, there is always a certain delay
 
 as a rule of thumb, after a time $t=3\sim5\tau$, charging or discharging is almost complete
 
-time delay for common $RC$ circuits is usually small, but the delay could hinder further increasing of speed in integrated circuits
+%time delay for common $RC$ circuits is usually small, but the delay could hinder further increasing of speed in integrated circuits

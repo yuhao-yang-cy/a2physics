@@ -404,11 +404,11 @@ it switches over to $-9$ V at some critical temperature then stays at $-9$ V unt
 		(opamp.+) -- (-2,-0.5)
 		(opamp.-) -- (-1.9,0.5) arc(0:180:0.1) -- (-3.5,0.5) node[left]{$V_\text{in}$}
 		(opamp.out) -- (2,0)
-		(opamp.down) -- ++ (0,-.8) node[right] {$-9$V}
-		(opamp.up) --++ (0,.8) node[right]{$+9$V};
+		(opamp.down) -- ++ (0,-.8) node[right] {$-9$ V}
+		(opamp.up) --++ (0,.8) node[right]{$+9$ V};
 		\draw[<->,thick] (1.6,0) -- (1.6,-2.5) node[midway,right]{$V_\text{out}$};
 		\draw[thick] (-3,-2.5) -- (1,-2.5) node[ground]{} -- (2,-2.5);
-		\draw (-2,-2.5) to[R,l^=4.0k$\Omega$] (-2,-0.5) -- (-2,0.5) to[R,l^=6.0k$\Omega$] (-2,2.5) -- (-3.5,2.5) node[left]{+5V};
+		\draw (-2,-2.5) to[R,l^=4.0 k$\Omega$] (-2,-0.5) -- (-2,0.5) to[R,l^=6.0 k$\Omega$] (-2,2.5) -- (-3.5,2.5) node[left]{+5 V};
 		\end{circuitikz}
 	\end{minipage}\hfil
 	\begin{minipage}{0.48\textwidth}
@@ -704,8 +704,8 @@ for $V_\text{in} = -4.0$ V: $V_\text{out}=(-5.0)\times(-4.0)=+20 \text{ V}$, out
 		(opamp.+) -- (-1.9,-0.5) arc(0:180:0.1) -- (-3.6,-0.5) node[left]{$V_\text{in}$}
 		(opamp.-) -- (-2,0.5) -- (-2,-1.6) to [R,l_=$R_1$] (2,-1.6) -- (2,0)
 		(opamp.out) -- (3,0) node[right]{$V_\text{out}$}
-		(opamp.down) -- ++ (0,-.5) node[right] {$-10$V}
-		(opamp.up) -- ++ (0,.5) node[right] {$+10$V};
+		(opamp.down) -- ++ (0,-.5) node[right] {$-10$ V}
+		(opamp.up) -- ++ (0,.5) node[right] {$+10$ V};
 		\draw[thick] (-2,-1.6) -- (-2,-2.1) to[R,l_=$R_2$] (-2,-4) node[ground]{} ;
 	\end{circuitikz}
 \end{figure}
@@ -725,18 +725,18 @@ for $V_\text{in} = -3.0$ V: $V_\text{out}=9.0\times(-3.0)=-27 \text{ V}$, output
 	\begin{circuitikz}[european resistors,scale=1]
 		\draw[thick] (0,0) node[op amp] (opamp) {}
 		(opamp.+) -- (-2,-0.5) -- (-2,-2) node[ground]{} 
-		(opamp.-) -- (-2,0.5) to [R,l_=$2.0\,k\Omega$] (-6,0.5) 
+		(opamp.-) -- (-2,0.5) to [R,l_=$2.0\text{ k}\Omega$] (-6,0.5) 
 		(opamp.out) -- (3,0) node[right]{$V_\text{out}$}
-		(opamp.down) -- ++ (0,-.6) node[right] {$-8\text{V}$}
-		(opamp.up) -- ++ (0,.6) node[right] {$+8\text{V}$};
-		\draw[thick] (2,0) -- (2,2) to[R,l_=$20\,k\Omega$] (-2,2) -- (-2,0.5);
-		\draw[thick] (3,-2) -- (-6,-2) to [battery, l_=$1.0\text{V}$] (-6,0.5) ;
+		(opamp.down) -- ++ (0,-.6) node[right] {$-8\text{ V}$}
+		(opamp.up) -- ++ (0,.6) node[right] {$+8\text{ V}$};
+		\draw[thick] (2,0) -- (2,2) to[R,l_=$20\text{ k}\Omega$] (-2,2) -- (-2,0.5);
+		\draw[thick] (3,-2) -- (-6,-2) to [battery, l_=$1.0\text{ V}$] (-6,0.5) ;
 		\draw[->] (2.8, -2) --++(0,2);
 		\draw[thick] (-2,2) -- (-2,3.6) to [thR,l=$R_T$] (2,3.6) -- (2,2);
 	\end{circuitikz}
 \end{figure}
 
-Initially, the thermistor has a resistance of $20\,k\Omega$. (a) Find the gain of this circuit. (b) Find the output voltage. (c) State and explain how $V_\text{out}$ changes as temperature rises. (d) The thermistor is then removed, find the new output voltage.
+Initially, the thermistor has a resistance of $20\text{ k}\Omega$. (a) Find the gain of this circuit. (b) Find the output voltage. (c) State and explain how $V_\text{out}$ changes as temperature rises. (d) The thermistor is then removed, find the new output voltage.
 
 \newpage
 
@@ -776,8 +776,8 @@ Initially, the thermistor has a resistance of $20\,k\Omega$. (a) Find the gain o
 			(opamp.-) -- (-2,0.5) -- (-3.5,0.5) to [sV] (-3.5,-4) -- (3,-4) 
 			(opamp.+) -- (-2,-0.5) -- (-2,-1.8) to [R] (1.8,-1.8) -- (1.8,0)
 			(opamp.out) -- (3,0)
-			(opamp.down) -- ++ (0,-.6) node[right] {$-12$V}
-			(opamp.up) -- ++ (0,.6) node[right] {$+12$V};
+			(opamp.down) -- ++ (0,-.6) node[right] {$-12$ V}
+			(opamp.up) -- ++ (0,.6) node[right] {$+12$ V};
 			\node at (-0.6,0.5) {$+$};
 			\node at (-0.6,-0.5) {$-$};
 			\draw[->] (2.7,-4) -- (2.7,0) node[midway, right]{$V_\text{out}$};
@@ -1020,14 +1020,14 @@ positive connection of voltmeter is at $P$ so that positive reading is obtained 
 		(opamp.out) -- (2.5,0) to[rmeter, t=V] (2.5,-2.5)
 		(opamp.down) -- ++ (0,-.6) node[right] {$-V_S$}
 		(opamp.up) -- ++ (0,.6) node[right] {$+V_S$};
-		\foreach \y/\ytext in {1.8/500,0.5/5.0k,-0.8/50k}{
-			\draw[thick] (-6,\y) to [R,l^={\ytext$\Omega$}] (-3,\y);
+		\foreach \y/\ytext in {1.8/$500\text{ }\Omega$,0.5/$5.0 \text{ k}\Omega$,-0.8/$50\text{ k}\Omega$}{
+			\draw[thick] (-6,\y) to [R,l^={\ytext}] (-3,\y);
 		}
 		\foreach \y/\ytext in {1.8/A,0.5/B,-0.8/C}{
 			\draw[fill=white] (-6,\y) circle (0.05) node[above] {$\ytext$};
 		}
 	
-		\draw[thick] (1.5,0) -- (1.5,2.1) to[R,l_={50k$\Omega$}] (-2,2.1) -- (-2,0.5);
+		\draw[thick] (1.5,0) -- (1.5,2.1) to[R,l_={50 k$\Omega$}] (-2,2.1) -- (-2,0.5);
 		\draw[thick] (-8.5,0.5) -- (-7,0.5) -- (-6,1.4);
 		\draw[fill=white] (-7,0.5) circle(0.05);
 		\draw[thick] (-8.5,-2.5) -- (2.5,-2.5);
@@ -1055,15 +1055,15 @@ suppose $D$ is a silicon diode which develops a p.d. drop of 0.7 V when it is fo
 	\centering
 	\begin{circuitikz}[european resistors,scale=1]
 		\draw[thick] (-6,-3) -- ++ (6,0)node[ground]{} -- (6,-3);
-		\draw[thick] (-6,3) node[above]{+3.0V} -- (-2,3) to [R,l] (-2,.5) -- ++(0,-1) to [R] ++(0,-2.5);
+		\draw[thick] (-6,3) node[above]{+3.0 V} -- (-2,3) to [R,l] (-2,.5) -- ++(0,-1) to [R] ++(0,-2.5);
 		\draw[thick] (0,0) node[op amp] (opamp) {}
 		(opamp.+) -- (-1.9,-.5) arc(0:180:0.1) -- (-5,-.5) node[above right]{$V_\text{in}$}
 		(opamp.-) -- (-2,.5)
 		(opamp.out)  to[D-,l^=$D$] (3.5,0) to [R,l_=$R_\text{L}$] (3.5,-3) (3.5,0) --++ (1.8,0)
-		(opamp.down) -- ++ (0,-.8) node[right] {$-4.7$V}
-		(opamp.up) --++ (0,0.8) node[right]{$+4.7$V};
-		\node[left] at (-2.2,1.75) {$R_1=3.6$k$\Omega$};
-		\node[left] at (-2.2,-1.75) {$R_2=1.8$k$\Omega$};
+		(opamp.down) -- ++ (0,-.8) node[right] {$-4.7$ V}
+		(opamp.up) --++ (0,0.8) node[right]{$+4.7$ V};
+		\node[left] at (-2.2,1.75) {$R_1=3.6$ k$\Omega$};
+		\node[left] at (-2.2,-1.75) {$R_2=1.8$ k$\Omega$};
 		\draw[thick,->] (5,-3) -- (5,0) node[midway, right]{$V_\text{out}$};
 	\end{circuitikz}
 \end{figure}
