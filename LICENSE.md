@@ -1,4 +1,4 @@
-Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+Creative Commons Non-Commercial License 4.0 International (CC BY-NC 4.0)
 
 This is a human-readable summary of (and not a substitute for) the license. 
 
