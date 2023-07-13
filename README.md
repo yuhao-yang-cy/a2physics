@@ -36,7 +36,7 @@ The master file references the included chapters, each chapter is in separated .
 
 My default compiler is PdfLaTeX, which is recommended. XeLaTeX also works fine for me. I am not sure about other compilers.
 
-If you are a student, you might simply want to [download the compiled .pdf file](https://github.com/yuhao-yang-cy/a2physics/blob/master/a-level-physics.pdf) for your own use.
+If you are a student, you might simply want to [download the compiled .pdf file](https://github.com/yuhao-yang-cy/a2physics/blob/master/a2physics.pdf) for your own use.
 
 ## Copyright
 
