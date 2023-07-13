@@ -1,0 +1,253 @@
+\documentclass[b5paper,11pt]{article}
+\usepackage[top=12ex, bottom=12ex, left=9ex, right=9ex,showframe=false]{geometry}
+\linespread{1.8}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{ \fancyplain{}{Yuhao Yang} }
+\rhead{ \fancyplain{}{\leftmark} }
+\cfoot{ \fancyplain{}{\thepage} }
+%\usepackage[utf8]{inputenc}
+\usepackage[unicode, pdfencoding=auto]{hyperref}
+\usepackage[bottom]{footmisc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{pifont}
+\usepackage{fourier}
+\usepackage{wasysym}
+\usepackage{stmaryrd}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{extarrows}
+\usepackage{chemarrow}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows,positioning,calc,fadings,shapes,decorations.markings}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{circuitikz}
+\usepackage{multirow}
+%\usepackage{dingbat}   % special symbols
+\usepackage{indentfirst}
+\usepackage{paralist}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{tcolorbox}
+\usepackage{easyphys}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{titletoc}
+\usepackage[explicit]{titlesec}
+\usepackage{makeidx}
+\usepackage{xfrac}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{background}
+
+% section title style
+\titleformat{name=\section}[block]
+{\begin{center}\begin{tikzpicture}}
+{\draw[line width=4pt, Gray!70] (0,0) rectangle (12,3.2);
+\node at (6,2.4) {\Huge\sc\bfseries\textcolor{purple}{Chapter \thesection}};}
+{0pt}
+{\node at (6,0.9) {\huge\filright\textcolor{purple}{#1}};}[\end{tikzpicture}\end{center}]
+
+% table of contents sytle
+\titlecontents{section}[9pc]
+{\addvspace{10pt}%
+	\begin{tikzpicture}[remember picture, overlay]%
+	\draw[fill=Gray!70,draw=Gray!70] (-4,-0.1) rectangle (-0.8,0.5);
+	\node at (-2.4,0.2){\color{white}\Large\sc\bfseries chapter\ \thecontentslabel};%
+	\end{tikzpicture}\color{Gray}\hspace*{-10pt}\large\bfseries}%
+{}
+{}
+{\;\titlerule\;\large\sc\bfseries Page \thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+	\draw[fill=Gray!70,draw=Gray!70] (2pt,0) rectangle (6,0.1pt);
+	\end{tikzpicture}}%
+\titlecontents{subsection}[8.1pc]
+{\addvspace{1pt}}
+{\contentslabel[\thecontentslabel]{2.1pc}}{}
+{\hfill\small \thecontentspage}[]
+\titlecontents*{subsubsection}[8.1pc]
+{\addvspace{-1pt}\small}{}{}
+{\ - \small\thecontentspage}
+[ /\ ][]
+\titlecontents{part}[0pc]
+{\addvspace{10pt}%
+\large\bfseries%
+}
+{}
+{}
+{\;\color{Gray}\titlerule\;\large\sc\bfseries Page \thecontentspage
+	\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=Gray!70,draw=Gray!70] (2pt,0) rectangle (6,0.1pt);
+\end{tikzpicture}}%
+
+% font type
+\renewcommand*\rmdefault{ppl}
+
+\makeatletter
+% equation box
+\renewcommand{\boxed}[1]{\textcolor{black}{%
+\tikz[baseline={([yshift=-.72ex] current bounding box.center)}] \node [thick, rectangle, minimum width=1ex,rounded corners,fill=yellow!10, draw=orange] {\normalcolor\m@th$\displaystyle#1$};}}
+
+\renewcommand\normalsize{%
+	\@setfontsize\normalsize\@xpt\@xiipt
+	\abovedisplayskip 0\p@ plus 5\p@ minus 3\p@
+	\belowdisplayskip 0\p@ plus 5\p@ minus 3\p@
+	\abovedisplayshortskip 0\p@ plus 5\p@ minus 3\p@
+	\belowdisplayshortskip 0\p@ plus 5\p@ minus 3\p@
+	\let\@listi\@listI}
+\setlength{\@fptop}{0pt}
+
+% table of contents title
+\renewcommand{\tableofcontents}{%
+	\begin{tikzpicture}[remember picture, overlay]%
+	\pgftext[right,x=13.5cm,y=0.2cm]{\color{Gray}\Huge\sc\bfseries \contentsname};%
+	\draw[fill=Gray!70,draw=Gray!70] (11.42,-.75) rectangle (20,1);%
+	\clip (11.42,-.75) rectangle (20,1);
+	\pgftext[right,x=13.5cm,y=0.2cm]{\color{white}\Huge\sc\bfseries \contentsname};%
+	\end{tikzpicture}%
+	\vspace*{20\p@}%
+	\@starttoc{toc}}
+\makeatother
+
+
+\setlength{\headheight}{14pt}
+\addtolength{\topmargin}{-1.6pt}
+
+% % % % % % % % % %
+
+\DeclareGraphicsExtensions{.eps,.mps,.pdf,.jpg,.png}
+\graphicspath{{figures/}}
+\renewcommand\thefootnote{\textcolor{blue}{[\arabic{footnote}]}}
+\hypersetup{
+    colorlinks, linkcolor={purple}, citecolor={blue}, urlcolor={blue},
+    pdftitle={Cambridge International A-Level Physics Course Notes},
+    pdfauthor={Yuhao Yang},
+    pdfsubject={A-Level Physics} }
+
+% tikz arrows
+\tikzset{>=stealth', pil/.style={ ->, thick, shorten <=2pt, shorten >=2pt,} }
+
+% tikz decription node style
+\tikzset{note/.style={rectangle, rounded corners, minimum size=6mm, draw=black, fill=white, align=center,execute at begin node=\setlength{\baselineskip}{1.2em}}}
+\tikzset{twoline/.style={align=center,execute at begin node=\setlength{\baselineskip}{1.2em}}}
+\tikzset{twolinecap/.style={align=center,execute at begin node=\setlength{\baselineskip}{1.6em}}}
+
+% % % % % % % % % % %
+
+% example + question + exercise environment
+\newcounter{example}[section]
+\newcounter{exercise}[section]
+\newcounter{question}[section]
+\renewcommand{\theexample}{\arabic{section}.\arabic{example}}
+\renewcommand{\theexercise}{\arabic{section}.\arabic{exercise}}
+\renewcommand{\thequestion}{\arabic{section}.\arabic{question}}
+
+\newcommand{\example}[1]{%
+	\refstepcounter{example}
+	\noindent {\textcolor{cyan}{\textsf{\textbf{Example \theexample }}} \hspace*{1pt} #1 %
+	}}
+\newcommand{\question}[1]{%
+	\refstepcounter{question}
+	\noindent{\textcolor{magenta}{\textsf{\textbf{Question \thequestion }}} \hspace*{1pt} #1 %
+}}
+\newcommand{\exercise}[1]{%
+	\refstepcounter{exercise}
+	\noindent{\textsf{\textbf{Exercise \theexercise }} \hspace*{1pt} #1 %
+}}
+
+\newcommand{\cmt}{\noindent\hspace{-0.25em}\textcolor{Green}{\ding{226}} \hspace{0.2em}}
+\newcommand{\sol}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.2em}}
+\newcommand{\solc}{\noindent\hspace{-0.12em}\textcolor{cyan}{\ding{45}} \hspace{0.2em} \vspace*{-\baselineskip}} 
+
+% highlight environment
+\newenvironment{ilight}
+  {\centering
+  	\vspace*{-5pt}
+  	\begin{tcolorbox}[colframe=Gray,colback=LightGrey!15]
+  \setlength{\baselineskip}{\baselineskip}%
+  }
+  {\end{tcolorbox}\vspace*{-8pt}}
+
+
+\newcommand{\keypoint}[1]{\textbf{\textcolor{red}{#1}}}
+
+
+% indentation and line spacing in itemize environment
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\everymath{\displaystyle}
+
+% indentation of paragraphs and table of contents
+\setlength{\parindent}{1.2em}
+%\setlength{\cftsecindent}{0em}
+%\setlength{\cftsubsecindent}{0.7em}
+%\setlength{\cftsubsubsecindent}{1.5em}
+
+% columns with customised width in tabulars
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{D}[1]{>{\centering\arraybackslash}m{#1}}
+
+\makeindex
+
+\backgroundsetup{
+	contents={\includegraphics{easyday-watermark.png}},
+	angle=0,
+	scale=1,
+	opacity=0.28
+}%
+
+\begin{document}
+\thispagestyle{empty}
+\include{cover}
+\newpage
+
+\thispagestyle{empty}
+\include{blankpage}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{roman} 
+\pagestyle{plain}
+\include{issues}
+\tableofcontents
+%\listoffigures
+
+\clearpage
+\pagestyle{fancy}
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\include{18-circular-motion}
+\include{19-gravitation}
+\include{20-oscillation}
+\include{21-ideal-gases}
+\include{22-thermal-physics}
+\include{23-coulomb-law}
+\include{24-capacitance}
+\include{25-magnetic-fields}
+\include{27-electromagnetic-induction}
+\include{28-alternating-currents}
+\include{29-quantum-physics}
+\include{30-nuclear-physics}
+\include{32-medical-imaging}
+\include{34-astro}
+\include{31-electronics}
+\include{33-telecommunication}
+
+\newpage
+
+\appendix
+\include{definitions}
+\include{formula}
+\include{constants}
+
+\printindex
+
+\end{document}
